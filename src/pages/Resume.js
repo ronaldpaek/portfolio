@@ -1,8 +1,74 @@
 import React from 'react';
 import { Box, Typography, Grid, Stack, LinearProgress } from '@mui/material';
-import { FaGraduationCap } from 'react-icons/fa';
-import { School } from '@mui/icons-material';
+import { School, BusinessCenter, WorkspacePremium } from '@mui/icons-material';
+
 import Footer from '../components/Footer';
+
+const resumeList = [
+  {
+    topic: 'Education',
+    Icon: School,
+    list: [
+      {
+        date: '2021-2023',
+        title: 'Ph.D in Horribleness',
+        subtitle: 'ABC University, Los Angeles, CA'
+      },
+      {
+        date: '2019 - Present',
+        title: 'Sr. Software Tester',
+        subtitle: 'Google Inc.'
+      },
+      {
+        date: '2021',
+        title: 'Best Developer',
+        subtitle: 'University Of Melbourne, NA'
+      }
+    ]
+  },
+  {
+    topic: 'Experience',
+    Icon: BusinessCenter,
+    list: [
+      {
+        date: '2017-2021',
+        title: 'Computer Science',
+        subtitle: 'Imperialize Technical Institute'
+      },
+      {
+        date: '2015-2017',
+        title: 'Cr. Web Developer',
+        subtitle: 'ib-themes ltd.'
+      },
+      {
+        date: '2008',
+        title: 'Best Writter',
+        subtitle: 'Online Typodev Soluation Ltd.'
+      }
+    ]
+  },
+  {
+    topic: 'Awards',
+    Icon: WorkspacePremium,
+    list: [
+      {
+        date: '2015-2017',
+        title: 'Graphic Designer',
+        subtitle: 'Web Graphy, Los Angeles, CA'
+      },
+      {
+        date: '2014 - 2015',
+        title: 'Jr. Web Developer',
+        subtitle: 'Creative Gigs.'
+      },
+      {
+        date: '2015-2017',
+        title: 'Best Freelancer',
+        subtitle: 'Fiver & Upwork Level 2 & Top Rated'
+      }
+    ]
+  }
+];
 
 const Resume = () => {
   return (
@@ -20,81 +86,25 @@ const Resume = () => {
             Resume
           </Typography>
           <Grid container spacing={2}>
-            <Grid item xs={4}>
-              <Stack spacing={2}>
-                <Stack direction='row'>
-                  <School sx={{ fontSize: 35, marginRight: 1 }} />
-                  <Typography variant='h4' componenet='h3'>
-                    Education
-                  </Typography>
+            {resumeList.map(({ topic, Icon, list }, _) => (
+              <Grid key={topic} item xs={4}>
+                <Stack spacing={2}>
+                  <Stack direction='row'>
+                    <Icon sx={{ fontSize: 35, marginRight: 1 }} />
+                    <Typography variant='h4' componenet='h3'>
+                      {topic}
+                    </Typography>
+                  </Stack>
+                  {list.map(({ date, title, subtitle }, i) => (
+                    <Stack key={i} spacing={1} p={2}  sx={{backgroundColor: '#5F9EA0', borderRadius: 2}}>
+                      <Typography color='gray'>{date}</Typography>
+                      <Typography>{title}</Typography>
+                      <Typography>{subtitle}</Typography>
+                    </Stack>
+                  ))}
                 </Stack>
-                <Stack spacing={1} p={2} backgroundColor='#5F9EA0'>
-                  <Typography color='gray'>2021-2023</Typography>
-                  <Typography>Ph.D in Horriblensess</Typography>
-                  <Typography>ABC University, Los Angeles, CA</Typography>
-                </Stack>
-                <Stack spacing={1} p={2} backgroundColor='#5F9EA0'>
-                  <Typography color='gray'>2021-2023</Typography>
-                  <Typography>Ph.D in Horriblensess</Typography>
-                  <Typography>ABC University, Los Angeles, CA</Typography>
-                </Stack>
-                <Stack spacing={1} p={2} backgroundColor='#5F9EA0'>
-                  <Typography color='gray'>2021-2023</Typography>
-                  <Typography>Ph.D in Horriblensess</Typography>
-                  <Typography>ABC University, Los Angeles, CA</Typography>
-                </Stack>
-              </Stack>
-            </Grid>
-            <Grid item xs={4}>
-              <Stack spacing={2}>
-                <Stack direction='row'>
-                  <School sx={{ fontSize: 35, marginRight: 1 }} />
-                  <Typography variant='h4' componenet='h3'>
-                    Education
-                  </Typography>
-                </Stack>
-                <Stack spacing={1} p={2} backgroundColor='#5F9EA0'>
-                  <Typography color='gray'>2021-2023</Typography>
-                  <Typography>Ph.D in Horriblensess</Typography>
-                  <Typography>ABC University, Los Angeles, CA</Typography>
-                </Stack>
-                <Stack spacing={1} p={2} backgroundColor='#5F9EA0'>
-                  <Typography color='gray'>2021-2023</Typography>
-                  <Typography>Ph.D in Horriblensess</Typography>
-                  <Typography>ABC University, Los Angeles, CA</Typography>
-                </Stack>
-                <Stack spacing={1} p={2} backgroundColor='#5F9EA0'>
-                  <Typography color='gray'>2021-2023</Typography>
-                  <Typography>Ph.D in Horriblensess</Typography>
-                  <Typography>ABC University, Los Angeles, CA</Typography>
-                </Stack>
-              </Stack>
-            </Grid>
-            <Grid item xs={4}>
-              <Stack spacing={2}>
-                <Stack direction='row'>
-                  <School sx={{ fontSize: 35, marginRight: 1 }} />
-                  <Typography variant='h4' componenet='h3'>
-                    Education
-                  </Typography>
-                </Stack>
-                <Stack spacing={1} p={2} backgroundColor='#5F9EA0'>
-                  <Typography color='gray'>2021-2023</Typography>
-                  <Typography>Ph.D in Horriblensess</Typography>
-                  <Typography>ABC University, Los Angeles, CA</Typography>
-                </Stack>
-                <Stack spacing={1} p={2} backgroundColor='#5F9EA0'>
-                  <Typography color='gray'>2021-2023</Typography>
-                  <Typography>Ph.D in Horriblensess</Typography>
-                  <Typography>ABC University, Los Angeles, CA</Typography>
-                </Stack>
-                <Stack spacing={1} p={2} backgroundColor='#5F9EA0'>
-                  <Typography color='gray'>2021-2023</Typography>
-                  <Typography>Ph.D in Horriblensess</Typography>
-                  <Typography>ABC University, Los Angeles, CA</Typography>
-                </Stack>
-              </Stack>
-            </Grid>
+              </Grid>
+            ))}
           </Grid>
         </Box>
       </Box>
@@ -267,7 +277,7 @@ const Resume = () => {
           </Grid>
         </Box>
       </Box>
-      <Footer />
+      <Footer backgroundColor='#87CEFA'/>
     </>
   );
 };

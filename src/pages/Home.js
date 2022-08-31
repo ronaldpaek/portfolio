@@ -4,15 +4,15 @@ import { Twitter, LinkedIn, Download } from '@mui/icons-material';
 import { FaFacebookF, FaBasketballBall } from 'react-icons/fa';
 import avatar from '../assets/avatar.jpeg';
 
-const Home = () => {
+const Home = ({name, title}) => {
   return (
     <Stack spacing={2} paddingBlock={5} alignItems='center' component='main'>
     <Avatar alt='avatar' src={avatar} sx={{ width: 300, height: 300 }} />
     <Typography variant='h4' component='h1' fontWeight={800}>
-      Monalisa Ashley
+      {name}
     </Typography>
     <Typography variant='body1' component='p' color='gray'>
-      Ui/Ux Designer
+      {title}
     </Typography>
     <Stack direction='row' spacing={1}>
       <Button variant='contained' color='secondary'>

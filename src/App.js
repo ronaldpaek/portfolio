@@ -1,9 +1,8 @@
 import { Container, Box } from '@mui/material';
-import Header from './components/Header';
 import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import Resume from './pages/Resume';
+
+import { Header } from './components';
+import { Home, About, Resume } from './pages';
 
 function App() {
   return (
@@ -11,7 +10,10 @@ function App() {
       <Container>
         <Header />
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route
+            path='/'
+            element={<Home name='Monalisa Ashley' title='Ui/Ux Designer' />}
+          />
           <Route path='about' element={<About />} />
           <Route path='resume' element={<Resume />} />
         </Routes>
