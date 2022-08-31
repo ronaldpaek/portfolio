@@ -16,7 +16,7 @@ const Header = () => {
       <Stack direction='row' spacing={2} component='nav'>
         <Link to='/' style={{textDecoration: 'none'}}><Button variant='contained' startIcon={<Home />} sx={{bgcolor: 'black'}}>Home</Button></Link>
         <Link to='/about' style={{textDecoration: 'none'}}><Button variant='contained' startIcon={<Person />}>About</Button></Link>
-        <Button variant='contained' startIcon={<Description />}>Resume</Button>
+        <Link to='/resume' style={{textDecoration: 'none'}}><Button variant='contained' startIcon={<Description />}>Resume</Button></Link>
         <Button variant='contained' startIcon={<BusinessCenter />}>Works</Button>
         <Button variant='contained' startIcon={<FaBlogger />}>Blogs</Button>
         <Button variant='contained' startIcon={<RiContactsBookFill />}>Contact</Button>
