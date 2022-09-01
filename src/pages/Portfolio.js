@@ -56,7 +56,7 @@ const itemData = [
 
 const Portfolio = () => {
   return (
-    <Box component='section' sx={{ backgroundColor: 'palegoldenrod', borderTopLeftRadius: 15, borderTopRightRadius: 15}}>
+    <Box component='section' sx={{ backgroundColor: 'palegoldenrod', borderRadius: 5}}>
       <Box px={8}>
         <Box py={6}>
           <Typography variant='h3' component='h2' fontWeight='800'>
@@ -94,7 +94,7 @@ const Portfolio = () => {
           ))}
         </Masonry>
       </Box>
-      <Footer backgroundColor='white' borderRadius={15} />
+      <Footer backgroundColor='white' borderRadius={20} />
     </Box>
   );
 };
