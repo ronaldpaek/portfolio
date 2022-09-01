@@ -78,8 +78,8 @@ const Resume = () => {
         px={10}
         sx={{
           backgroundColor: '#87CEFA',
-          borderTopLeftRadius: 10,
-          borderTopRightRadius: 10
+          borderTopLeftRadius: 15,
+          borderTopRightRadius: 15
         }}>
         <Box py={6} px={2}>
           <Typography variant='h3' componenet='h2' fontWeight={800} mb={5}>
@@ -277,7 +277,7 @@ const Resume = () => {
           </Grid>
         </Box>
       </Box>
-      <Footer backgroundColor='#87CEFA'/>
+      <Footer backgroundColor='#87CEFA' borderRadius={15} />
     </>
   );
 };

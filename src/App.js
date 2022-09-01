@@ -2,7 +2,7 @@ import { Container, Box } from '@mui/material';
 import { Routes, Route } from 'react-router-dom';
 
 import { Header } from './components';
-import { Home, About, Resume } from './pages';
+import { Home, About, Resume, Portfolio } from './pages';
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
           />
           <Route path='about' element={<About />} />
           <Route path='resume' element={<Resume />} />
+          <Route path='works' element={<Portfolio />} />
         </Routes>
       </Container>
     </Box>
