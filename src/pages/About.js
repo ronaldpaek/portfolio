@@ -2,14 +2,25 @@ import React from 'react';
 import { Box, Typography, Avatar, Stack, Grid } from '@mui/material';
 import { PhoneIphone, Email, CalendarMonth } from '@mui/icons-material';
 import { IoLocationSharp } from 'react-icons/io5';
-import about from '../assets/about.jpeg';
-import icon from '../assets/icon.svg';
-import icon1 from '../assets/icon1.svg';
-import icon2 from '../assets/icon2.svg';
-import icon3 from '../assets/icon3.svg';
-import icon4 from '../assets/icon4.svg';
-import icon5 from '../assets/icon5.svg';
-import Footer from '../components/Footer';
+
+import { about, icon, icon1, icon2, icon3, icon4, icon5 } from '../assets';
+import { Footer } from '../components';
+
+const infoList = [
+  { title: 'Phone', subtitle: '123 456 7890', icon: <PhoneIphone /> },
+  { title: 'Location', subtitle: 'Hong kong china', icon: <IoLocationSharp /> },
+  { title: 'Email', subtitle: 'example@gmail.com', icon: <Email /> },
+  { title: 'Birthday', subtitle: 'May 27, 1990', icon: <CalendarMonth /> }
+];
+
+const skillsList = [
+  { title: 'Ui/Ux Design', subtitle: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.', icon: icon },
+  { title: 'App Development', subtitle: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.', icon: icon1 },
+  { title: 'Photography', subtitle: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.', icon: icon2 },
+  { title: 'Photography', subtitle: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.', icon: icon3 },
+  { title: 'Managment', subtitle: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.', icon: icon4 },
+  { title: 'Web Development', subtitle: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.', icon: icon5 },
+];
 
 const About = () => {
   return (
@@ -40,66 +51,23 @@ const About = () => {
               Personal Info
             </Typography>
             <Grid container spacing={2}>
-              <Grid item xs={6}>
-                <Stack direction='row'>
-                  <Avatar
-                    variant='rounded'
-                    sx={{ marginRight: 1, backgroundColor: 'black' }}>
-                    <PhoneIphone />
-                  </Avatar>
-                  <Box>
-                    <Typography variant='body2' component='h4' color='gray'>
-                      Phone
-                    </Typography>
-                    <Typography>+123 456 7890</Typography>
-                  </Box>
-                </Stack>
-              </Grid>
-              <Grid item xs={6}>
-                <Stack direction='row'>
-                  <Avatar
-                    variant='rounded'
-                    sx={{ marginRight: 1, backgroundColor: 'black' }}>
-                    <IoLocationSharp />
-                  </Avatar>
-                  <Box>
-                    <Typography variant='body2' component='h4' color='gray'>
-                      Location
-                    </Typography>
-                    <Typography>Hong kong china</Typography>
-                  </Box>
-                </Stack>
-              </Grid>
-              <Grid item xs={6}>
-                <Stack direction='row'>
-                  <Avatar
-                    variant='rounded'
-                    sx={{ marginRight: 1, backgroundColor: 'black' }}>
-                    <Email />
-                  </Avatar>
-                  <Box>
-                    <Typography variant='body2' component='h4' color='gray'>
-                      Email
-                    </Typography>
-                    <Typography>example@mail.com</Typography>
-                  </Box>
-                </Stack>
-              </Grid>
-              <Grid item xs={6}>
-                <Stack direction='row'>
-                  <Avatar
-                    variant='rounded'
-                    sx={{ marginRight: 1, backgroundColor: 'black' }}>
-                    <CalendarMonth />
-                  </Avatar>
-                  <Box>
-                    <Typography variant='body2' component='h4' color='gray'>
-                      Birthday
-                    </Typography>
-                    <Typography>May 27, 1990</Typography>
-                  </Box>
-                </Stack>
-              </Grid>
+              {infoList.map(({ title, subtitle, icon }, i) => (
+                <Grid key={i} item xs={6}>
+                  <Stack direction='row'>
+                    <Avatar
+                      variant='rounded'
+                      sx={{ marginRight: 1, backgroundColor: 'black' }}>
+                      {icon}
+                    </Avatar>
+                    <Box>
+                      <Typography variant='body2' component='h4' color='gray'>
+                        {title}
+                      </Typography>
+                      <Typography>{subtitle}</Typography>
+                    </Box>
+                  </Stack>
+                </Grid>
+              ))}
             </Grid>
           </Grid>
         </Grid>
@@ -109,7 +77,8 @@ const About = () => {
           What I do!
         </Typography>
         <Grid container spacing={2}>
-          <Grid item xs={4}>
+          {skillsList.map(({ title, subtitle, icon }, i) => (
+            <Grid item key={i} xs={4}>
             <Stack
               direction='row'
               gap={2}
@@ -118,127 +87,26 @@ const About = () => {
                 padding: 3,
                 borderRadius: 2
               }}>
-              <Avatar src={icon} alt='image1' variant='square' />
+              <Box>
+                <img src={icon} alt='' />
+              </Box>
               <Box>
                 <Typography variant='h5' component='h4' fontWeight='800'>
-                  Ui/Ux Design
+                  {title}
                 </Typography>
                 <Typography component='p'>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-                  diam euismod volutpat.
+                  {subtitle}
                 </Typography>
               </Box>
             </Stack>
           </Grid>
-          <Grid item xs={4}>
-            <Stack
-              direction='row'
-              gap={2}
-              sx={{
-                backgroundColor: '#FBF4FE',
-                padding: 3,
-                borderRadius: 2
-              }}>
-              <Avatar src={icon1} alt='image1' variant='square' />
-              <Box>
-                <Typography variant='h5' component='h4' fontWeight='800'>
-                  App Development
-                </Typography>
-                <Typography component='p'>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-                  diam euismod volutpat.
-                </Typography>
-              </Box>
-            </Stack>
-          </Grid>
-          <Grid item xs={4}>
-            <Stack
-              direction='row'
-              gap={2}
-              sx={{
-                backgroundColor: '#FBF4FE',
-                padding: 3,
-                borderRadius: 2
-              }}>
-              <Avatar src={icon2} alt='image1' variant='square' />
-              <Box>
-                <Typography variant='h5' component='h4' fontWeight='800'>
-                  Photography
-                </Typography>
-                <Typography component='p'>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-                  diam euismod volutpat.
-                </Typography>
-              </Box>
-            </Stack>
-          </Grid>
-          <Grid item xs={4}>
-            <Stack
-              direction='row'
-              gap={2}
-              sx={{
-                backgroundColor: '#FBF4FE',
-                padding: 3,
-                borderRadius: 2
-              }}>
-              <Avatar src={icon3} alt='image1' variant='square' />
-              <Box>
-                <Typography variant='h5' component='h4' fontWeight='800'>
-                  Photography
-                </Typography>
-                <Typography component='p'>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-                  diam euismod volutpat.
-                </Typography>
-              </Box>
-            </Stack>
-          </Grid>
-          <Grid item xs={4}>
-            <Stack
-              direction='row'
-              gap={2}
-              sx={{
-                backgroundColor: '#FBF4FE',
-                padding: 3,
-                borderRadius: 2
-              }}>
-              <Avatar src={icon4} alt='image1' variant='square' />
-              <Box>
-                <Typography variant='h5' component='h4' fontWeight='800'>
-                  Management
-                </Typography>
-                <Typography component='p'>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-                  diam euismod volutpat.
-                </Typography>
-              </Box>
-            </Stack>
-          </Grid>
-          <Grid item xs={4}>
-            <Stack
-              direction='row'
-              gap={2}
-              sx={{
-                backgroundColor: '#FBF4FE',
-                padding: 3,
-                borderRadius: 2
-              }}>
-              <Avatar src={icon5} alt='image1' variant='square' />
-              <Box>
-                <Typography variant='h5' component='h4' fontWeight='800'>
-                  Web Development
-                </Typography>
-                <Typography component='p'>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-                  diam euismod volutpat.
-                </Typography>
-              </Box>
-            </Stack>
-          </Grid>
+          ))}
         </Grid>
       </Box>
-      <Box textAlign='center' p={5} sx={{border: 1}}>
-        <Typography variant='h5' component='h3' fontWeight='800'>Clients</Typography>
+      <Box textAlign='center' p={5} sx={{ border: 1 }}>
+        <Typography variant='h5' component='h3' fontWeight='800'>
+          Clients
+        </Typography>
       </Box>
       <Footer />
     </Box>
