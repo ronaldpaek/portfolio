@@ -1,14 +1,13 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Box, Stack, Button, useMediaQuery, IconButton } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
+import { Box, Stack, Button, IconButton } from '@mui/material';
 import {
   Home,
   Person,
   Description,
   BusinessCenter,
   DarkMode,
-  Clear
+  Clear,
 } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { FaBlogger } from 'react-icons/fa';
@@ -17,17 +16,21 @@ import { RiContactsBookFill } from 'react-icons/ri';
 import { logo } from '../assets';
 
 const navList = [
-  { name: 'Home', to: '/', startIcon: <Home /> },
-  { name: 'About', to: '/about', startIcon: <Person /> },
-  { name: 'Resume', to: '/resume', startIcon: <Description /> },
-  { name: 'Works', to: '/works', startIcon: <BusinessCenter /> },
-  { name: 'Blogs', to: '/blogs', startIcon: <FaBlogger /> },
-  { name: 'Contact', to: '/contact', startIcon: <RiContactsBookFill /> }
+  { name: 'Home', to: '/', StartIcon: Home },
+  { name: 'About', to: '/about', StartIcon: Person },
+  { name: 'Resume', to: '/resume', StartIcon: Description },
+  { name: 'Works', to: '/works', StartIcon: BusinessCenter },
+  { name: 'Blogs', to: '/blogs', StartIcon: FaBlogger },
+  { name: 'Contact', to: '/contact', StartIcon: RiContactsBookFill }
 ];
 
 const Header = () => {
-  const matches = useMediaQuery(theme => theme.breakpoints.down('lg'));
-  return <>{matches ? <MobileNavBar /> : <DesktopNavBar />}</>;
+  return (
+    <>
+      <MobileNavBar />
+      <DesktopNavBar />
+    </>
+  );
 };
 
 const MobileNavBar = () => {
@@ -38,14 +41,20 @@ const MobileNavBar = () => {
   };
 
   return (
-    <Box component='header' sx={{ backgroundColor: 'hsl(45, 29%, 90%)' }}>
+    <Box component='header' sx={{
+      position: 'fixed',
+      left: 0,
+      right: 0,
+      backgroundColor: 'hsl(45, 29%, 90%)', display: {
+      xs: 'block', md: 'none'
+    } }}>
       <Box px={2} direction='row'>
         <Stack
           direction='row'
           py={2.5}
           justifyContent='space-between'
           alignItems='center'>
-          <Link to='/'>
+          <Link to='/' onClick={handleClick}>
             <Box
               component='img'
               src={logo}
@@ -77,21 +86,24 @@ const MobileNavBar = () => {
               borderBottomRightRadius: 20,
               padding: 0
             }}>
-            {navList.map(({ name, to, startIcon }, i) => (
+            {navList.map(({ name, to, StartIcon }, i) => (
               <Box
                 component='li'
                 key={i}
-                sx={{ listStyle: 'none', paddingBlock: 1.5, paddingLeft: 2 }}>
+                sx={{ listStyle: 'none' }}>
                 <Link
                   to={to}
+                  onClick={handleClick}
                   style={{
                     textDecoration: 'none',
                     display: 'flex',
                     alignItems: 'center',
-                    color: 'black'
+                    color: 'black',
+                    paddingBlock: '.65rem',
+                    paddingLeft: '1rem'
                   }}>
                   <span style={{ fontSize: '1.25rem', marginRight: '.5rem' }}>
-                    {startIcon}
+                    {<StartIcon />}
                   </span>
                   {name}
                 </Link>
@@ -110,14 +122,19 @@ const DesktopNavBar = () => {
       component='header'
       direction='row'
       justifyContent='space-between'
-      paddingBlock={5}>
+      paddingBlock={6}
+      sx={{
+        display: {
+        xs: 'none', md: 'flex',
+      }}}
+    >
       <Box>
         <img src={logo} alt='logo' />
       </Box>
       <Stack direction='row' spacing={2} component='nav'>
-        {navList.map(({ name, to, startIcon }, i) => (
+        {navList.map(({ name, to, StartIcon }, i) => (
           <Link key={i} to={to} style={{ textDecoration: 'none' }}>
-            <Button variant='contained' startIcon={startIcon}>
+            <Button variant='contained' sx={{ height: 44, textTransform: 'capitalize' }} startIcon={<StartIcon style={{fontSize: '20px'}} />}>
               {name}
             </Button>
           </Link>

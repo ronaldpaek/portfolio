@@ -21,7 +21,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{ minHeight: '100vh', bgcolor: 'lightgray' }}>
-        <Container disableGutters>
+        <Container sx={{maxWidth: {lg: 1280, md: 992}, margin: 'auto'}} disableGutters>
           <Header />
           <Routes>
             <Route
