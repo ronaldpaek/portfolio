@@ -14,45 +14,115 @@ const infoList = [
 ];
 
 const skillsList = [
-  { title: 'Ui/Ux Design', subtitle: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.', icon: icon },
-  { title: 'App Development', subtitle: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.', icon: icon1 },
-  { title: 'Photography', subtitle: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.', icon: icon2 },
-  { title: 'Photography', subtitle: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.', icon: icon3 },
-  { title: 'Managment', subtitle: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.', icon: icon4 },
-  { title: 'Web Development', subtitle: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.', icon: icon5 },
+  {
+    title: 'Ui/Ux Design',
+    subtitle:
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
+    icon: icon
+  },
+  {
+    title: 'App Development',
+    subtitle:
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
+    icon: icon1
+  },
+  {
+    title: 'Photography',
+    subtitle:
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
+    icon: icon2
+  },
+  {
+    title: 'Photography',
+    subtitle:
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
+    icon: icon3
+  },
+  {
+    title: 'Managment',
+    subtitle:
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
+    icon: icon4
+  },
+  {
+    title: 'Web Development',
+    subtitle:
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
+    icon: icon5
+  }
 ];
 
 const About = () => {
   return (
-    <Box px={10} sx={{ backgroundColor: '#87CEFA', borderRadius: 3 }}>
+    <Box
+      sx={{
+        backgroundColor: '#87CEFA',
+        borderBottomLeftRadius: {
+          xs: 20
+        },
+        borderBottomRightRadius: {
+          xs: 20
+        },
+        borderTopLeftRadius: {
+          xs: 0,
+          md: 20
+        },
+        borderTopRightRadius: {
+          xs: 0,
+          md: 20
+        },
+        paddingInline: {
+          xs: 5,
+          md: 10
+        }
+      }}>
       <Box py={6}>
-        <Typography variant='h3' componenet='h2' fontWeight={800}>
+        <Typography variant='h3' component='h2' fontWeight={800} sx={{
+          marginTop: {
+          xs: 5, md: 0,
+        }}}>
           About Me
         </Typography>
-        <Grid container spacing={2}>
-          <Grid item xs={4}>
-            <img src={about} alt='about' style={{ width: '100%' }} />
+        <Grid container pt={5} sx={{
+          direction: {
+            xs: 'column', sm: 'row'
+          }
+        }}>
+          <Grid item xs={12} sm={3.5} sx={{
+            mb: {
+            xs: 2
+          }}}>
+            <Box component='img' src={about} alt='about' sx={{
+              maxWidth: '100%', objectFit: 'cover', display: 'block', borderRadius: 8, width: {
+                xs: '100%',
+              sm: 330,
+              }, height: {
+                xs: '100%',
+              sm: 400,
+              } }} />
           </Grid>
-          <Grid item xs={8}>
-            <Typography variant='h4' componenet='h3' mb={1.5}>
-              Who am i?
-            </Typography>
-            <Typography variant='body1' componenet='p' color='gray'>
-              I'm Creative Director and UI/UX Designer from Sydney, Australia,
-              working in web development and print media. I enjoy turning
-              complex problems into simple, beautiful and intuitive designs.
-            </Typography>
-            <Typography variant='body1' componenet='p' color='gray' mt={1.5}>
-              My aim is to bring across your message and identity in the most
-              creative way. I created web design for many famous brand
-              companies.
-            </Typography>
-            <Typography variant='h4' componenet='h3' my={3}>
-              Personal Info
-            </Typography>
+          <Grid item xs={12} sm={8} ml='auto'>
+            <Box mr={6}>
+              <Typography variant='h4' componenet='h3' mb={1.5}>
+                Who am i?
+              </Typography>
+              <Typography variant='body1' componenet='p' color='gray'>
+                I'm Creative Director and UI/UX Designer from Sydney, Australia,
+                working in web development and print media. I enjoy turning
+                complex problems into simple, beautiful and intuitive designs.
+              </Typography>
+              <Typography variant='body1' componenet='p' color='gray' mt={1.5}>
+                My aim is to bring across your message and identity in the most
+                creative way. I created web design for many famous brand
+                companies.
+              </Typography>
+              <Typography variant='h4' componenet='h3' my={3}>
+                Personal Info
+              </Typography>
+            </Box>
             <Grid container spacing={2}>
               {infoList.map(({ title, subtitle, icon }, i) => (
-                <Grid key={i} item xs={6}>
+                <Grid key={i} item xs={12} sm={6}>
                   <Stack direction='row'>
                     <Avatar
                       variant='rounded'
@@ -76,30 +146,28 @@ const About = () => {
         <Typography variant='h3' componenet='h3' pb={3}>
           What I do!
         </Typography>
-        <Grid container spacing={2}>
+        <Grid container spacing={4}>
           {skillsList.map(({ title, subtitle, icon }, i) => (
-            <Grid item key={i} xs={4}>
-            <Stack
-              direction='row'
-              gap={2}
-              sx={{
-                backgroundColor: '#FBF4FE',
-                padding: 3,
-                borderRadius: 2
-              }}>
-              <Box>
-                <img src={icon} alt='' />
-              </Box>
-              <Box>
-                <Typography variant='h5' component='h4' fontWeight='800'>
-                  {title}
-                </Typography>
-                <Typography component='p'>
-                  {subtitle}
-                </Typography>
-              </Box>
-            </Stack>
-          </Grid>
+            <Grid item key={i} xs={12} sm={6} lg={4}>
+              <Stack
+                direction='row'
+                gap={2}
+                sx={{
+                  backgroundColor: '#FBF4FE',
+                  padding: 3,
+                  borderRadius: 2
+                }}>
+                <Box>
+                  <img src={icon} alt='' />
+                </Box>
+                <Box>
+                  <Typography variant='h5' component='h4' fontWeight='800'>
+                    {title}
+                  </Typography>
+                  <Typography component='p'>{subtitle}</Typography>
+                </Box>
+              </Stack>
+            </Grid>
           ))}
         </Grid>
       </Box>

@@ -70,6 +70,27 @@ const resumeList = [
   }
 ];
 
+const skillsList = [
+  { skill: 'WebDesign', val: 65, color: 'warning' },
+  { skill: 'Mobile App', val: 85, color: 'secondary' },
+  { skill: 'Illustrator', val: 75, color: 'primary' },
+  { skill: 'Photoshope', val: 90, color: 'success' }
+];
+
+const items = [
+  'Digital Design',
+  'Maarketing',
+  'Social Media',
+  'Print',
+  'Time Management',
+  'Flexiblity',
+  'Print',
+  'Print',
+  'Time Management',
+  'Flexiblity',
+  'Print'
+];
+
 const Resume = () => {
   return (
     <>
@@ -78,17 +99,38 @@ const Resume = () => {
         px={10}
         sx={{
           backgroundColor: '#87CEFA',
-          borderTopLeftRadius: 10,
-          borderTopRightRadius: 10
+          borderTopLeftRadius: {
+            xs: 0,
+            md: 15
+          },
+          borderTopRightRadius: {
+            xs: 0,
+            md: 20
+          },
+          paddingInline: {
+            xs: 2.5,
+            sm: 5,
+            lg: 10
+          }
         }}>
         <Box py={6} px={2}>
-          <Typography variant='h3' componenet='h2' fontWeight={800} mb={5}>
+          <Typography
+            variant='h3'
+            componenet='h2'
+            fontWeight={800}
+            mb={5}
+            sx={{
+              marginTop: {
+                xs: 5,
+                md: 0
+              }
+            }}>
             Resume
           </Typography>
           <Grid container spacing={2}>
             {resumeList.map(({ topic, Icon, list }, _) => (
-              <Grid key={topic} item xs={4}>
-                <Stack spacing={2}>
+              <Grid key={topic} item xs={12} sm={6} lg={4}>
+                <Stack spacing={3}>
                   <Stack direction='row'>
                     <Icon sx={{ fontSize: 35, marginRight: 1 }} />
                     <Typography variant='h4' componenet='h3'>
@@ -96,7 +138,11 @@ const Resume = () => {
                     </Typography>
                   </Stack>
                   {list.map(({ date, title, subtitle }, i) => (
-                    <Stack key={i} spacing={1} p={2}  sx={{backgroundColor: '#5F9EA0', borderRadius: 2}}>
+                    <Stack
+                      key={i}
+                      spacing={2}
+                      p={2}
+                      sx={{ backgroundColor: '#5F9EA0', borderRadius: 2 }}>
                       <Typography color='gray'>{date}</Typography>
                       <Typography>{title}</Typography>
                       <Typography>{subtitle}</Typography>
@@ -109,175 +155,78 @@ const Resume = () => {
         </Box>
       </Box>
       <Box backgroundColor='salmon' py={6}>
-        <Box px={10}>
-          <Grid container spacing={2}>
-            <Grid item xs={6}>
+        <Box
+          sx={{
+            paddingInline: {
+              xs: 3,
+              sm: 5,
+              lg: 10
+            }
+          }}>
+          <Grid
+            container
+            spacing={2}
+            sx={{
+              direction: {
+                xs: 'column',
+                lg: 'row'
+              }
+            }}>
+            <Grid item xs={12} sm={6}>
               <Typography variant='h4' componenet='h3' marginBottom={3}>
                 Working Skills
               </Typography>
               <Stack spacing={2.5}>
-                <Box>
-                  <Stack direction='row' justifyContent='space-between'>
-                    <Typography>Web Design</Typography>
-                    <Typography>65%</Typography>
-                  </Stack>
-                  <LinearProgress
-                    variant='determinate'
-                    color='warning'
-                    value={65}
-                  />
-                </Box>
-                <Box>
-                  <Stack direction='row' justifyContent='space-between'>
-                    <Typography>Mobile App</Typography>
-                    <Typography>85%</Typography>
-                  </Stack>
-                  <LinearProgress
-                    variant='determinate'
-                    color='secondary'
-                    value={85}
-                  />
-                </Box>
-                <Box>
-                  <Stack direction='row' justifyContent='space-between'>
-                    <Typography>Illustrator</Typography>
-                    <Typography>75%</Typography>
-                  </Stack>
-                  <LinearProgress
-                    variant='determinate'
-                    color='primary'
-                    value={75}
-                  />
-                </Box>
-                <Box>
-                  <Stack direction='row' justifyContent='space-between'>
-                    <Typography>Photoshope</Typography>
-                    <Typography>90%</Typography>
-                  </Stack>
-                  <LinearProgress
-                    variant='determinate'
-                    color='success'
-                    value={90}
-                  />
-                </Box>
+                {skillsList.map(({ skill, val, color }, i) => (
+                  <Box key={i}>
+                    <Stack direction='row' justifyContent='space-between'>
+                      <Typography>{skill}</Typography>
+                      <Typography>{val + '%'}</Typography>
+                    </Stack>
+                    <LinearProgress
+                      variant='determinate'
+                      color={color}
+                      value={val}
+                    />
+                  </Box>
+                ))}
               </Stack>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <Typography variant='h4' componenet='h3' marginBottom={4}>
                 Knowledges
               </Typography>
-              <Stack spacing={3}>
-                <Stack direction='row' spacing={2}>
+              <Stack
+                sx={{
+                  flexDirection: 'row',
+                  flexWrap: 'wrap',
+                  rowGap: {
+                    xs: 1.5,
+                    md: 2
+                  },
+                  columnGap: {
+                    xs: 1.5,
+                    md: 2
+                  }
+                }}>
+                {items.map((item, i) => (
                   <Box
+                    key={i}
                     sx={{
                       backgroundColor: 'lightgray',
                       paddingBlock: 0.75,
                       paddingInline: 2,
                       borderRadius: 1
                     }}>
-                    Digital Design
+                    {item}
                   </Box>
-                  <Box
-                    sx={{
-                      backgroundColor: 'lightgray',
-                      paddingBlock: 0.75,
-                      paddingInline: 2,
-                      borderRadius: 1
-                    }}>
-                    Marketing
-                  </Box>
-                  <Box
-                    sx={{
-                      backgroundColor: 'lightgray',
-                      paddingBlock: 0.75,
-                      paddingInline: 2,
-                      borderRadius: 1
-                    }}>
-                    Social Media
-                  </Box>
-                  <Box
-                    sx={{
-                      backgroundColor: 'lightgray',
-                      paddingBlock: 0.75,
-                      paddingInline: 2,
-                      borderRadius: 1
-                    }}>
-                    Print
-                  </Box>
-                </Stack>
-                <Stack direction='row' spacing={2}>
-                  <Box
-                    sx={{
-                      backgroundColor: 'lightgray',
-                      paddingBlock: 0.75,
-                      paddingInline: 2,
-                      borderRadius: 1
-                    }}>
-                    Time Management
-                  </Box>
-                  <Box
-                    sx={{
-                      backgroundColor: 'lightgray',
-                      paddingBlock: 0.75,
-                      paddingInline: 2,
-                      borderRadius: 1
-                    }}>
-                    Flexiblity
-                  </Box>
-                  <Box
-                    sx={{
-                      backgroundColor: 'lightgray',
-                      paddingBlock: 0.75,
-                      paddingInline: 2,
-                      borderRadius: 1
-                    }}>
-                    Print
-                  </Box>
-                  <Box
-                    sx={{
-                      backgroundColor: 'lightgray',
-                      paddingBlock: 0.75,
-                      paddingInline: 2,
-                      borderRadius: 1
-                    }}>
-                    Print
-                  </Box>
-                </Stack>
-                <Stack direction='row' spacing={2}>
-                  <Box
-                    sx={{
-                      backgroundColor: 'lightgray',
-                      paddingBlock: 0.75,
-                      paddingInline: 2,
-                      borderRadius: 1
-                    }}>
-                    Time Management
-                  </Box>
-                  <Box
-                    sx={{
-                      backgroundColor: 'lightgray',
-                      paddingBlock: 0.75,
-                      paddingInline: 2,
-                      borderRadius: 1
-                    }}>
-                    Flexiblity
-                  </Box>
-                  <Box
-                    sx={{
-                      backgroundColor: 'lightgray',
-                      paddingBlock: 0.75,
-                      paddingInline: 2,
-                      borderRadius: 1
-                    }}>
-                    Print
-                  </Box>
-                </Stack>
+                ))}
               </Stack>
             </Grid>
           </Grid>
         </Box>
       </Box>
-      <Footer backgroundColor='#87CEFA'/>
+      <Footer backgroundColor='#87CEFA' borderRadius={15} />
     </>
   );
 };
