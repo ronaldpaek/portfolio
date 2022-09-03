@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, createRef } from 'react';
 import {
   Box,
   Typography,
   Stack,
   Modal,
-  Grid,
-  Card,
-  CardContent
+  // Grid,
+  // Card,
+  // CardContent
 } from '@mui/material';
 import { Masonry } from '@mui/lab';
-import { Feed, Person, Code, Preview } from '@mui/icons-material';
+// import { Feed, Person, Code, Preview } from '@mui/icons-material';
 
 import {
   image1,
@@ -31,7 +31,7 @@ import {
   banner8,
   banner9
 } from '../assets';
-import { Footer } from '../components';
+import { Footer, PortfolioModalCard } from '../components';
 
 const navList = ['All', 'Video', 'Web Design', 'Logo', 'Graphic Design'];
 
@@ -170,6 +170,7 @@ const Portfolio = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const ref = createRef();
 
   const handleRenderCard = i => {
     setCard(projects[i]);
@@ -256,10 +257,7 @@ const Portfolio = () => {
 
         <Masonry columns={{ xs: 1, sm: 2, md: 3 }} spacing={3}>
           {itemData.map(({ image, title, subtitle, color }, i) => (
-            <Box
-              key={i}
-              p={3}
-              sx={{ backgroundColor: color, borderRadius: 4 }}>
+            <Box key={i} p={3} sx={{ backgroundColor: color, borderRadius: 4 }}>
               <img
                 src={image}
                 alt=''
@@ -282,64 +280,11 @@ const Portfolio = () => {
         </Masonry>
       </Box>
       <Modal open={open} onClose={handleClose}>
-        <Box>
-          <RenderCard {...card} />
-        </Box>
+        <PortfolioModalCard {...card} ref={ref} />
       </Modal>
       <Footer backgroundColor='white' borderRadius={20} />
     </Box>
   );
 };
-
-const RenderCard = ({
-  title,
-  project,
-  client,
-  languages,
-  preview,
-  body,
-  img
-}) => (
-  <Card
-    sx={{
-      position: 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      width: 1000,
-      bgcolor: 'background.paper',
-      border: '2px solid #000',
-      boxShadow: 24,
-      p: 4
-    }}>
-    <CardContent>
-      <Typography variant='h4' component='h3'>
-        {title}
-      </Typography>
-      <Grid container columns={{ xs: 6 }}>
-        <Grid item>
-          <Feed />
-          <Typography>Project: {project}</Typography>
-        </Grid>
-        <Grid item>
-          <Person />
-          <Typography>Client: {client}</Typography>
-        </Grid>
-        <Grid item>
-          <Code />
-          <Typography>Languages: {languages}</Typography>
-        </Grid>
-        <Grid item>
-          <Preview />
-          <Typography>Preview: {preview}</Typography>
-        </Grid>
-      </Grid>
-      <Typography>{body}</Typography>
-      <Box>
-        <img src={img} alt='' />
-      </Box>
-    </CardContent>
-  </Card>
-);
 
 export default Portfolio;
