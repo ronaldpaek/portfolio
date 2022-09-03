@@ -232,9 +232,9 @@ const Portfolio = () => {
                 sm: 'flex-end'
               }
             }}>
-            {navList.map((item, i) => (
+            {navList.map(item => (
               <Box
-                key={i}
+                key={item}
                 component='li'
                 fontWeight='700'
                 color='gray'
@@ -253,9 +253,13 @@ const Portfolio = () => {
             ))}
           </Stack>
         </Box>
+
         <Masonry columns={{ xs: 1, sm: 2, md: 3 }} spacing={3}>
-          {itemData.map(({ image, title, subtitle, color, id }, i) => (
-            <Box key={id} p={3} sx={{ backgroundColor: color, borderRadius: 4 }}>
+          {itemData.map(({ image, title, subtitle, color }, i) => (
+            <Box
+              key={i}
+              p={3}
+              sx={{ backgroundColor: color, borderRadius: 4 }}>
               <img
                 src={image}
                 alt=''
@@ -277,9 +281,11 @@ const Portfolio = () => {
           ))}
         </Masonry>
       </Box>
-        <Modal open={open} onClose={handleClose}>
+      <Modal open={open} onClose={handleClose}>
+        <Box>
           <RenderCard {...card} />
-        </Modal>
+        </Box>
+      </Modal>
       <Footer backgroundColor='white' borderRadius={20} />
     </Box>
   );
@@ -292,51 +298,48 @@ const RenderCard = ({
   languages,
   preview,
   body,
-  img,
-}) => {
-  (
-    <Card
-      sx={{
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: 1000,
-        bgcolor: 'background.paper',
-        border: '2px solid #000',
-        boxShadow: 24,
-        p: 4
-      }}
-    >
-      <CardContent>
-        <Typography variant='h4' component='h3'>
-          {title}
-        </Typography>
-        <Grid container columns={2}>
-          <Grid item>
-            <Feed />
-            <Typography>Project: {project}</Typography>
-          </Grid>
-          <Grid item>
-            <Person />
-            <Typography>Client: {client}</Typography>
-          </Grid>
-          <Grid item>
-            <Code />
-            <Typography>Languages: {languages}</Typography>
-          </Grid>
-          <Grid item>
-            <Preview />
-            <Typography>Preview: {preview}</Typography>
-          </Grid>
+  img
+}) => (
+  <Card
+    sx={{
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      width: 1000,
+      bgcolor: 'background.paper',
+      border: '2px solid #000',
+      boxShadow: 24,
+      p: 4
+    }}>
+    <CardContent>
+      <Typography variant='h4' component='h3'>
+        {title}
+      </Typography>
+      <Grid container columns={{ xs: 6 }}>
+        <Grid item>
+          <Feed />
+          <Typography>Project: {project}</Typography>
         </Grid>
-        <Typography>{body}</Typography>
-        <Box>
-          <img src={img} alt='' />
-        </Box>
-      </CardContent>
-    </Card>
-  );
-};
+        <Grid item>
+          <Person />
+          <Typography>Client: {client}</Typography>
+        </Grid>
+        <Grid item>
+          <Code />
+          <Typography>Languages: {languages}</Typography>
+        </Grid>
+        <Grid item>
+          <Preview />
+          <Typography>Preview: {preview}</Typography>
+        </Grid>
+      </Grid>
+      <Typography>{body}</Typography>
+      <Box>
+        <img src={img} alt='' />
+      </Box>
+    </CardContent>
+  </Card>
+);
 
 export default Portfolio;
