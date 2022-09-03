@@ -96,7 +96,6 @@ const Resume = () => {
     <>
       <Box
         componenet='section'
-        px={10}
         sx={{
           backgroundColor: '#87CEFA',
           borderTopLeftRadius: {
@@ -120,12 +119,24 @@ const Resume = () => {
             fontWeight={800}
             mb={5}
             sx={{
+              display: 'inline-flex',
+              alignItems: 'center',
               marginTop: {
                 xs: 5,
                 md: 0
               }
             }}>
             Resume
+            <Box component='span' sx={{ background:
+                  'linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)',
+                height: 2,
+                width: '11rem',
+              marginLeft: '1.5rem',
+                display: {
+                  xs: 'none', sm: 'inline'
+                }
+              }}> 
+            </Box>
           </Typography>
           <Grid container spacing={2}>
             {resumeList.map(({ topic, Icon, list }, _) => (

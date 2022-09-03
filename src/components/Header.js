@@ -24,16 +24,16 @@ const navList = [
   { name: 'Contact', to: '/contact', StartIcon: RiContactsBookFill }
 ];
 
-const Header = () => {
+const Header = ({ handleToggleTheme }) => {
   return (
     <>
-      <MobileNavBar />
-      <DesktopNavBar />
+      <MobileNavBar handleToggleTheme={handleToggleTheme} />
+      <DesktopNavBar handleToggleTheme={handleToggleTheme} />
     </>
   );
 };
 
-const MobileNavBar = () => {
+const MobileNavBar = ({ handleToggleTheme }) => {
   const [toggle, setToggle] = useState(false);
 
   const handleClick = () => {
@@ -41,13 +41,18 @@ const MobileNavBar = () => {
   };
 
   return (
-    <Box component='header' sx={{
-      position: 'fixed',
-      left: 0,
-      right: 0,
-      backgroundColor: 'hsl(45, 29%, 90%)', display: {
-      xs: 'block', md: 'none'
-    } }}>
+    <Box
+      component='header'
+      sx={{
+        position: 'fixed',
+        left: 0,
+        right: 0,
+        backgroundColor: 'hsl(45, 29%, 90%)',
+        display: {
+          xs: 'block',
+          md: 'none'
+        }
+      }}>
       <Box px={2} direction='row'>
         <Stack
           direction='row'
@@ -63,7 +68,9 @@ const MobileNavBar = () => {
             />
           </Link>
           <Stack direction='row'>
-            <IconButton sx={{ bgcolor: 'white', marginLeft: 2 }}>
+            <IconButton
+              onClick={handleToggleTheme}
+              sx={{ bgcolor: 'white', marginLeft: 2 }}>
               <DarkMode />
             </IconButton>
             <IconButton
@@ -87,10 +94,7 @@ const MobileNavBar = () => {
               padding: 0
             }}>
             {navList.map(({ name, to, StartIcon }, i) => (
-              <Box
-                component='li'
-                key={i}
-                sx={{ listStyle: 'none' }}>
+              <Box component='li' key={i} sx={{ listStyle: 'none' }}>
                 <Link
                   to={to}
                   onClick={handleClick}
@@ -116,7 +120,7 @@ const MobileNavBar = () => {
   );
 };
 
-const DesktopNavBar = () => {
+const DesktopNavBar = ({ handleToggleTheme }) => {
   return (
     <Stack
       component='header'
@@ -125,22 +129,27 @@ const DesktopNavBar = () => {
       paddingBlock={6}
       sx={{
         display: {
-        xs: 'none', md: 'flex',
-      }}}
-    >
+          xs: 'none',
+          md: 'flex'
+        }
+      }}>
       <Box>
         <img src={logo} alt='logo' />
       </Box>
       <Stack direction='row' spacing={2} component='nav'>
         {navList.map(({ name, to, StartIcon }, i) => (
           <Link key={i} to={to} style={{ textDecoration: 'none' }}>
-            <Button variant='contained' sx={{ height: 44, textTransform: 'capitalize' }} startIcon={<StartIcon style={{fontSize: '20px'}} />}>
+            <Button
+              variant='contained'
+              sx={{ height: 44, textTransform: 'capitalize' }}
+              startIcon={<StartIcon style={{ fontSize: '20px' }} />}>
               {name}
             </Button>
           </Link>
         ))}
         <Button
           variant='contained'
+          onClick={handleToggleTheme}
           sx={{ borderRadius: 100, minWidth: 40, padding: 0 }}>
           <DarkMode />
         </Button>

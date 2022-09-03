@@ -2,8 +2,22 @@ import React from 'react';
 import { Box, Typography, Avatar, Stack, Grid } from '@mui/material';
 import { PhoneIphone, Email, CalendarMonth } from '@mui/icons-material';
 import { IoLocationSharp } from 'react-icons/io5';
+import Marquee from 'react-fast-marquee';
 
-import { about, icon, icon1, icon2, icon3, icon4, icon5 } from '../assets';
+import {
+  about,
+  icon,
+  icon1,
+  icon2,
+  icon3,
+  icon4,
+  icon5,
+  brand,
+  brand1,
+  brand2,
+  brand3,
+  brand4
+} from '../assets';
 import { Footer } from '../components';
 
 const infoList = [
@@ -52,6 +66,19 @@ const skillsList = [
   }
 ];
 
+const brands = [
+  brand,
+  brand1,
+  brand2,
+  brand3,
+  brand4,
+  brand,
+  brand1,
+  brand2,
+  brand3,
+  brand4
+];
+
 const About = () => {
   return (
     <Box
@@ -77,29 +104,70 @@ const About = () => {
         }
       }}>
       <Box py={6}>
-        <Typography variant='h3' component='h2' fontWeight={800} sx={{
-          marginTop: {
-          xs: 5, md: 0,
-        }}}>
+        <Typography
+          variant='h3'
+          component='h2'
+          fontWeight={800}
+          sx={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            marginTop: {
+              xs: 5,
+              md: 0
+            }
+          }}>
           About Me
+          <Box
+            component='span'
+            sx={{
+              background:
+                'linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)',
+              height: 2,
+              width: '11rem',
+              marginLeft: '1.5rem',
+              display: {
+                xs: 'none',
+                sm: 'inline'
+              }
+            }}></Box>
         </Typography>
-        <Grid container pt={5} sx={{
-          direction: {
-            xs: 'column', sm: 'row'
-          }
-        }}>
-          <Grid item xs={12} sm={3.5} sx={{
-            mb: {
-            xs: 2
-          }}}>
-            <Box component='img' src={about} alt='about' sx={{
-              maxWidth: '100%', objectFit: 'cover', display: 'block', borderRadius: 8, width: {
-                xs: '100%',
-              sm: 330,
-              }, height: {
-                xs: '100%',
-              sm: 400,
-              } }} />
+        <Grid
+          container
+          pt={5}
+          sx={{
+            direction: {
+              xs: 'column',
+              sm: 'row'
+            }
+          }}>
+          <Grid
+            item
+            xs={12}
+            sm={3.5}
+            sx={{
+              mb: {
+                xs: 2
+              }
+            }}>
+            <Box
+              component='img'
+              src={about}
+              alt='about'
+              sx={{
+                maxWidth: '100%',
+                objectFit: 'cover',
+                display: 'block',
+                borderRadius: 8,
+                width: {
+                  xs: '100%',
+                  sm: 330
+                },
+                height: {
+                  xs: '100%',
+                  sm: 400
+                }
+              }}
+            />
           </Grid>
           <Grid item xs={12} sm={8} ml='auto'>
             <Box mr={6}>
@@ -171,10 +239,19 @@ const About = () => {
           ))}
         </Grid>
       </Box>
-      <Box textAlign='center' p={5} sx={{ border: 1 }}>
+      <Box textAlign='center' p={5} sx={{ bgcolor: 'lightgray', borderRadius: 3 }}>
         <Typography variant='h5' component='h3' fontWeight='800'>
           Clients
         </Typography>
+        <Marquee pauseOnHover={true} gradient={false} style={{paddingTop: '2rem'}}>
+          <Stack direction='row'>
+            {brands.map((brand, i) => (
+              <Box key={i} p={4}>
+                <img src={brand} alt='' style={{maxWidth: '100%', display: 'block', objectFit: 'cover'}} />
+              </Box>
+            ))}
+          </Stack>
+        </Marquee>
       </Box>
       <Footer />
     </Box>
