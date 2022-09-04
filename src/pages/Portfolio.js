@@ -1,6 +1,7 @@
 import React, { useState, createRef } from 'react';
 import { Box, Typography, Stack, Modal } from '@mui/material';
 import { Masonry } from '@mui/lab';
+import { Close, Translate } from '@mui/icons-material';
 
 import {
 	image1,
@@ -168,6 +169,8 @@ const Portfolio = () => {
 		handleOpen();
 	};
 
+  console.log(ref.current)
+
 	return (
 		<Box
 			component='section'
@@ -255,7 +258,9 @@ const Portfolio = () => {
 					))}
 				</Masonry>
 			</Box>
-			<Modal open={open} onClose={handleClose}>
+			<Modal
+				open={open}
+				onClose={handleClose}>
 				<PortfolioModalCard {...card} handleClose={handleClose} ref={ref} />
 			</Modal>
 			<Footer backgroundColor='white' borderRadius={20} />

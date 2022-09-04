@@ -16,9 +16,7 @@ const PortfolioModalCard = forwardRef(
 						top: '50%',
 						left: '50%',
 						transform: 'translate(-50%, -50%)',
-						maxHeight: {
-							xs: '60vh'
-						},
+						minHeight: '60vh',
 						minWidth: {
 							lg: '800px'
 						},
@@ -39,24 +37,6 @@ const PortfolioModalCard = forwardRef(
 						},
 						overflowY: 'auto'
 					}}>
-					<Box
-						onClick={handleClose}
-						sx={{
-							borderRadius: '50%',
-							backgroundColor: 'black',
-							position: 'absolute',
-							width: '50px !important',
-							height: '50px !important',
-							top: '-25px !important',
-							right: '-25px !important',
-							display: 'flex',
-							justifyContent: 'center',
-							alignItems: 'center',
-							color: 'background.paper',
-							cursor: 'pointer'
-						}}>
-						<Close />
-					</Box>
 					<CardContent
 						sx={{
 							padding: '0 !important',
