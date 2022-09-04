@@ -4,12 +4,8 @@ import {
   Typography,
   Stack,
   Modal,
-  // Grid,
-  // Card,
-  // CardContent
 } from '@mui/material';
 import { Masonry } from '@mui/lab';
-// import { Feed, Person, Code, Preview } from '@mui/icons-material';
 
 import {
   image1,
@@ -30,8 +26,8 @@ import {
   banner7,
   banner8,
   banner9
-} from '../assets';
-import { Footer, PortfolioModalCard } from '../components';
+} from '../assets/images';
+import { Footer, PortfolioModalCard, PortfolioCard } from '../components';
 
 const navList = ['All', 'Video', 'Web Design', 'Logo', 'Graphic Design'];
 
@@ -257,25 +253,7 @@ const Portfolio = () => {
 
         <Masonry columns={{ xs: 1, sm: 2, md: 3 }} spacing={3}>
           {itemData.map(({ image, title, subtitle, color }, i) => (
-            <Box key={i} p={3} sx={{ backgroundColor: color, borderRadius: 4 }}>
-              <img
-                src={image}
-                alt=''
-                style={{ borderRadius: 8, display: 'block', width: '100%' }}
-                onClick={() => handleRenderCard(i)}
-              />
-              <Typography variant='body1' component='h3' pt={2.5}>
-                {title}
-              </Typography>
-              <Typography
-                variant='h5'
-                component='h4'
-                fontWeight='700'
-                mt={1}
-                onClick={() => handleRenderCard(i)}>
-                {subtitle}
-              </Typography>
-            </Box>
+            <PortfolioCard key={i} { ...{image, title, subtitle, color, i, handleRenderCard }} />
           ))}
         </Masonry>
       </Box>

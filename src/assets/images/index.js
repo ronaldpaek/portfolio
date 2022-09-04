@@ -31,5 +31,37 @@ import banner7 from './banner7.jpeg';
 import banner8 from './banner8.jpeg';
 import banner9 from './banner8.jpeg';
 
-
-export { about, avatar, icon, icon1, icon2, icon3, icon4, icon5, logo, image1, image2, image3, image4, image5, image6, image7, image8, image9, brand, brand1, brand2, brand3, brand4, banner1, banner2, banner3, banner4, banner5, banner6, banner7, banner8, banner9 };
+export {
+	about,
+	avatar,
+	icon,
+	icon1,
+	icon2,
+	icon3,
+	icon4,
+	icon5,
+	logo,
+	image1,
+	image2,
+	image3,
+	image4,
+	image5,
+	image6,
+	image7,
+	image8,
+	image9,
+	brand,
+	brand1,
+	brand2,
+	brand3,
+	brand4,
+	banner1,
+	banner2,
+	banner3,
+	banner4,
+	banner5,
+	banner6,
+	banner7,
+	banner8,
+	banner9
+};
