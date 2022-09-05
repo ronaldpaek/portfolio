@@ -1,10 +1,10 @@
 import React, { forwardRef } from 'react';
 import { Card, CardContent, Typography, Grid, Box, Link } from '@mui/material';
-import { Person, Feed, Code, Preview, Close } from '@mui/icons-material';
+import { Person, Feed, Code, Preview } from '@mui/icons-material';
 import { TrapFocus } from '@mui/base';
 
 const PortfolioModalCard = forwardRef(
-	({ title, project, client, languages, preview, body, img, handleClose }, ref) => {
+	({ title, project, client, languages, preview, body, img }, ref) => {
 		return (
 			<TrapFocus open>
 				<Card
@@ -93,12 +93,14 @@ const PortfolioModalCard = forwardRef(
 										}
 									}}
 								/>
-								<Typography variant='subtitle2' sx={{
-									fontSize: {
-										md: '1rem'
-									},
-									ml: 1
-								}}>
+								<Typography
+									variant='subtitle2'
+									sx={{
+										fontSize: {
+											md: '1rem'
+										},
+										ml: 1
+									}}>
 									Client:{' '}
 									<Box
 										component='span'
@@ -116,12 +118,14 @@ const PortfolioModalCard = forwardRef(
 										}
 									}}
 								/>
-								<Typography variant='subtitle2' sx={{
-									ml: 1,
-									fontSize: {
-										md: '1rem'
-									}
-								}}>
+								<Typography
+									variant='subtitle2'
+									sx={{
+										ml: 1,
+										fontSize: {
+											md: '1rem'
+										}
+									}}>
 									Languages:{' '}
 									<Box
 										component='span'
@@ -139,12 +143,14 @@ const PortfolioModalCard = forwardRef(
 										}
 									}}
 								/>
-								<Typography variant='subtitle2' sx={{
-									ml: 1,
-									fontSize: {
-										md: '1rem'
-									}
-								}}>
+								<Typography
+									variant='subtitle2'
+									sx={{
+										ml: 1,
+										fontSize: {
+											md: '1rem'
+										}
+									}}>
 									Preview:{' '}
 									<Box
 										component='span'
@@ -171,7 +177,7 @@ const PortfolioModalCard = forwardRef(
 									my: 3
 								},
 								fontSize: {
-									md: '1rem',
+									md: '1rem'
 								}
 							}}>
 							{body}
