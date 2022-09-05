@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { Card, CardContent, Typography, Grid, Box } from '@mui/material';
+import { Card, CardContent, Typography, Grid, Box, Link } from '@mui/material';
 import { Person, Feed, Code, Preview } from '@mui/icons-material';
 import { TrapFocus } from '@mui/base';
 
@@ -12,41 +12,187 @@ const PortfolioModalCard = forwardRef(
 					tabIndex={-1}
 					sx={{
 						position: 'absolute',
+						display: 'block',
 						top: '50%',
 						left: '50%',
 						transform: 'translate(-50%, -50%)',
-						width: 1000,
+						minHeight: '60vh',
+						minWidth: {
+							lg: '800px'
+						},
+						width: {
+							xs: '100%',
+							sm: '84%',
+							md: '100%'
+						},
+						maxWidth: {
+							xs: '800px'
+						},
 						bgcolor: 'background.paper',
-						border: '2px solid #000',
-						boxShadow: 24,
-						p: 4,
-						tabIndex: -1
+						borderRadius: 4,
+						outline: 'none',
+						p: {
+							xs: 2,
+							md: 4
+						},
+						overflowY: 'auto'
 					}}>
-					<CardContent>
-						<Typography variant='h4' component='h3'>
+					<CardContent
+						sx={{
+							padding: '0 !important',
+							'&:last-child': {
+								paddingBottom: '0 !important'
+							}
+						}}>
+						<Typography
+							variant='h5'
+							component='h3'
+							fontWeight='700'
+							color='red'
+							textAlign='center'>
 							{title}
 						</Typography>
-						<Grid container columns={{ xs: 6 }}>
-							<Grid item>
-								<Feed />
-								<Typography>Project: {project}</Typography>
+						<Grid
+							container
+							sx={{
+								my: {
+									xs: 3
+								}
+							}}>
+							<Grid item xs={12} md={6} sx={{ display: 'flex' }}>
+								<Feed
+									sx={{
+										display: {
+											xs: 'none',
+											sm: 'block'
+										}
+									}}
+								/>
+								<Typography
+									variant='subtitle2'
+									sx={{
+										ml: 1,
+										fontSize: {
+											md: '1rem'
+										}
+									}}>
+									Project:{' '}
+									<Box
+										component='span'
+										sx={{ fontSize: 'inherit', fontWeight: 700 }}>
+										{project}
+									</Box>
+								</Typography>
 							</Grid>
-							<Grid item>
-								<Person />
-								<Typography>Client: {client}</Typography>
+							<Grid item xs={12} md={6} sx={{ display: 'flex' }}>
+								<Person
+									sx={{
+										display: {
+											xs: 'none',
+											sm: 'block'
+										}
+									}}
+								/>
+								<Typography
+									variant='subtitle2'
+									sx={{
+										fontSize: {
+											md: '1rem'
+										},
+										ml: 1
+									}}>
+									Client:{' '}
+									<Box
+										component='span'
+										sx={{ fontSize: 'inherit', fontWeight: 700 }}>
+										{client}
+									</Box>
+								</Typography>
 							</Grid>
-							<Grid item>
-								<Code />
-								<Typography>Languages: {languages}</Typography>
+							<Grid item xs={12} md={6} sx={{ display: 'flex', mt: 1 }}>
+								<Code
+									sx={{
+										display: {
+											xs: 'none',
+											sm: 'block'
+										}
+									}}
+								/>
+								<Typography
+									variant='subtitle2'
+									sx={{
+										ml: 1,
+										fontSize: {
+											md: '1rem'
+										}
+									}}>
+									Languages:{' '}
+									<Box
+										component='span'
+										sx={{ fontSize: 'inherit', fontWeight: 700 }}>
+										{languages}
+									</Box>
+								</Typography>
 							</Grid>
-							<Grid item>
-								<Preview />
-								<Typography>Preview: {preview}</Typography>
+							<Grid item xs={12} md={6} sx={{ display: 'flex', mt: 1 }}>
+								<Preview
+									sx={{
+										display: {
+											xs: 'none',
+											sm: 'block'
+										}
+									}}
+								/>
+								<Typography
+									variant='subtitle2'
+									sx={{
+										ml: 1,
+										fontSize: {
+											md: '1rem'
+										}
+									}}>
+									Preview:{' '}
+									<Box
+										component='span'
+										sx={{ fontSize: 'inherit', fontWeight: 700 }}>
+										<Link
+											href='#'
+											color='inherit'
+											underline='none'
+											sx={{
+												'&:hover': {
+													color: 'red !important'
+												}
+											}}>
+											{preview}
+										</Link>
+									</Box>
+								</Typography>
 							</Grid>
 						</Grid>
-						<Typography>{body}</Typography>
-						<Box>
-							<img src={img} alt='' />
+						<Typography
+							variant='body2'
+							xs={{
+								md: {
+									my: 3
+								},
+								fontSize: {
+									md: '1rem'
+								}
+							}}>
+							{body}
+						</Typography>
+						<Box sx={{ borderRadius: 3, mt: 3 }}>
+							<img
+								src={img}
+								alt=''
+								style={{
+									display: 'block',
+									maxWidth: '100%',
+									borderRadius: '1.5rem',
+									objectFit: 'cover'
+								}}
+							/>
 						</Box>
 					</CardContent>
 				</Card>
