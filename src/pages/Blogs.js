@@ -1,20 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Typography, Stack, Modal } from '@mui/material';
 import { Masonry } from '@mui/lab';
 
-import { BlogCard, Footer } from '../components';
+import { BlogCard, Footer, BlogModalCard } from '../components';
 import {
-	bimage1,
-	bimage2,
-	bimage3,
-	bimage4,
-	bimage5,
-	bimage6
+	smallImage1,
+	smallImage2,
+	smallImage3,
+	smallImage4,
+	smallImage5,
+	smallImage6,
+	largeImage1,
+	largeImage2,
+	largeImage3,
+	largeImage4,
+	largeImage5,
+	largeImage6,
+	about
 } from '../assets/images';
 
-const blogsList = [
+const items = [
 	{
-		image: bimage1,
+		smallImage: smallImage1,
+		largeImage: largeImage1,
 		date: '17 April',
 		tag: 'Inspiration',
 		title: 'How to Own Your Audience by Creating an Email List.',
@@ -22,15 +30,17 @@ const blogsList = [
 		color: '#FCF5FF'
 	},
 	{
-		image: bimage2,
+		smallImage: smallImage2,
+		largeImage: largeImage2,
 		date: '10 April',
 		tag: 'Inspiration',
 		title: 'Everything You Need to Know About Web Accessibility.',
 		id: 'blog2',
-		color: '#EEFBFF'
+		color: '#FCF4FF'
 	},
 	{
-		image: bimage3,
+		smallImage: smallImage3,
+		largeImage: largeImage3,
 		date: '21 April',
 		tag: 'Web Design',
 		title: 'he window know to say beside youT',
@@ -38,7 +48,8 @@ const blogsList = [
 		color: '#FCF4FF'
 	},
 	{
-		image: bimage4,
+		smallImage: smallImage4,
+		largeImage: largeImage4,
 		date: '27 April',
 		tag: 'Inspiration',
 		title: 'Top 10 Toolkits for Deep Learning in 2021.',
@@ -46,7 +57,8 @@ const blogsList = [
 		color: '#FCF4FF'
 	},
 	{
-		image: bimage5,
+		smallImage: smallImage5,
+		largeImage: largeImage5,
 		date: '27 April',
 		tag: 'Inspiration',
 		title: 'How to Own Your Audience by Creating an Email List.',
@@ -54,7 +66,8 @@ const blogsList = [
 		color: '#FCF4FF'
 	},
 	{
-		image: bimage6,
+		smallImage: smallImage6,
+		largeImage: largeImage6,
 		date: '27 April',
 		tag: 'Inspiration',
 		title: 'Everything You Need to Know About Web Accessibility.',
@@ -63,7 +76,32 @@ const blogsList = [
 	}
 ];
 
+const loremText = {
+	pText1:
+		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum conseqr quo obcaecati rerum sit non. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum consequuntur quo obcaecati rerum sit non.',
+	pText2:
+		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum consetur quo obcaecati rerum sit non. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum consequuntur.',
+	pText3:
+		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum consequuntur quo obcaecati rerum sit non.',
+	pText4:
+		'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi nam ad, unde vel aut soluta atque consequatur. Omnis, debitis nihil?',
+	name: 'Rafia Ana',
+	time: 15
+};
+
 const Blogs = () => {
+	const [card, setCard] = useState({});
+  const [open, setOpen] = useState(false);
+  
+	const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  
+  const handleModalCard = id => {
+    const card = items.find(item => item.id === id);
+    setCard(card);
+    handleOpen();
+  };
+
 	return (
 		<Box
 			component='section'
@@ -123,24 +161,27 @@ const Blogs = () => {
 				</Box>
 
 				<Masonry columns={{ xs: 1, sm: 2, md: 3 }} spacing={3}>
-					{blogsList.map(({ image, title, date, tag, id, color }) => (
+					{items.map(({ smallImage, title, date, tag, id, color }) => (
 						<BlogCard
 							key={id}
 							{...{
-								image,
+								smallImage,
 								title,
 								id,
 								date,
 								tag,
-								color
+                color,
 							}}
+							handleModalCard={() => handleModalCard(id)}
 						/>
 					))}
 				</Masonry>
 			</Box>
-			{/* <Modal open={open} onClose={handleClose}>
-				<PortfolioModalCard {...card} handleClose={handleClose} ref={ref} />
-			</Modal> */}
+			<Modal open={open} onClose={handleClose}>
+				<Box>
+					<BlogModalCard {...card} {...loremText} about={about} handleClose={handleClose} />
+				</Box>
+			</Modal>
 			<Footer backgroundColor='white' borderRadius={20} />
 		</Box>
 	);

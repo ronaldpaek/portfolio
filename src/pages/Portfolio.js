@@ -1,4 +1,4 @@
-import React, { useState, createRef } from 'react';
+import React, { useState } from 'react';
 import { Box, Typography, Stack, Modal } from '@mui/material';
 import { Masonry } from '@mui/lab';
 
@@ -209,7 +209,6 @@ const Portfolio = () => {
 	const [filterChoice, setFilterChoice] = useState('all');
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
-	const ref = createRef();
 
 	const handleRenderCard = id => {
 		const card = projects.find(card => card.id === id);
@@ -322,7 +321,9 @@ const Portfolio = () => {
 				</Masonry>
 			</Box>
 			<Modal open={open} onClose={handleClose}>
-				<PortfolioModalCard {...card} handleClose={handleClose} ref={ref} />
+				<Box>
+					<PortfolioModalCard {...card} handleClose={handleClose}/>
+				</Box>
 			</Modal>
 			<Footer backgroundColor='white' borderRadius={20} />
 		</Box>

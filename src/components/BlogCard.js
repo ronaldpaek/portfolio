@@ -2,22 +2,21 @@ import React from 'react'
 import { Typography, Box } from '@mui/material';
 
 const BlogCard = ({
-  image,
+  smallImage,
   title,
-  subtitle,
   color,
   id,
-  handleRenderCard,
+  handleModalCard,
   date,
   tag
 }) => {
   return (
 		<Box p={3} sx={{ backgroundColor: color, borderRadius: 4 }}>
 			<img
-				src={image}
+				src={smallImage}
 				alt=''
 				style={{ borderRadius: 8, display: 'block', width: '100%' }}
-				onClick={() => handleRenderCard(id)}
+				onClick={() => handleModalCard(id)}
 			/>
 			<Typography>
 				{date} &#8226; {tag}{' '}
