@@ -4,7 +4,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Routes, Route } from 'react-router-dom';
 
 import { Header } from './components';
-import { Home, About, Resume, Portfolio, Blogs } from './pages';
+import { Home, About, Resume, Portfolio, Blogs, Contact } from './pages';
 
 function App() {
 	const [mode, setMode] = useState('light');
@@ -45,6 +45,7 @@ function App() {
 						<Route path='resume' element={<Resume />} />
 						<Route path='works' element={<Portfolio />} />
 						<Route path='blogs' element={<Blogs />} />
+						<Route path='contact' element={<Contact />} />
 					</Routes>
 				</Container>
 			</Box>
