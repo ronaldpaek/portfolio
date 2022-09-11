@@ -13,7 +13,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { FaBlogger } from 'react-icons/fa';
 import { RiContactsBookFill } from 'react-icons/ri';
 
-import { logo } from '../assets/images';
+import { logo } from '../assets';
 
 const navList = [
 	{ name: 'Home', to: '/', StartIcon: Home },

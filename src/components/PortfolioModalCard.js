@@ -1,6 +1,8 @@
 import React from 'react';
-import { Card, CardContent, Typography, Grid, Box, Link } from '@mui/material';
-import { Person, Feed, Code, Preview, Close } from '@mui/icons-material';
+import {Typography, Grid, Box, Link } from '@mui/material';
+import { Person, Feed, Code, Preview} from '@mui/icons-material';
+
+import { ModalWrapper } from '../hoc';
 
 const PortfolioModalCard = ({
 	title,
@@ -10,62 +12,9 @@ const PortfolioModalCard = ({
 	preview,
 	body,
 	img,
-	handleClose
 }) => {
 	return (
-		<Card
-			sx={{
-				position: 'absolute',
-				display: 'flex',
-				flexDirection: 'column',
-				top: '50%',
-				left: '50%',
-				transform: 'translate(-50%, -50%)',
-				maxHeight: {
-					xs: '80vh'
-				},
-				minWidth: {
-					lg: '800px'
-				},
-				width: {
-					xs: '100%',
-					sm: '84%',
-					md: '100%'
-				},
-				maxWidth: {
-					xs: '800px'
-				},
-				bgcolor: 'background.paper',
-				borderRadius: 3,
-				outline: 'none',
-				p: {
-					xs: 2,
-					md: 4
-				}
-			}}>
-			<Close
-				variant='contained'
-				onClick={handleClose}
-				sx={{
-					position: 'absolute',
-					right: 0,
-					top: 0,
-					backgroundColor: 'white',
-					borderRadius: '50%',
-					height: 25,
-					width: 25,
-					cursor: 'pointer'
-				}}></Close>
-			<CardContent
-				sx={{
-					padding: 0,
-					paddingRight: '10px',
-					'&:last-child': {
-						paddingBottom: 0
-					},
-					width: '100%',
-					overflowY: 'auto',
-				}}>
+		<>
 				<Typography
 					variant='h5'
 					component='h3'
@@ -216,9 +165,8 @@ const PortfolioModalCard = ({
 						}}
 					/>
 				</Box>
-			</CardContent>
-		</Card>
+		</>
 	);
 };
 
-export default PortfolioModalCard;
+export default ModalWrapper(PortfolioModalCard);

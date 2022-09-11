@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Typography, Avatar, Stack, Grid } from '@mui/material';
-import { PhoneIphone, Email, CalendarMonth } from '@mui/icons-material';
-import { IoLocationSharp } from 'react-icons/io5';
+import { PhoneIphone, Email, CalendarMonth, Place } from '@mui/icons-material';
 import Marquee from 'react-fast-marquee';
 
 import {
@@ -17,15 +16,19 @@ import {
 	brand2,
 	brand3,
 	brand4
-} from '../assets/images';
+} from '../assets';
+
 import { Footer } from '../components';
+import { urlFor, client } from '../client';
 
 const infoList = [
 	{ title: 'Phone', subtitle: '123 456 7890', icon: <PhoneIphone /> },
-	{ title: 'Location', subtitle: 'Hong kong china', icon: <IoLocationSharp /> },
+	{ title: 'Location', subtitle: 'Hong kong china', icon: <Place /> },
 	{ title: 'Email', subtitle: 'example@gmail.com', icon: <Email /> },
 	{ title: 'Birthday', subtitle: 'May 27, 1990', icon: <CalendarMonth /> }
 ];
+
+const icons = [PhoneIphone, Email, CalendarMonth, Place]; 
 
 const skillsList = [
 	{
@@ -80,6 +83,19 @@ const brands = [
 ];
 
 const About = () => {
+	const [abouts, setAbouts] = useState([]);
+	console.log(abouts)
+
+	useEffect(() => {
+		const query = `*[_type == 'abouts']`;
+
+		client.fetch(query)
+			.then((data) => {
+				console.log('hello')
+				setAbouts(data);
+			});
+	}, []);
+
 	return (
 		<Box
 			sx={{
@@ -189,19 +205,19 @@ const About = () => {
 							</Typography>
 						</Box>
 						<Grid container spacing={2}>
-							{infoList.map(({ title, subtitle, icon }, i) => (
+							{abouts.map(({ title, description, imgUrl }, i) => (
 								<Grid key={i} item xs={12} sm={6}>
 									<Stack direction='row'>
 										<Avatar
 											variant='rounded'
-											sx={{ marginRight: 1, backgroundColor: 'black' }}>
-											{icon}
-										</Avatar>
+											src={urlFor(imgUrl)}
+											alt=''
+											sx={{ marginRight: 1}} />
 										<Box>
 											<Typography variant='body2' component='h4' color='gray'>
 												{title}
 											</Typography>
-											<Typography>{subtitle}</Typography>
+											<Typography>{description}</Typography>
 										</Box>
 									</Stack>
 								</Grid>

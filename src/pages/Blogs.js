@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Typography, Stack, Modal } from '@mui/material';
-import { Masonry } from '@mui/lab';
+import { Box, Typography, Stack, Modal, Grid } from '@mui/material';
 
 import { BlogCard, Footer, BlogModalCard } from '../components';
 import {
@@ -17,7 +16,7 @@ import {
 	largeImage5,
 	largeImage6,
 	about
-} from '../assets/images';
+} from '../assets';
 
 const items = [
 	{
@@ -160,7 +159,7 @@ const Blogs = () => {
 						}}></Stack>
 				</Box>
 
-				<Masonry columns={{ xs: 1, sm: 2, md: 3 }} spacing={3}>
+				<Grid container spacing={2}>
 					{items.map(({ smallImage, title, date, tag, id, color }) => (
 						<BlogCard
 							key={id}
@@ -170,16 +169,21 @@ const Blogs = () => {
 								id,
 								date,
 								tag,
-                color,
+								color
 							}}
 							handleModalCard={() => handleModalCard(id)}
 						/>
 					))}
-				</Masonry>
+				</Grid>
 			</Box>
 			<Modal open={open} onClose={handleClose}>
 				<Box>
-					<BlogModalCard {...card} {...loremText} about={about} handleClose={handleClose} />
+					<BlogModalCard
+						{...card}
+						{...loremText}
+						about={about}
+						handleClose={handleClose}
+					/>
 				</Box>
 			</Modal>
 			<Footer backgroundColor='white' borderRadius={20} />

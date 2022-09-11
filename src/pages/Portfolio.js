@@ -21,7 +21,7 @@ import {
 	banner7,
 	banner8,
 	banner9
-} from '../assets/images';
+} from '../assets';
 import { Footer, PortfolioModalCard, PortfolioCard } from '../components';
 
 const navList = ['All', 'Video', 'Web Design', 'Logo', 'Graphic Design'];
@@ -228,7 +228,8 @@ const Portfolio = () => {
 				backgroundColor: 'palegoldenrod',
 				borderRadius: 5
 			}}>
-			<Box
+      <Box
+        mb={2.5}
 				sx={{
 					paddingInline: {
 						xs: 2,

@@ -3,7 +3,7 @@ import { Stack, Typography, Button, IconButton, Box } from '@mui/material';
 import { Twitter, LinkedIn, Download } from '@mui/icons-material';
 import { FaFacebookF, FaBasketballBall } from 'react-icons/fa';
 
-import { avatar } from '../assets/images';
+import { avatar } from '../assets';
 
 const Home = ({ name, title }) => {
 	return (
