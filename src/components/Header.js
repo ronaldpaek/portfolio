@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import { Box, Stack, Button, IconButton } from '@mui/material';
 import {
 	Home,
@@ -13,6 +13,18 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { FaBlogger } from 'react-icons/fa';
 import { RiContactsBookFill } from 'react-icons/ri';
 
+import {
+	StyledHeader,
+	StyledHeaderItem,
+	StyledHeaderImage,
+	StyledImageContainer,
+	StyledNavList,
+	StyledHeaderLink,
+	StyledNavButton,
+	StyledMobileMenuContainer,
+	StyledThemeMobileToggle,
+	StyledMenuToggle
+} from '../styles';
 import { logo } from '../assets';
 
 const navList = [
@@ -26,10 +38,53 @@ const navList = [
 
 const Header = ({ handleToggleTheme }) => {
 	return (
-		<>
-			<MobileNavBar handleToggleTheme={handleToggleTheme} />
-			<DesktopNavBar handleToggleTheme={handleToggleTheme} />
-		</>
+		<StyledHeader component='header'>
+			<StyledHeaderItem>
+				<StyledImageContainer>
+					<RouterLink to='/'>
+						<StyledHeaderImage component='img' src={logo} alt='logo' />
+					</RouterLink>
+				</StyledImageContainer>
+				<StyledMobileMenuContainer>
+					<StyledThemeMobileToggle>
+						<DarkMode />
+					</StyledThemeMobileToggle>
+					<StyledMenuToggle>
+						<MenuIcon />
+					</StyledMenuToggle>
+				</StyledMobileMenuContainer>
+				<Box
+					component='nav'
+					sx={{
+						display: {
+							xs: 'none',
+							md: 'block'
+						}
+					}}>
+					<StyledNavList component='ul'>
+						{navList.map(({ name, to, StartIcon }, i) => (
+							<Box key={i} component='li'>
+								<StyledHeaderLink component={RouterLink} to={to}>
+									<StyledNavButton
+										variant='contained'
+										startIcon={<StartIcon sx={{ fontSize: '1rem' }} />}>
+										{name}
+									</StyledNavButton>
+								</StyledHeaderLink>
+							</Box>
+						))}
+					</StyledNavList>
+				</Box>
+				<Box
+					component='nav'
+					sx={{
+						display: {
+							xs: 'block',
+							md: 'none'
+						}
+					}}></Box>
+			</StyledHeaderItem>
+		</StyledHeader>
 	);
 };
 
@@ -59,14 +114,14 @@ const MobileNavBar = ({ handleToggleTheme }) => {
 					py={2.5}
 					justifyContent='space-between'
 					alignItems='center'>
-					<Link to='/' onClick={handleClick}>
+					{/* <Link to='/' onClick={handleClick}>
 						<Box
 							component='img'
 							src={logo}
 							alt='logo'
 							style={{ maxWidth: '80%' }}
 						/>
-					</Link>
+					</Link> */}
 					<Stack direction='row'>
 						<IconButton
 							onClick={handleToggleTheme}
@@ -95,7 +150,7 @@ const MobileNavBar = ({ handleToggleTheme }) => {
 						}}>
 						{navList.map(({ name, to, StartIcon }, i) => (
 							<Box component='li' key={i} sx={{ listStyle: 'none' }}>
-								<Link
+								{/* <Link
 									to={to}
 									onClick={handleClick}
 									style={{
@@ -110,7 +165,13 @@ const MobileNavBar = ({ handleToggleTheme }) => {
 										{<StartIcon />}
 									</span>
 									{name}
-								</Link>
+								</Link> */}
+								{/* <StyledHeaderLink to={to} onClick={handleClick}> */}
+									<span style={{ fontSize: '1.25rem', marginRight: '.5rem' }}>
+										{<StartIcon />}
+									</span>
+									{name}
+								{/* </StyledHeaderLink> */}
 							</Box>
 						))}
 					</Stack>
@@ -138,14 +199,14 @@ const DesktopNavBar = ({ handleToggleTheme }) => {
 			</Box>
 			<Stack direction='row' spacing={2} component='nav'>
 				{navList.map(({ name, to, StartIcon }, i) => (
-					<Link key={i} to={to} style={{ textDecoration: 'none' }}>
+					{/* <Link key={i} to={to} style={{ textDecoration: 'none' }}>
 						<Button
 							variant='contained'
 							sx={{ height: 44, textTransform: 'capitalize' }}
 							startIcon={<StartIcon style={{ fontSize: '20px' }} />}>
 							{name}
 						</Button>
-					</Link>
+					</Link> */}
 				))}
 				<Button
 					variant='contained'

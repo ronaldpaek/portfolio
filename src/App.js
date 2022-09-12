@@ -21,6 +21,12 @@ function App() {
 		},
 		palette: {
 			mode: mode
+		}, 
+		typography: {
+			fontFamily: 'Roboto Slab, serif',
+			h2: {
+				fontSize: '2.5rem',
+			}
 		}
 	});
 
@@ -30,11 +36,10 @@ function App() {
 
 	return (
 		<ThemeProvider theme={theme}>
-			<CssBaseline enableColorScheme />
+			<CssBaseline />
 			<Box sx={{ minHeight: '100vh', bgcolor: 'lightgray' }}>
 				<Container
-					sx={{ maxWidth: { lg: 1280, md: 992 }, margin: 'auto' }}
-					disableGutters>
+					sx={{ maxWidth: { lg: 1280, md: 992 } }} disableGutters >
 					<Header handleToggleTheme={handleToggleTheme} />
 					<Routes>
 						<Route
