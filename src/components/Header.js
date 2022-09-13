@@ -67,7 +67,8 @@ const Header = ({ handleToggleTheme }) => {
 								<StyledHeaderLink component={RouterLink} to={to}>
 									<StyledNavButton
 										variant='contained'
-										startIcon={<StartIcon sx={{ fontSize: '1rem' }} />}>
+										size='small'
+										startIcon={<StartIcon  size='large' />}>
 										{name}
 									</StyledNavButton>
 								</StyledHeaderLink>

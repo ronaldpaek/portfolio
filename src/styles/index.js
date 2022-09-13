@@ -65,7 +65,7 @@ export const StyledHeaderLink = styled(Link)(({ theme }) => ({
 }));
 
 export const StyledNavButton = styled(Button)(({ theme }) => ({
-	textTransform: 'capitalize',
+  textTransform: 'capitalize',
 	marginInline: theme.spacing(1.25),
 	paddingInline: 0,
 	paddingBlock: theme.spacing(1.25),
