@@ -30,12 +30,18 @@ import banner6 from './banner6.jpeg';
 import banner7 from './banner7.jpeg';
 import banner8 from './banner8.jpeg';
 import banner9 from './banner8.jpeg';
-import bimage1 from './bimage1.jpeg';
-import bimage2 from './bimage2.jpeg';
-import bimage3 from './bimage3.jpeg';
-import bimage4 from './bimage4.jpeg';
-import bimage5 from './bimage5.jpeg';
-import bimage6 from './bimage6.jpeg';
+import smallImage1 from './bimage1.jpeg';
+import smallImage2 from './bimage2.jpeg';
+import smallImage3 from './bimage3.jpeg';
+import smallImage4 from './bimage4.jpeg';
+import smallImage5 from './bimage5.jpeg';
+import smallImage6 from './bimage6.jpeg';
+import largeImage1 from './blogsLarge1.jpeg';
+import largeImage2 from './blogsLarge2.jpeg';
+import largeImage3 from './blogsLarge3.jpeg';
+import largeImage4 from './blogsLarge4.jpeg';
+import largeImage5 from './blogsLarge5.jpeg';
+import largeImage6 from './blogsLarge6.jpeg';
 
 export {
 	about,
@@ -70,10 +76,16 @@ export {
 	banner7,
 	banner8,
 	banner9,
-	bimage1,
-	bimage2,
-	bimage3,
-	bimage4,
-	bimage5,
-	bimage6,
+	smallImage1,
+	smallImage2,
+	smallImage3,
+	smallImage4,
+	smallImage5,
+	smallImage6,
+	largeImage1,
+	largeImage2,
+	largeImage3,
+	largeImage4,
+	largeImage5,
+	largeImage6,
 };

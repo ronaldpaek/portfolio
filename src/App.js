@@ -4,7 +4,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Routes, Route } from 'react-router-dom';
 
 import { Header } from './components';
-import { Home, About, Resume, Portfolio, Blogs } from './pages';
+import { Home, About, Resume, Portfolio, Blogs, Contact } from './pages';
 
 function App() {
 	const [mode, setMode] = useState('light');
@@ -21,6 +21,12 @@ function App() {
 		},
 		palette: {
 			mode: mode
+		}, 
+		typography: {
+			fontFamily: 'Roboto Slab, serif',
+			h2: {
+				fontSize: '2.5rem',
+			}
 		}
 	});
 
@@ -30,11 +36,10 @@ function App() {
 
 	return (
 		<ThemeProvider theme={theme}>
-			<CssBaseline enableColorScheme />
+			<CssBaseline />
 			<Box sx={{ minHeight: '100vh', bgcolor: 'lightgray' }}>
 				<Container
-					sx={{ maxWidth: { lg: 1280, md: 992 }, margin: 'auto' }}
-					disableGutters>
+					sx={{ maxWidth: { lg: 1280, md: 992 } }} disableGutters >
 					<Header handleToggleTheme={handleToggleTheme} />
 					<Routes>
 						<Route
@@ -45,6 +50,7 @@ function App() {
 						<Route path='resume' element={<Resume />} />
 						<Route path='works' element={<Portfolio />} />
 						<Route path='blogs' element={<Blogs />} />
+						<Route path='contact' element={<Contact />} />
 					</Routes>
 				</Container>
 			</Box>

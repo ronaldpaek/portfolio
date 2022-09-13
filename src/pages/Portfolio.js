@@ -1,4 +1,4 @@
-import React, { useState, createRef } from 'react';
+import React, { useState } from 'react';
 import { Box, Typography, Stack, Modal } from '@mui/material';
 import { Masonry } from '@mui/lab';
 
@@ -21,7 +21,7 @@ import {
 	banner7,
 	banner8,
 	banner9
-} from '../assets/images';
+} from '../assets';
 import { Footer, PortfolioModalCard, PortfolioCard } from '../components';
 
 const navList = ['All', 'Video', 'Web Design', 'Logo', 'Graphic Design'];
@@ -209,7 +209,6 @@ const Portfolio = () => {
 	const [filterChoice, setFilterChoice] = useState('all');
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
-	const ref = createRef();
 
 	const handleRenderCard = id => {
 		const card = projects.find(card => card.id === id);
@@ -229,7 +228,8 @@ const Portfolio = () => {
 				backgroundColor: 'palegoldenrod',
 				borderRadius: 5
 			}}>
-			<Box
+      <Box
+        mb={2.5}
 				sx={{
 					paddingInline: {
 						xs: 2,
@@ -322,7 +322,9 @@ const Portfolio = () => {
 				</Masonry>
 			</Box>
 			<Modal open={open} onClose={handleClose}>
-				<PortfolioModalCard {...card} handleClose={handleClose} ref={ref} />
+				<Box>
+					<PortfolioModalCard {...card} handleClose={handleClose}/>
+				</Box>
 			</Modal>
 			<Footer backgroundColor='white' borderRadius={20} />
 		</Box>
