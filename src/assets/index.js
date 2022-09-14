@@ -42,6 +42,7 @@ import largeImage3 from './blogsLarge3.jpeg';
 import largeImage4 from './blogsLarge4.jpeg';
 import largeImage5 from './blogsLarge5.jpeg';
 import largeImage6 from './blogsLarge6.jpeg';
+import bg from './bg.jpeg';
 
 export {
 	about,
@@ -88,4 +89,5 @@ export {
 	largeImage4,
 	largeImage5,
 	largeImage6,
+	bg
 };

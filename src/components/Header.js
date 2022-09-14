@@ -1,222 +1,117 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Box, Stack, Button, IconButton } from '@mui/material';
-import {
-	Home,
-	Person,
-	Description,
-	BusinessCenter,
-	DarkMode,
-	Clear
-} from '@mui/icons-material';
+import { useTheme } from '@mui/material/styles';
+import { Box, Icon } from '@mui/material';
+import { client } from '../client';
+import { DarkMode, LightMode } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { FaBlogger } from 'react-icons/fa';
-import { RiContactsBookFill } from 'react-icons/ri';
 
 import {
 	StyledHeader,
-	StyledHeaderItem,
+	StyledHeaderLogoContainer,
+	StyledHeaderLogoLink,
 	StyledHeaderImage,
-	StyledImageContainer,
+	StyledHeaderLinkAndMobileContainer,
 	StyledNavList,
 	StyledHeaderLink,
-	StyledNavButton,
+	StyledMobileNavList,
+	StyledThemeModeButton,
 	StyledMobileMenuContainer,
 	StyledThemeMobileToggle,
 	StyledMenuToggle
 } from '../styles';
 import { logo } from '../assets';
 
-const navList = [
-	{ name: 'Home', to: '/', StartIcon: Home },
-	{ name: 'About', to: '/about', StartIcon: Person },
-	{ name: 'Resume', to: '/resume', StartIcon: Description },
-	{ name: 'Works', to: '/works', StartIcon: BusinessCenter },
-	{ name: 'Blogs', to: '/blogs', StartIcon: FaBlogger },
-	{ name: 'Contact', to: '/contact', StartIcon: RiContactsBookFill }
-];
-
 const Header = ({ handleToggleTheme }) => {
+	const theme = useTheme();
+	const [open, setOpen] = useState(false);
+	const [links, setLinks] = useState([]);
+
+	useEffect(() => {
+		const query = `*[_type == 'links'] | order(_createdAt asc)`;
+
+		client.fetch(query).then(data => {
+			console.log(data);
+			setLinks(data);
+		});
+	}, []);
 	return (
 		<StyledHeader component='header'>
-			<StyledHeaderItem>
-				<StyledImageContainer>
-					<RouterLink to='/'>
+			<StyledHeaderLogoContainer>
+				<StyledHeaderLinkAndMobileContainer>
+					<StyledHeaderLogoLink
+						component={RouterLink}
+						to='/'
+						onClick={() => setOpen(prev => !prev)}>
 						<StyledHeaderImage component='img' src={logo} alt='logo' />
-					</RouterLink>
-				</StyledImageContainer>
-				<StyledMobileMenuContainer>
-					<StyledThemeMobileToggle>
-						<DarkMode />
-					</StyledThemeMobileToggle>
-					<StyledMenuToggle>
-						<MenuIcon />
-					</StyledMenuToggle>
-				</StyledMobileMenuContainer>
-				<Box
-					component='nav'
-					sx={{
-						display: {
-							xs: 'none',
-							md: 'block'
-						}
-					}}>
-					<StyledNavList component='ul'>
-						{navList.map(({ name, to, StartIcon }, i) => (
-							<Box key={i} component='li'>
-								<StyledHeaderLink component={RouterLink} to={to}>
-									<StyledNavButton
-										variant='contained'
-										size='small'
-										startIcon={<StartIcon  size='large' />}>
-										{name}
-									</StyledNavButton>
-								</StyledHeaderLink>
-							</Box>
-						))}
-					</StyledNavList>
-				</Box>
-				<Box
-					component='nav'
-					sx={{
-						display: {
-							xs: 'block',
-							md: 'none'
-						}
-					}}></Box>
-			</StyledHeaderItem>
+					</StyledHeaderLogoLink>
+					<StyledMobileMenuContainer>
+						<StyledThemeMobileToggle onClick={handleToggleTheme}>
+							{theme.palette.mode === 'dark' ? (
+								<LightMode sx={{ fontSize: 20 }} />
+							) : (
+								<DarkMode sx={{ fontSize: 20 }} />
+							)}
+						</StyledThemeMobileToggle>
+						<StyledMenuToggle onClick={() => setOpen(prev => !prev)}>
+							<MenuIcon sx={{ fontSize: 20 }} />
+						</StyledMenuToggle>
+					</StyledMobileMenuContainer>
+				</StyledHeaderLinkAndMobileContainer>
+			</StyledHeaderLogoContainer>
+			<Box
+				component='nav'
+				sx={{
+					display: {
+						xs: 'none',
+						md: 'block'
+					}
+				}}>
+				<StyledNavList component='ul'>
+					{links.map(({ title, path, icon }, i) => (
+						<Box key={i} component='li'>
+							<StyledHeaderLink component={RouterLink} to={path}>
+								<Icon sx={{ fontSize: 20, marginRight: 1 }}>{icon}</Icon>
+								{title}
+							</StyledHeaderLink>
+						</Box>
+					))}
+					<Box component='li'>
+						<StyledThemeModeButton onClick={handleToggleTheme}>
+							{theme.palette.mode === 'dark' ? (
+								<DarkMode sx={{ fontSize: 20 }} />
+							) : (
+								<LightMode sx={{ fontSize: 20 }} />
+							)}
+						</StyledThemeModeButton>
+					</Box>
+				</StyledNavList>
+			</Box>
+			<Box
+				component='nav'
+				sx={{
+					display: {
+						xs: 'block',
+						md: 'none'
+					}
+				}}>
+				<StyledMobileNavList
+					component='ul'
+					sx={{ display: open ? 'block' : 'none' }}>
+					{links.map(({ title, path, icon }, i) => (
+						<Box key={i} component='li' onClick={() => setOpen(prev => !prev)}>
+							<StyledHeaderLink
+								component={RouterLink}
+								to={path}
+								sx={{ marginInline: 0, borderRadius: 0 }}>
+								<Icon sx={{ fontSize: 20, marginRight: 1 }}>{icon}</Icon>
+								{title}
+							</StyledHeaderLink>
+						</Box>
+					))}
+				</StyledMobileNavList>
+			</Box>
 		</StyledHeader>
-	);
-};
-
-const MobileNavBar = ({ handleToggleTheme }) => {
-	const [toggle, setToggle] = useState(false);
-
-	const handleClick = () => {
-		setToggle(prevToggle => !prevToggle);
-	};
-
-	return (
-		<Box
-			component='header'
-			sx={{
-				position: 'fixed',
-				left: 0,
-				right: 0,
-				backgroundColor: 'hsl(45, 29%, 90%)',
-				display: {
-					xs: 'block',
-					md: 'none'
-				}
-			}}>
-			<Box px={2} direction='row'>
-				<Stack
-					direction='row'
-					py={2.5}
-					justifyContent='space-between'
-					alignItems='center'>
-					{/* <Link to='/' onClick={handleClick}>
-						<Box
-							component='img'
-							src={logo}
-							alt='logo'
-							style={{ maxWidth: '80%' }}
-						/>
-					</Link> */}
-					<Stack direction='row'>
-						<IconButton
-							onClick={handleToggleTheme}
-							sx={{ bgcolor: 'white', marginLeft: 2 }}>
-							<DarkMode />
-						</IconButton>
-						<IconButton
-							sx={{ bgcolor: 'white', marginLeft: 2 }}
-							onClick={handleClick}>
-							{toggle ? <Clear /> : <MenuIcon />}
-						</IconButton>
-					</Stack>
-				</Stack>
-			</Box>
-			{toggle && (
-				<Box
-					component='nav'
-					sx={{ position: 'absolute', top: 64, left: 0, right: 0 }}>
-					<Stack
-						component='ul'
-						sx={{
-							bgcolor: 'white',
-							borderBottomLeftRadius: 20,
-							borderBottomRightRadius: 20,
-							padding: 0
-						}}>
-						{navList.map(({ name, to, StartIcon }, i) => (
-							<Box component='li' key={i} sx={{ listStyle: 'none' }}>
-								{/* <Link
-									to={to}
-									onClick={handleClick}
-									style={{
-										textDecoration: 'none',
-										display: 'flex',
-										alignItems: 'center',
-										color: 'black',
-										paddingBlock: '.65rem',
-										paddingLeft: '1rem'
-									}}>
-									<span style={{ fontSize: '1.25rem', marginRight: '.5rem' }}>
-										{<StartIcon />}
-									</span>
-									{name}
-								</Link> */}
-								{/* <StyledHeaderLink to={to} onClick={handleClick}> */}
-									<span style={{ fontSize: '1.25rem', marginRight: '.5rem' }}>
-										{<StartIcon />}
-									</span>
-									{name}
-								{/* </StyledHeaderLink> */}
-							</Box>
-						))}
-					</Stack>
-				</Box>
-			)}
-		</Box>
-	);
-};
-
-const DesktopNavBar = ({ handleToggleTheme }) => {
-	return (
-		<Stack
-			component='header'
-			direction='row'
-			justifyContent='space-between'
-			paddingBlock={6}
-			sx={{
-				display: {
-					xs: 'none',
-					md: 'flex'
-				}
-			}}>
-			<Box>
-				<img src={logo} alt='logo' />
-			</Box>
-			<Stack direction='row' spacing={2} component='nav'>
-				{navList.map(({ name, to, StartIcon }, i) => (
-					{/* <Link key={i} to={to} style={{ textDecoration: 'none' }}>
-						<Button
-							variant='contained'
-							sx={{ height: 44, textTransform: 'capitalize' }}
-							startIcon={<StartIcon style={{ fontSize: '20px' }} />}>
-							{name}
-						</Button>
-					</Link> */}
-				))}
-				<Button
-					variant='contained'
-					onClick={handleToggleTheme}
-					sx={{ borderRadius: 100, minWidth: 40, padding: 0 }}>
-					<DarkMode />
-				</Button>
-			</Stack>
-		</Stack>
 	);
 };
 
