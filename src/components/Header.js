@@ -77,9 +77,9 @@ const Header = ({ handleToggleTheme }) => {
 					<Box component='li'>
 						<StyledThemeModeButton onClick={handleToggleTheme}>
 							{theme.palette.mode === 'dark' ? (
-								<DarkMode sx={{ fontSize: 20 }} />
-							) : (
 								<LightMode sx={{ fontSize: 20 }} />
+							) : (
+								<DarkMode sx={{ fontSize: 20 }} />
 							)}
 						</StyledThemeModeButton>
 					</Box>

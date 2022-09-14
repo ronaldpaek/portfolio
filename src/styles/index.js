@@ -8,6 +8,10 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+/**
+ * App 
+ */
+
 export const StyledRootContainer = styled(Box)(({ theme }) => ({
 	minHeight: '100vh',
 	width: '100%',
@@ -18,6 +22,10 @@ export const StyledRootContainer = styled(Box)(({ theme }) => ({
 		paddingBottom: theme.spacing(8)
 	}
 }));
+
+/**
+ * Header
+ */
 
 export const StyledHeader = styled(Box)(({ theme }) => ({
 	top: 0,
@@ -188,3 +196,8 @@ export const StyledMobileNavList = styled(Box)(({ theme }) => ({
   top: theme.spacing(10),
   left: 0
 }));
+
+/**
+ * Home 
+ */
+
