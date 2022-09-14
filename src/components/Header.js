@@ -3,8 +3,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
 import { Box, Icon } from '@mui/material';
 import { client } from '../client';
-import { DarkMode, LightMode } from '@mui/icons-material';
-import MenuIcon from '@mui/icons-material/Menu';
+import { DarkMode, LightMode, Menu } from '@mui/icons-material';
 
 import {
 	StyledHeader,
@@ -22,19 +21,19 @@ import {
 } from '../styles';
 import { logo } from '../assets';
 
+const links = [
+	{ title: 'Home', path: '/', icon: 'home' },
+	{ title: 'About', path: '/about', icon: 'personoutline' },
+	{ title: 'Resume', path: '/resume', icon: 'descriptionoutlined' },
+	{ title: 'Works', path: '/works', icon: 'businesscenter' },
+	{ title: 'Blogs', path: '/blogs', icon: 'newspaper' },
+	{ title: 'Contact', path: '/contact', icon: 'call' }
+];
+
 const Header = ({ handleToggleTheme }) => {
 	const theme = useTheme();
 	const [open, setOpen] = useState(false);
-	const [links, setLinks] = useState([]);
 
-	useEffect(() => {
-		const query = `*[_type == 'links'] | order(_createdAt asc)`;
-
-		client.fetch(query).then(data => {
-			console.log(data);
-			setLinks(data);
-		});
-	}, []);
 	return (
 		<StyledHeader component='header'>
 			<StyledHeaderLogoContainer>
@@ -54,7 +53,7 @@ const Header = ({ handleToggleTheme }) => {
 							)}
 						</StyledThemeMobileToggle>
 						<StyledMenuToggle onClick={() => setOpen(prev => !prev)}>
-							<MenuIcon sx={{ fontSize: 20 }} />
+							<Menu sx={{ fontSize: 20 }} />
 						</StyledMenuToggle>
 					</StyledMobileMenuContainer>
 				</StyledHeaderLinkAndMobileContainer>
@@ -103,7 +102,7 @@ const Header = ({ handleToggleTheme }) => {
 							<StyledHeaderLink
 								component={RouterLink}
 								to={path}
-								sx={{ marginInline: 0, borderRadius: 0 }}>
+								sx={{ marginInline: 0, borderRadius: 0, paddingLeft: 2 }}>
 								<Icon sx={{ fontSize: 20, marginRight: 1 }}>{icon}</Icon>
 								{title}
 							</StyledHeaderLink>
