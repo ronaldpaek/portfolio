@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Container, Box, CssBaseline } from '@mui/material';
+import { Container, CssBaseline } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Routes, Route } from 'react-router-dom';
 
 import { Header } from './components';
 import { Home, About, Resume, Portfolio, Blogs, Contact } from './pages';
+import { StyledRootContainer } from './styles';
+import { bg } from './assets';
 
 function App() {
 	const [mode, setMode] = useState('light');
@@ -23,10 +25,10 @@ function App() {
 			mode: mode
 		}, 
 		typography: {
-			fontFamily: 'Roboto Slab, serif',
+			fontFamily: 'Poppins, sans-serif',
 			h2: {
 				fontSize: '2.5rem',
-			}
+			},
 		}
 	});
 
@@ -37,9 +39,11 @@ function App() {
 	return (
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
-			<Box sx={{ minHeight: '100vh', bgcolor: 'lightgray' }}>
-				<Container
-					sx={{ maxWidth: { lg: 1280, md: 992 } }} disableGutters >
+			<StyledRootContainer
+				sx={{
+					backgroundImage: `url(${bg})`,
+				}}>
+				<Container sx={{ maxWidth: { lg: 1280, md: 992 } }} disableGutters>
 					<Header handleToggleTheme={handleToggleTheme} />
 					<Routes>
 						<Route
@@ -53,7 +57,7 @@ function App() {
 						<Route path='contact' element={<Contact />} />
 					</Routes>
 				</Container>
-			</Box>
+			</StyledRootContainer>
 		</ThemeProvider>
 	);
 }
