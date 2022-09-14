@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
 import { Box, Icon } from '@mui/material';
-import { client } from '../client';
 import { DarkMode, LightMode, Menu } from '@mui/icons-material';
 
 import {
