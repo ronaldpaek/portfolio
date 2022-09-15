@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stack, SvgIcon, Box } from '@mui/material';
+import { Stack, SvgIcon, Box, Link } from '@mui/material';
 
 const links = [
 	{
@@ -28,26 +28,28 @@ const SocialMediaLinks = () => {
 	return (
 		<Stack direction='row' spacing={1.5}>
 			{links.map(({ pathData }, i) => (
-				<Box
-					key={i}
-					component='span'
-					sx={{
-						display: 'flex',
-						height: theme => theme.spacing(5),
-						width: theme => theme.spacing(5),
-						alignItems: 'center',
-						justifyContent: 'center',
-						bgcolor: 'rgb(243 246 246)',
-						borderRadius: 2
-					}}>
-					<SvgIcon
+				<Link href='#'>
+					<Box
+						key={i}
+						component='span'
 						sx={{
-							borderRadius: 2,
-							color: '#3B83EC'
+							display: 'flex',
+							height: theme => theme.spacing(5),
+							width: theme => theme.spacing(5),
+							alignItems: 'center',
+							justifyContent: 'center',
+							bgcolor: 'rgb(243 246 246)',
+							borderRadius: 2
 						}}>
-						<path d={pathData} />
-					</SvgIcon>
-				</Box>
+						<SvgIcon
+							sx={{
+								borderRadius: 2,
+								color: '#3B83EC'
+							}}>
+							<path d={pathData} />
+						</SvgIcon>
+					</Box>
+				</Link>
 			))}
 		</Stack>
 	);

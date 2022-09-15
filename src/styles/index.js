@@ -166,21 +166,8 @@ export const StyledThemeModeButton = styled(IconButton)(({ theme }) => ({
 	backgroundColor: theme.palette.common.white
 }));
 
-export const StyledSection = styled(Box)(({ theme }) => ({
-	bgcolor: theme.palette.primary,
-	[theme.breakpoints.up('md')]: {
-		borderRadius: theme.spacing(4)
-	}
-}));
 
-export const StyledSectionContainer = styled(Container)(({ theme }) => ({
-	[theme.breakpoints.down('md')]: {
-		paddingInline: theme.spacing(5)
-	},
-	[theme.breakpoints.up('md')]: {
-		paddingInline: theme.spacing(10)
-	}
-}));
+
 
 export const StyledMobileNavList = styled(Box)(({ theme }) => ({
   listStyle: 'none',
