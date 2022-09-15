@@ -28,7 +28,7 @@ const SocialMediaLinks = () => {
 	return (
 		<Stack direction='row' spacing={1.5}>
 			{links.map(({ pathData }, i) => (
-				<Link href='#'>
+				<Link key={i} href='#'>
 					<Box
 						key={i}
 						component='span'
@@ -39,12 +39,15 @@ const SocialMediaLinks = () => {
 							alignItems: 'center',
 							justifyContent: 'center',
 							bgcolor: 'rgb(243 246 246)',
-							borderRadius: 2
+							borderRadius: 2,
+							'&:hover': {
+								backgroundImage: 'linear-gradient(to right, #DD2476, #FA5252)',
+							}
 						}}>
 						<SvgIcon
 							sx={{
 								borderRadius: 2,
-								color: '#3B83EC'
+								color: '#3B83EC',
 							}}>
 							<path d={pathData} />
 						</SvgIcon>

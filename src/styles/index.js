@@ -9,7 +9,7 @@ import {
 import { styled } from '@mui/material/styles';
 
 /**
- * App 
+ * App
  */
 
 export const StyledRootContainer = styled(Box)(({ theme }) => ({
@@ -36,7 +36,7 @@ export const StyledHeader = styled(Box)(({ theme }) => ({
 	alignItems: 'center',
 	zIndex: 999,
 	[theme.breakpoints.down('md')]: {
-		position: 'fixed',
+		position: 'fixed'
 	},
 	[theme.breakpoints.up('md')]: {
 		position: 'static'
@@ -64,8 +64,7 @@ export const StyledHeaderLinkAndMobileContainer = styled(Box)(({ theme }) => ({
 	}
 }));
 
-export const StyledHeaderLogoLink = styled(Link)(({ theme }) => ({
-}));
+export const StyledHeaderLogoLink = styled(Link)(({ theme }) => ({}));
 
 export const StyledHeaderImage = styled(Box)(({ theme }) => ({
 	maxWidth: '100%',
@@ -99,11 +98,9 @@ export const StyledImageLink = styled(Box)(({ theme }) => ({
 export const StyledHeaderLink = styled(Link)(({ theme }) => ({
 	textDecoration: 'none',
 	display: 'flex',
-  alignItems: 'center',
-  color: theme.palette.grey,
-  fontSize: theme.spacing(1.75),
-  fontWeight: 600,
-	backgroundColor: theme.palette.common.white,
+	alignItems: 'center',
+	fontSize: theme.spacing(1.75),
+	fontWeight: 600,
 	borderRadius: theme.spacing(0.75),
 	marginInline: theme.spacing(1.25),
 	paddingInline: 0,
@@ -119,8 +116,6 @@ export const StyledHeaderLink = styled(Link)(({ theme }) => ({
 export const StyledNavSpan = styled(Box)(({ theme }) => ({
 	textTransform: 'capitalize'
 }));
-
-export const StyledSvgIcon = styled(SvgIcon)(({ theme }, props) => ({}));
 
 export const StyledMobileMenuContainer = styled(Box)(({ theme }) => ({
 	display: 'flex',
@@ -162,29 +157,24 @@ export const StyledThemeModeButton = styled(IconButton)(({ theme }) => ({
 	justifyContent: 'center',
 	height: theme.spacing(5.5),
 	width: theme.spacing(5.5),
-	marginLeft: theme.spacing(1),
-	backgroundColor: theme.palette.common.white
+	marginLeft: theme.spacing(1)
 }));
 
-
-
-
 export const StyledMobileNavList = styled(Box)(({ theme }) => ({
-  listStyle: 'none',
-  padding: 0,
-  margin: 0,
-  overflow: 'hidden',
-  boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
-  borderBottomLeftRadius: theme.spacing(2.5),
-  borderBottomRightRadius: theme.spacing(2.5),
-  width: '100%',
-  display: 'block',
-  position: 'absolute',
-  top: theme.spacing(10),
-  left: 0
+	listStyle: 'none',
+	padding: 0,
+	margin: 0,
+	overflow: 'hidden',
+	boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
+	borderBottomLeftRadius: theme.spacing(2.5),
+	borderBottomRightRadius: theme.spacing(2.5),
+	width: '100%',
+	display: 'block',
+	position: 'absolute',
+	top: theme.spacing(10),
+	left: 0
 }));
 
 /**
- * Home 
+ * Home
  */
-

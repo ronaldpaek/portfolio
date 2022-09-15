@@ -6,7 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Header } from './components';
 import { Home, About, Resume, Portfolio, Blogs, Contact } from './pages';
 import { StyledRootContainer } from './styles';
-import { bg } from './assets';
+import { bg, bgDark } from './assets';
 
 function App() {
 	const [mode, setMode] = useState('light');
@@ -22,13 +22,32 @@ function App() {
 			}
 		},
 		palette: {
-			mode: mode
-		}, 
-		typography: {
-			fontFamily: 'Poppins, sans-serif',
-			h2: {
-				fontSize: '2.5rem',
+			mode,
+			primary: {
+				main: mode === 'light' ? '#44566C' : '#A6A6A6'
+			}
+		},
+		components: {
+			MuiLink: {
+				styleOverrides: {
+					root: {
+						backgroundColor: mode === 'light' ? '#FFF' : '#212425',
+					}
+				}
 			},
+			MuiButtonBase: {
+				styleOverrides: {
+					root: {
+						backgroundColor: mode === 'light' ? '#FFF' : 'rgb(59, 64, 65)',
+						'&:hover': {
+							backgroundImage: 'linear-gradient(to right, #DD2476, #FA5252)'
+						}
+					}
+				}
+			}
+		},
+		typography: {
+			fontFamily: 'Poppins, sans-serif'
 		}
 	});
 
@@ -41,7 +60,7 @@ function App() {
 			<CssBaseline />
 			<StyledRootContainer
 				sx={{
-					backgroundImage: `url(${bg})`,
+					backgroundImage: `url(${mode === 'light' ? bg : bgDark})`
 				}}>
 				<Container sx={{ maxWidth: { lg: 1280, md: 992 } }} disableGutters>
 					<Header handleToggleTheme={handleToggleTheme} />

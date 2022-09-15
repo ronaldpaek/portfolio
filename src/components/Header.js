@@ -38,6 +38,7 @@ const Header = ({ handleToggleTheme }) => {
 			<StyledHeaderLogoContainer>
 				<StyledHeaderLinkAndMobileContainer>
 					<StyledHeaderLogoLink
+						sx={{backgroundColor: 'transparent'}}
 						component={RouterLink}
 						to='/'
 						onClick={() => setOpen(prev => !prev)}>
@@ -48,7 +49,7 @@ const Header = ({ handleToggleTheme }) => {
 							{theme.palette.mode === 'dark' ? (
 								<LightMode sx={{ fontSize: 20 }} />
 							) : (
-								<DarkMode sx={{ fontSize: 20 }} />
+								<DarkMode sx={{ fontSize: 20, fill: 'black' }} />
 							)}
 						</StyledThemeMobileToggle>
 						<StyledMenuToggle onClick={() => setOpen(prev => !prev)}>
@@ -68,7 +69,15 @@ const Header = ({ handleToggleTheme }) => {
 				<StyledNavList component='ul'>
 					{links.map(({ title, path, icon }, i) => (
 						<Box key={i} component='li'>
-							<StyledHeaderLink component={RouterLink} to={path}>
+							<StyledHeaderLink
+								component={RouterLink}
+								to={path}
+								sx={{
+									'&:hover': {
+										backgroundImage:
+											'linear-gradient(to right, #DD2476, #FA5252)',
+									}
+								}}>
 								<Icon sx={{ fontSize: 20, marginRight: 1 }}>{icon}</Icon>
 								{title}
 							</StyledHeaderLink>
@@ -79,7 +88,7 @@ const Header = ({ handleToggleTheme }) => {
 							{theme.palette.mode === 'dark' ? (
 								<LightMode sx={{ fontSize: 20 }} />
 							) : (
-								<DarkMode sx={{ fontSize: 20 }} />
+								<DarkMode sx={{ fontSize: 20, fill: 'black' }} />
 							)}
 						</StyledThemeModeButton>
 					</Box>
@@ -101,7 +110,14 @@ const Header = ({ handleToggleTheme }) => {
 							<StyledHeaderLink
 								component={RouterLink}
 								to={path}
-								sx={{ marginInline: 0, borderRadius: 0, paddingLeft: 2 }}>
+								sx={{
+									marginInline: 0,
+									borderRadius: 0,
+									paddingLeft: 2,
+									'&:hover': {
+										color: 'rgb(250 82 82)',
+									}
+								}}>
 								<Icon sx={{ fontSize: 20, marginRight: 1 }}>{icon}</Icon>
 								{title}
 							</StyledHeaderLink>
