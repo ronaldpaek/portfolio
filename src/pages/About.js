@@ -5,14 +5,8 @@ import {
 	Paper,
 	Stack,
 	Container,
-	SvgIcon
+	Icon
 } from '@mui/material';
-import {
-	PhoneIphone,
-	Email,
-	CalendarMonth,
-	Place,
-} from '@mui/icons-material';
 import Marquee from 'react-fast-marquee';
 
 import {
@@ -29,38 +23,9 @@ import {
 	brand3,
 	brand4
 } from '../assets';
+import { infoList } from '../constants';
 import { Footer } from '../components';
 import { urlFor, client } from '../client';
-import styled from '@emotion/styled';
-
-const infoList = [
-	{
-		title: 'Phone',
-		description: '123 456 7890',
-		pathData:
-			'M 15.5 1 h -8 C 6.12 1 5 2.12 5 3.5 v 17 C 5 21.88 6.12 23 7.5 23 h 8 c 1.38 0 2.5 -1.12 2.5 -2.5 v -17 C 18 2.12 16.88 1 15.5 1 Z m -4 21 c -0.83 0 -1.5 -0.67 -1.5 -1.5 s 0.67 -1.5 1.5 -1.5 s 1.5 0.67 1.5 1.5 s -0.67 1.5 -1.5 1.5 Z m 4.5 -4 H 7 V 4 h 9 v 14 Z'
-	},
-	{
-		title: 'Location',
-		description: 'Hong kong china',
-		pathData:
-			'M 12 2 C 8.13 2 5 5.13 5 9 c 0 5.25 7 13 7 13 s 7 -7.75 7 -13 c 0 -3.87 -3.13 -7 -7 -7 Z m 0 9.5 c -1.38 0 -2.5 -1.12 -2.5 -2.5 s 1.12 -2.5 2.5 -2.5 s 2.5 1.12 2.5 2.5 s -1.12 2.5 -2.5 2.5 Z'
-	},
-	{
-		title: 'Email',
-		description: 'example@gmail.com',
-		pathData:
-			'M 20 4 H 4 c -1.1 0 -1.99 0.9 -1.99 2 L 2 18 c 0 1.1 0.9 2 2 2 h 16 c 1.1 0 2 -0.9 2 -2 V 6 c 0 -1.1 -0.9 -2 -2 -2 Z m 0 4 l -8 5 l -8 -5 V 6 l 8 5 l 8 -5 v 2 Z'
-	},
-	{
-		title: 'Birthday',
-		description: 'May 27, 1990',
-		pathData:
-			'M 19 4 h -1 V 2 h -2 v 2 H 8 V 2 H 6 v 2 H 5 c -1.11 0 -1.99 0.9 -1.99 2 L 3 20 c 0 1.1 0.89 2 2 2 h 14 c 1.1 0 2 -0.9 2 -2 V 6 c 0 -1.1 -0.9 -2 -2 -2 Z m 0 16 H 5 V 10 h 14 v 10 Z M 9 14 H 7 v -2 h 2 v 2 Z m 4 0 h -2 v -2 h 2 v 2 Z m 4 0 h -2 v -2 h 2 v 2 Z m -8 4 H 7 v -2 h 2 v 2 Z m 4 0 h -2 v -2 h 2 v 2 Z m 4 0 h -2 v -2 h 2 v 2 Z'
-	}
-];
-
-const icons = [PhoneIphone, Email, CalendarMonth, Place];
 
 const skillsList = [
 	{
@@ -288,12 +253,10 @@ const About = () => {
 										</Typography>
 									</Box>
 									<Box sx={style.gridContainer}>
-										{infoList.map(({ title, description, pathData }, i) => (
+										{infoList.map(({ title, description, component }, i) => (
 											<Box key={i} sx={style.infoItem}>
 												<Paper component='span' sx={style.infoContainer}>
-													<SvgIcon sx={style.svg}>
-														<path d={pathData} />
-													</SvgIcon>
+													<Icon component={component}></Icon>
 												</Paper>
 												<Box>
 													<Typography sx={{ fontSize: '.75rem' }}>
@@ -329,13 +292,26 @@ const About = () => {
 										p: 3,
 										bgcolor: '#FBF4FE'
 									}}>
-									<Box component='img' src={icon} alt='icon' sx={{objectFit: 'contain', width: '2.5rem', height: '2.5rem', display: 'block', maxWidth: '100%'}} />
-										<Box>
-											<Typography component='h3' sx={{fontWeight: 'bold', fontSize: '1.375rem'}}>
-												{title}
-											</Typography>
-											<Typography mt={1}>{subtitle}</Typography>
-										</Box>
+									<Box
+										component='img'
+										src={icon}
+										alt='icon'
+										sx={{
+											objectFit: 'contain',
+											width: '2.5rem',
+											height: '2.5rem',
+											display: 'block',
+											maxWidth: '100%'
+										}}
+									/>
+									<Box>
+										<Typography
+											component='h3'
+											sx={{ fontWeight: 'bold', fontSize: '1.375rem' }}>
+											{title}
+										</Typography>
+										<Typography mt={1}>{subtitle}</Typography>
+									</Box>
 								</Box>
 							))}
 						</Box>

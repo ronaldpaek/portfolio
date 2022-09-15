@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { NavLink as RouterLink } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
 import { Box, Icon } from '@mui/material';
 import { DarkMode, LightMode, Menu } from '@mui/icons-material';
@@ -34,11 +34,11 @@ const Header = ({ handleToggleTheme }) => {
 	const [open, setOpen] = useState(false);
 
 	return (
-		<StyledHeader component='header'>
+		<StyledHeader component='header'>4
 			<StyledHeaderLogoContainer>
 				<StyledHeaderLinkAndMobileContainer>
 					<StyledHeaderLogoLink
-						sx={{backgroundColor: 'transparent'}}
+						sx={{ backgroundColor: 'transparent' }}
 						component={RouterLink}
 						to='/'
 						onClick={() => setOpen(prev => !prev)}>
@@ -75,7 +75,11 @@ const Header = ({ handleToggleTheme }) => {
 								sx={{
 									'&:hover': {
 										backgroundImage:
-											'linear-gradient(to right, #DD2476, #FA5252)',
+											'linear-gradient(to right, #DD2476, #FA5252)'
+									},
+									'&.active': {
+										backgroundImage:
+											'linear-gradient(to right, #DD2476, #FA5252)'
 									}
 								}}>
 								<Icon sx={{ fontSize: 20, marginRight: 1 }}>{icon}</Icon>
@@ -115,7 +119,10 @@ const Header = ({ handleToggleTheme }) => {
 									borderRadius: 0,
 									paddingLeft: 2,
 									'&:hover': {
-										color: 'rgb(250 82 82)',
+										color: 'rgb(250 82 82)'
+									},
+									'&.active': {
+										color: 'rgb(250 82 82)'
 									}
 								}}>
 								<Icon sx={{ fontSize: 20, marginRight: 1 }}>{icon}</Icon>
