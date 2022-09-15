@@ -4,7 +4,6 @@ import {
 	Typography,
 	Paper,
 	Stack,
-	Grid,
 	Container,
 	SvgIcon
 } from '@mui/material';
@@ -13,7 +12,6 @@ import {
 	Email,
 	CalendarMonth,
 	Place,
-	Repeat
 } from '@mui/icons-material';
 import Marquee from 'react-fast-marquee';
 
