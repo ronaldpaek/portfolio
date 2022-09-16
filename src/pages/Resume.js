@@ -1,95 +1,8 @@
 import React from 'react';
 import { Box, Typography, Grid, Stack, LinearProgress } from '@mui/material';
-import { School, BusinessCenter, WorkspacePremium } from '@mui/icons-material';
 
 import Footer from '../components/Footer';
-
-const resumeList = [
-	{
-		topic: 'Education',
-		Icon: School,
-		list: [
-			{
-				date: '2021-2023',
-				title: 'Ph.D in Horribleness',
-				subtitle: 'ABC University, Los Angeles, CA'
-			},
-			{
-				date: '2019 - Present',
-				title: 'Sr. Software Tester',
-				subtitle: 'Google Inc.'
-			},
-			{
-				date: '2021',
-				title: 'Best Developer',
-				subtitle: 'University Of Melbourne, NA'
-			}
-		]
-	},
-	{
-		topic: 'Experience',
-		Icon: BusinessCenter,
-		list: [
-			{
-				date: '2017-2021',
-				title: 'Computer Science',
-				subtitle: 'Imperialize Technical Institute'
-			},
-			{
-				date: '2015-2017',
-				title: 'Cr. Web Developer',
-				subtitle: 'ib-themes ltd.'
-			},
-			{
-				date: '2008',
-				title: 'Best Writter',
-				subtitle: 'Online Typodev Soluation Ltd.'
-			}
-		]
-	},
-	{
-		topic: 'Awards',
-		Icon: WorkspacePremium,
-		list: [
-			{
-				date: '2015-2017',
-				title: 'Graphic Designer',
-				subtitle: 'Web Graphy, Los Angeles, CA'
-			},
-			{
-				date: '2014 - 2015',
-				title: 'Jr. Web Developer',
-				subtitle: 'Creative Gigs.'
-			},
-			{
-				date: '2015-2017',
-				title: 'Best Freelancer',
-				subtitle: 'Fiver & Upwork Level 2 & Top Rated'
-			}
-		]
-	}
-];
-
-const skillsList = [
-	{ skill: 'WebDesign', val: 65, color: 'warning' },
-	{ skill: 'Mobile App', val: 85, color: 'secondary' },
-	{ skill: 'Illustrator', val: 75, color: 'primary' },
-	{ skill: 'Photoshope', val: 90, color: 'success' }
-];
-
-const items = [
-	'Digital Design',
-	'Maarketing',
-	'Social Media',
-	'Print',
-	'Time Management',
-	'Flexiblity',
-	'Print',
-	'Print',
-	'Time Management',
-	'Flexiblity',
-	'Print'
-];
+import { resumeList, skills, items } from '../constants';
 
 const Resume = () => {
 	return (
@@ -191,7 +104,7 @@ const Resume = () => {
 								Working Skills
 							</Typography>
 							<Stack spacing={2.5}>
-								{skillsList.map(({ skill, val, color }, i) => (
+								{skills.map(({ skill, val, color }, i) => (
 									<Box key={i}>
 										<Stack direction='row' justifyContent='space-between'>
 											<Typography>{skill}</Typography>

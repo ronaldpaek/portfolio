@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { NavLink as RouterLink } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
 import { Box, Icon } from '@mui/material';
-import { DarkMode, LightMode, Menu } from '@mui/icons-material';
+import { Menu } from '@mui/icons-material';
 
 import {
 	StyledHeader,
@@ -19,22 +19,19 @@ import {
 	StyledMenuToggle
 } from '../styles';
 import { logo } from '../assets';
+import { navLinks } from '../constants';
+import { FaSun, FaMoon } from 'react-icons/fa';
+import { ColorModeContext } from '../contexts';
 
-const links = [
-	{ title: 'Home', path: '/', icon: 'home' },
-	{ title: 'About', path: '/about', icon: 'personoutline' },
-	{ title: 'Resume', path: '/resume', icon: 'descriptionoutlined' },
-	{ title: 'Works', path: '/works', icon: 'businesscenter' },
-	{ title: 'Blogs', path: '/blogs', icon: 'newspaper' },
-	{ title: 'Contact', path: '/contact', icon: 'call' }
-];
 
-const Header = ({ handleToggleTheme }) => {
+const Header = () => {
 	const theme = useTheme();
 	const [open, setOpen] = useState(false);
+	const { toggleColorMode } = useContext(ColorModeContext);
+	const lightMode = theme.palette.mode === 'light';
 
 	return (
-		<StyledHeader component='header'>4
+		<StyledHeader component='header'>
 			<StyledHeaderLogoContainer>
 				<StyledHeaderLinkAndMobileContainer>
 					<StyledHeaderLogoLink
@@ -45,15 +42,15 @@ const Header = ({ handleToggleTheme }) => {
 						<StyledHeaderImage component='img' src={logo} alt='logo' />
 					</StyledHeaderLogoLink>
 					<StyledMobileMenuContainer>
-						<StyledThemeMobileToggle onClick={handleToggleTheme}>
-							{theme.palette.mode === 'dark' ? (
-								<LightMode sx={{ fontSize: 20 }} />
+						<StyledThemeMobileToggle onClick={toggleColorMode}>
+							{lightMode ? (
+								<Icon component={FaMoon} sx={{ color: 'black' }} />
 							) : (
-								<DarkMode sx={{ fontSize: 20, fill: 'black' }} />
+								<Icon component={FaSun} sx={{ color: 'white' }} />
 							)}
 						</StyledThemeMobileToggle>
 						<StyledMenuToggle onClick={() => setOpen(prev => !prev)}>
-							<Menu sx={{ fontSize: 20 }} />
+							<Menu />
 						</StyledMenuToggle>
 					</StyledMobileMenuContainer>
 				</StyledHeaderLinkAndMobileContainer>
@@ -67,7 +64,7 @@ const Header = ({ handleToggleTheme }) => {
 					}
 				}}>
 				<StyledNavList component='ul'>
-					{links.map(({ title, path, icon }, i) => (
+					{navLinks.map(({ title, path, component }, i) => (
 						<Box key={i} component='li'>
 							<StyledHeaderLink
 								component={RouterLink}
@@ -79,20 +76,21 @@ const Header = ({ handleToggleTheme }) => {
 									},
 									'&.active': {
 										backgroundImage:
-											'linear-gradient(to right, #DD2476, #FA5252)'
+											'linear-gradient(to right, #DD2476, #FA5252)',
+										color: '#fff'
 									}
 								}}>
-								<Icon sx={{ fontSize: 20, marginRight: 1 }}>{icon}</Icon>
+								<Icon component={component} sx={{ marginRight: 1 }} />
 								{title}
 							</StyledHeaderLink>
 						</Box>
 					))}
 					<Box component='li'>
-						<StyledThemeModeButton onClick={handleToggleTheme}>
-							{theme.palette.mode === 'dark' ? (
-								<LightMode sx={{ fontSize: 20 }} />
+						<StyledThemeModeButton onClick={toggleColorMode}>
+							{lightMode ? (
+								<Icon component={FaMoon} sx={{ color: 'black' }} />
 							) : (
-								<DarkMode sx={{ fontSize: 20, fill: 'black' }} />
+								<Icon component={FaSun} sx={{ color: 'white' }} />
 							)}
 						</StyledThemeModeButton>
 					</Box>
@@ -109,7 +107,7 @@ const Header = ({ handleToggleTheme }) => {
 				<StyledMobileNavList
 					component='ul'
 					sx={{ display: open ? 'block' : 'none' }}>
-					{links.map(({ title, path, icon }, i) => (
+					{navLinks.map(({ title, path, component }, i) => (
 						<Box key={i} component='li' onClick={() => setOpen(prev => !prev)}>
 							<StyledHeaderLink
 								component={RouterLink}
@@ -125,7 +123,10 @@ const Header = ({ handleToggleTheme }) => {
 										color: 'rgb(250 82 82)'
 									}
 								}}>
-								<Icon sx={{ fontSize: 20, marginRight: 1 }}>{icon}</Icon>
+								<Icon
+									component={component}
+									sx={{ fontSize: 20, marginRight: 1 }}
+								/>
 								{title}
 							</StyledHeaderLink>
 						</Box>

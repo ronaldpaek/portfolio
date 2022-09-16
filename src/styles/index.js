@@ -99,7 +99,7 @@ export const StyledHeaderLink = styled(Link)(({ theme }) => ({
 	textDecoration: 'none',
 	display: 'flex',
 	alignItems: 'center',
-	fontSize: theme.spacing(1.75),
+	fontSize: 13,
 	fontWeight: 600,
 	borderRadius: theme.spacing(0.75),
 	marginInline: theme.spacing(1.25),
@@ -178,3 +178,128 @@ export const StyledMobileNavList = styled(Box)(({ theme }) => ({
 /**
  * Home
  */
+
+
+/**
+ * About
+ */
+
+export const style = {
+	sectionContainer: {
+		backgroundColor: 'rgb(255, 255, 255)',
+		maxWidth: {
+			md: 992,
+			lg: 1280
+		},
+		px: {
+			xs: 2,
+			sm: 5,
+			md: 10
+		},
+		borderRadius: {
+			md: 4
+		}
+	},
+	sectionTitle: {
+		fontWeight: 700,
+		fontFamily: 'Roboto Slab, serif',
+		fontSize: '2.5rem',
+		display: 'inline-flex',
+		alignItems: 'center',
+		mt: {
+			xs: 6,
+			md: 0
+		}
+	},
+	titleLine: {
+		background:
+			'linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)',
+		height: 2,
+		width: '11rem',
+		ml: '1.5rem',
+		display: {
+			xs: 'none',
+			sm: 'inline'
+		}
+	},
+	aboutMeContainer: {
+		alignItems: 'center',
+		flexDirection: 'row',
+		flexWrap: 'wrap',
+		gap: 4,
+		pt: {
+			xs: 2,
+			sm: 5
+		}
+	},
+	aboutMeImgContainer: {
+		flexBasis: {
+			xs: '100%',
+			sm: 0
+		},
+		flexGrow: {
+			sm: 4
+		}
+	},
+	aboutMeImg: {
+		maxWidth: '100%',
+		objectFit: 'cover',
+		display: 'block',
+		borderRadius: 8,
+		overflow: 'hidden',
+		width: {
+			xs: '100%',
+			sm: 330
+		},
+		height: {
+			xs: 'auto',
+			sm: 400
+		}
+	},
+	whoAmIContainer: {
+		flexBasis: {
+			xs: '100%',
+			sm: 0
+		},
+		flexGrow: {
+			sm: 8
+		}
+	},
+	whoAmITitle: {
+		fontWeight: 500,
+		fontSize: '1.5625rem',
+		mb: 1.25
+	},
+	whoAmIBody: {
+		color: 'rgb(68, 86, 108)'
+	},
+	gridContainer: {
+		display: 'grid',
+		gap: '1.5rem',
+		gridTemplateColumns: {
+			xs: 'repeat(1, minmax(0, 1fr))',
+			sm: 'repeat(2, minmax(0, 1fr))'
+		}
+	},
+	infoItem: {
+		display: 'flex'
+	},
+	infoContainer: {
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		mr: '.625rem',
+		borderRadius: '.375rem',
+		width: '3rem',
+		color: 'rgb(233 59 129)'
+	},
+	whatIdoGrid: {
+		display: 'grid',
+		gap: '2rem',
+		gridTemplateColumns: {
+			xs: 'repeat(1, minmax(0, 1fr))',
+			sm: 'repeat(2, minmax(0, 1fr))',
+			lg: 'repeat(3, minmax(0, 1fr))'
+		}
+	}
+};
