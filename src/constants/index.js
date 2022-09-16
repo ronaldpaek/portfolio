@@ -19,7 +19,6 @@ import {
 	Map
 } from '@mui/icons-material';
 
-
 import {
 	smallImage1,
 	smallImage2,
@@ -33,7 +32,6 @@ import {
 	largeImage4,
 	largeImage5,
 	largeImage6,
-	about,
 	icon,
 	icon1,
 	icon2,

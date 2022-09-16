@@ -9,15 +9,14 @@ import { style } from '../styles';
 import { urlFor, client } from '../client';
 
 const About = () => {
-	const [abouts, setAbouts] = useState([]);
-	console.log(abouts);
+	const [skills, setSkills] = useState([]);
+	console.log(skills);
 
 	useEffect(() => {
-		const query = `*[_type == 'abouts']`;
+		const query = `*[_type == 'skills']`;
 
 		client.fetch(query).then(data => {
-			console.log('hello');
-			setAbouts(data);
+			setSkills(data);
 		});
 	}, []);
 
@@ -93,7 +92,7 @@ const About = () => {
 							What I do!
 						</Typography>
 						<Box sx={style.whatIdoGrid}>
-							{skillsList.map(({ title, subtitle, icon }, i) => (
+							{skills.map(({ name, bgColor, icon }, i) => (
 								<Box
 									key={i}
 									sx={{
@@ -101,11 +100,11 @@ const About = () => {
 										gap: '1rem',
 										borderRadius: '.75rem',
 										p: 3,
-										bgcolor: '#FBF4FE'
+										backgroundColor: bgColor,
 									}}>
 									<Box
 										component='img'
-										src={icon}
+										src={urlFor(icon)}
 										alt='icon'
 										sx={{
 											objectFit: 'contain',
@@ -119,9 +118,12 @@ const About = () => {
 										<Typography
 											component='h3'
 											sx={{ fontWeight: 'bold', fontSize: '1.375rem' }}>
-											{title}
+											{name}
 										</Typography>
-										<Typography mt={1}>{subtitle}</Typography>
+										<Typography mt={1}>
+											Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+											sed diam euismod volutpat.
+										</Typography>
 									</Box>
 								</Box>
 							))}
