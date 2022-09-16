@@ -1,92 +1,81 @@
 import React from 'react';
-import { Stack, Typography, Button, IconButton, Box } from '@mui/material';
-import { Twitter, LinkedIn, Download } from '@mui/icons-material';
-import { FaFacebookF, FaBasketballBall } from 'react-icons/fa';
+import { Stack, Typography, Button, Box } from '@mui/material';
+import { Download } from '@mui/icons-material';
 
+import { SocialMediaLinks } from '../components';
 import { avatar } from '../assets';
+
+const style = {
+	container: {
+		alignItems: 'center',
+		justifyContent: 'center',
+		height: {
+			xs: '100vh',
+			sm: '90vh',
+			md: '80vh',
+			lg: '71vh',
+		}
+	},
+	profile: {
+		borderRadius: '999px',
+		display: 'block',
+		maxWidth: '100%',
+		width: {
+			xs: '250px',
+			xl: '280px',
+		},
+		height: {
+			xs: '250px',
+			xl: '280px',
+		}
+	},
+	title: {
+		fontSize: '1.625rem',
+		fontWeight: 600,
+		mb: .5,
+		mt: 3
+	},
+	subtitle: {
+		color: 'rgb(123 123 123)',
+		mb: 2,
+	},
+	downloadButton: {
+		mx: 'auto',
+		mt: 3,
+		display: 'flex',
+		alignItems: 'center',
+		borderRadius: '35px',
+		backgroundImage: 'linear-gradient(to right, #DD2476, #FA5252)',
+		px: 4,
+		py: 1.5,
+		color: 'rgb(255, 255, 255)',
+		fontSize: '1rem',
+	},
+};
 
 const Home = ({ name, title }) => {
 	return (
 		<Stack
-			alignItems='center'
 			component='main'
-			sx={{
-				justifyContent: 'center',
-				height: {
-					xs: '90vh',
-					md: '80vh'
-				}
-			}}>
+			sx={style.container}>
 			<Box
-				sx={{
-					maxWidth: {
-						xs: 250,
-						lg: 280
-					}
-				}}>
-				<img
-					alt='avatar'
-					src={avatar}
-					style={{
-						borderRadius: '50%',
-						width: '100%'
-					}}
-				/>
+				component='img'
+				alt='profile'
+				src={avatar}
+				sx={style.profile}>
 			</Box>
 			<Typography
-				variant='h5'
-				component='h1'
-				mt={3}
-				mb={0.5}
-				fontWeight={800}
-				sx={{ fontSize: '1.75rem' }}>
+				component='h3'
+				sx={style.title}>
 				{name}
 			</Typography>
-			<Typography variant='body1' mb={2} component='p' color='gray'>
+			<Typography component='p' sx={style.subtitle}>
 				{title}
 			</Typography>
-			<Stack direction='row' spacing={1}>
-				<IconButton
-					sx={{
-						backgroundColor: 'hsl(45, 29%, 90%)',
-						borderRadius: 2,
-						color: '#3B83EC'
-					}}>
-					<FaFacebookF />
-				</IconButton>
-				<IconButton
-					sx={{
-						backgroundColor: 'hsl(45, 29%, 90%)',
-						borderRadius: 2,
-						color: '#1D9CEA'
-					}}>
-					<Twitter />
-				</IconButton>
-				<IconButton
-					sx={{
-						backgroundColor: 'hsl(45, 29%, 90%)',
-						borderRadius: 2,
-						color: '#E3568B'
-					}}>
-					<FaBasketballBall />
-				</IconButton>
-				<IconButton
-					sx={{
-						backgroundColor: 'hsl(45, 29%, 90%)',
-						borderRadius: 2,
-						color: '#0072B1'
-					}}>
-					<LinkedIn />
-				</IconButton>
-			</Stack>
+			<SocialMediaLinks />
 			<Button
 				variant='contained'
-				sx={{
-					borderRadius: 100,
-					paddingBlock: 1.5,
-					paddingInline: 5,
-					marginTop: 3
-				}}
+				sx={style.downloadButton}
 				startIcon={<Download />}>
 				Download CV
 			</Button>

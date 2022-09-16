@@ -2,91 +2,10 @@ import React, { useState } from 'react';
 import { Box, Typography, Stack, Modal, Grid } from '@mui/material';
 
 import { BlogCard, Footer, BlogModalCard } from '../components';
+import { dummyData, loremText } from '../constants';
 import {
-	smallImage1,
-	smallImage2,
-	smallImage3,
-	smallImage4,
-	smallImage5,
-	smallImage6,
-	largeImage1,
-	largeImage2,
-	largeImage3,
-	largeImage4,
-	largeImage5,
-	largeImage6,
 	about
 } from '../assets';
-
-const items = [
-	{
-		smallImage: smallImage1,
-		largeImage: largeImage1,
-		date: '17 April',
-		tag: 'Inspiration',
-		title: 'How to Own Your Audience by Creating an Email List.',
-		id: 'blog1',
-		color: '#FCF5FF'
-	},
-	{
-		smallImage: smallImage2,
-		largeImage: largeImage2,
-		date: '10 April',
-		tag: 'Inspiration',
-		title: 'Everything You Need to Know About Web Accessibility.',
-		id: 'blog2',
-		color: '#FCF4FF'
-	},
-	{
-		smallImage: smallImage3,
-		largeImage: largeImage3,
-		date: '21 April',
-		tag: 'Web Design',
-		title: 'he window know to say beside youT',
-		id: 'blog3',
-		color: '#FCF4FF'
-	},
-	{
-		smallImage: smallImage4,
-		largeImage: largeImage4,
-		date: '27 April',
-		tag: 'Inspiration',
-		title: 'Top 10 Toolkits for Deep Learning in 2021.',
-		id: 'blog4',
-		color: '#FCF4FF'
-	},
-	{
-		smallImage: smallImage5,
-		largeImage: largeImage5,
-		date: '27 April',
-		tag: 'Inspiration',
-		title: 'How to Own Your Audience by Creating an Email List.',
-		id: 'blog5',
-		color: '#FCF4FF'
-	},
-	{
-		smallImage: smallImage6,
-		largeImage: largeImage6,
-		date: '27 April',
-		tag: 'Inspiration',
-		title: 'Everything You Need to Know About Web Accessibility.',
-		id: 'blog6',
-		color: '#FCF4FF'
-	}
-];
-
-const loremText = {
-	pText1:
-		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum conseqr quo obcaecati rerum sit non. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum consequuntur quo obcaecati rerum sit non.',
-	pText2:
-		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum consetur quo obcaecati rerum sit non. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum consequuntur.',
-	pText3:
-		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum consequuntur quo obcaecati rerum sit non.',
-	pText4:
-		'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi nam ad, unde vel aut soluta atque consequatur. Omnis, debitis nihil?',
-	name: 'Rafia Ana',
-	time: 15
-};
 
 const Blogs = () => {
 	const [card, setCard] = useState({});
@@ -96,7 +15,7 @@ const Blogs = () => {
   const handleClose = () => setOpen(false);
   
   const handleModalCard = id => {
-    const card = items.find(item => item.id === id);
+    const card = dummyData.find(item => item.id === id);
     setCard(card);
     handleOpen();
   };
@@ -160,7 +79,7 @@ const Blogs = () => {
 				</Box>
 
 				<Grid container spacing={2}>
-					{items.map(({ smallImage, title, date, tag, id, color }) => (
+					{dummyData.map(({ smallImage, title, date, tag, id, color }) => (
 						<BlogCard
 							key={id}
 							{...{

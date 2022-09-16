@@ -1,87 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Typography, Avatar, Stack, Grid } from '@mui/material';
-import { PhoneIphone, Email, CalendarMonth, Place } from '@mui/icons-material';
+import { Box, Typography, Paper, Stack, Container, Icon } from '@mui/material';
 import Marquee from 'react-fast-marquee';
 
-import {
-	about,
-	icon,
-	icon1,
-	icon2,
-	icon3,
-	icon4,
-	icon5,
-	brand,
-	brand1,
-	brand2,
-	brand3,
-	brand4
-} from '../assets';
-import { StyledSectionContainer, StyledSection } from '../styles';
-
+import { skillsList, brands, infoList } from '../constants';
+import { about } from '../assets';
 import { Footer } from '../components';
+import { style } from '../styles';
 import { urlFor, client } from '../client';
-
-const infoList = [
-	{ title: 'Phone', subtitle: '123 456 7890', icon: <PhoneIphone /> },
-	{ title: 'Location', subtitle: 'Hong kong china', icon: <Place /> },
-	{ title: 'Email', subtitle: 'example@gmail.com', icon: <Email /> },
-	{ title: 'Birthday', subtitle: 'May 27, 1990', icon: <CalendarMonth /> }
-];
-
-const icons = [PhoneIphone, Email, CalendarMonth, Place];
-
-const skillsList = [
-	{
-		title: 'Ui/Ux Design',
-		subtitle:
-			'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
-		icon: icon
-	},
-	{
-		title: 'App Development',
-		subtitle:
-			'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
-		icon: icon1
-	},
-	{
-		title: 'Photography',
-		subtitle:
-			'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
-		icon: icon2
-	},
-	{
-		title: 'Photography',
-		subtitle:
-			'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
-		icon: icon3
-	},
-	{
-		title: 'Managment',
-		subtitle:
-			'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
-		icon: icon4
-	},
-	{
-		title: 'Web Development',
-		subtitle:
-			'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
-		icon: icon5
-	}
-];
-
-const brands = [
-	brand,
-	brand1,
-	brand2,
-	brand3,
-	brand4,
-	brand,
-	brand1,
-	brand2,
-	brand3,
-	brand4
-];
 
 const About = () => {
 	const [abouts, setAbouts] = useState([]);
@@ -97,181 +22,143 @@ const About = () => {
 	}, []);
 
 	return (
-		<StyledSection component='section'>
-			<StyledSectionContainer disableGutters>
-				<Box py={6}>
-					<Typography
-						variant='h2'
-						component='h2'
-						fontWeight={800}
-						sx={{
-							display: 'inline-flex',
-							alignItems: 'center',
-							marginTop: {
-								xs: 5,
-								md: 0
-							}
-						}}>
-						About Me
-						<Box
-							component='span'
-							sx={{
-								background:
-									'linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)',
-								height: 2,
-								width: '11rem',
-								marginLeft: '1.5rem',
-								display: {
-									xs: 'none',
-									sm: 'inline'
-								}
-							}}></Box>
-					</Typography>
-					<Grid
-						container
-						pt={5}
-						sx={{
-							direction: {
-								xs: 'column',
-								sm: 'row'
-							}
-						}}>
-						<Grid
-							item
-							xs={12}
-							sm={3.5}
-							sx={{
-								mb: {
-									xs: 2
-								}
-							}}>
-							<Box
-								component='img'
-								src={about}
-								alt='about'
-								sx={{
-									maxWidth: '100%',
-									objectFit: 'cover',
-									display: 'block',
-									borderRadius: 8,
-									width: {
-										xs: '100%',
-										sm: 330
-									},
-									height: {
-										xs: '100%',
-										sm: 400
-									}
-								}}
-							/>
-						</Grid>
-						<Grid item xs={12} sm={8} ml='auto'>
-							<Box mr={6}>
-								<Typography variant='h4' componenet='h3' mb={1.5}>
-									Who am i?
-								</Typography>
-								<Typography variant='body1' componenet='p' color='gray'>
-									I'm Creative Director and UI/UX Designer from Sydney,
-									Australia, working in web development and print media. I enjoy
-									turning complex problems into simple, beautiful and intuitive
-									designs.
-								</Typography>
-								<Typography
-									variant='body1'
-									componenet='p'
-									color='gray'
-									mt={1.5}>
-									My aim is to bring across your message and identity in the
-									most creative way. I created web design for many famous brand
-									companies.
-								</Typography>
-								<Typography variant='h4' componenet='h3' my={3}>
-									Personal Info
-								</Typography>
+		<Box component='section'>
+			<Container disableGutters sx={style.sectionContainer}>
+				<Box>
+					<Box py={6}>
+						<Typography component='h2' sx={style.sectionTitle}>
+							About Me
+							<Box component='span' sx={style.titleLine} />
+						</Typography>
+						<Stack sx={style.aboutMeContainer}>
+							<Box sx={style.aboutMeImgContainer}>
+								<Box
+									component='img'
+									src={about}
+									alt='profile'
+									sx={style.aboutMeImg}
+								/>
 							</Box>
-							<Grid container spacing={2}>
-								{abouts.map(({ title, description, imgUrl }, i) => (
-									<Grid key={i} item xs={12} sm={6}>
-										<Stack direction='row'>
-											<Avatar
-												variant='rounded'
-												src={urlFor(imgUrl)}
-												alt=''
-												sx={{ marginRight: 1 }}
-											/>
-											<Box>
-												<Typography variant='body2' component='h4' color='gray'>
-													{title}
-												</Typography>
-												<Typography>{description}</Typography>
-											</Box>
-										</Stack>
-									</Grid>
-								))}
-							</Grid>
-						</Grid>
-					</Grid>
-				</Box>
-				<Box pb={6}>
-					<Typography variant='h3' componenet='h3' pb={3}>
-						What I do!
-					</Typography>
-					<Grid container spacing={4}>
-						{skillsList.map(({ title, subtitle, icon }, i) => (
-							<Grid item key={i} xs={12} sm={6} lg={4}>
-								<Stack
-									direction='row'
-									gap={2}
-									sx={{
-										backgroundColor: '#FBF4FE',
-										padding: 3,
-										borderRadius: 2
-									}}>
-									<Box>
-										<img src={icon} alt='' />
-									</Box>
-									<Box>
-										<Typography variant='h5' component='h4' fontWeight='800'>
-											{title}
+							<Box sx={style.whoAmIContainer}>
+								<Box sx={{ mr: { sm: 6, md: 8 } }}>
+									<Typography component='h3' sx={style.whoAmITitle}>
+										Who am i?
+									</Typography>
+									<Typography sx={style.whoAmIBody}>
+										I'm Creative Director and UI/UX Designer from Sydney,
+										Australia, working in web development and print media. I
+										enjoy turning complex problems into simple, beautiful and
+										intuitive designs.
+									</Typography>
+									<Typography mt={1.25} sx={style.whoAmIBody}>
+										My aim is to bring across your message and identity in the
+										most creative way. I created web design for many famous
+										brand companies.
+									</Typography>
+									<Box mt={1.25}>
+										<Typography
+											component='h3'
+											my={2.5}
+											sx={{ my: 2.5, fontWeight: 500, fontSize: '1.5625rem' }}>
+											Personal Info
 										</Typography>
-										<Typography component='p'>{subtitle}</Typography>
 									</Box>
-								</Stack>
-							</Grid>
-						))}
-					</Grid>
-				</Box>
-				<Box
-					textAlign='center'
-					p={5}
-					sx={{ bgcolor: 'lightgray', borderRadius: 3 }}>
-					<Typography variant='h5' component='h3' fontWeight='800'>
-						Clients
-					</Typography>
-					<Marquee
-						pauseOnHover={true}
-						gradient={false}
-						style={{ paddingTop: '2rem' }}>
-						<Stack direction='row'>
-							{brands.map((brand, i) => (
-								<Box key={i} p={4}>
-									<img
-										src={brand}
-										alt=''
-										style={{
-											maxWidth: '100%',
+									<Box sx={style.gridContainer}>
+										{infoList.map(({ title, description, component }, i) => (
+											<Box key={i} sx={style.infoItem}>
+												<Paper component='span' sx={style.infoContainer}>
+													<Icon component={component}></Icon>
+												</Paper>
+												<Box>
+													<Typography sx={{ fontSize: '.75rem' }}>
+														{title}
+													</Typography>
+													<Typography
+														component='h6'
+														sx={{ fontWeight: 'bold' }}>
+														{description}
+													</Typography>
+												</Box>
+											</Box>
+										))}
+									</Box>
+								</Box>
+							</Box>
+						</Stack>
+					</Box>
+					<Box pb={6}>
+						<Typography
+							componenet='h3'
+							sx={{ pb: 2.5, fontSize: '35px', fontWeight: 'bold' }}>
+							What I do!
+						</Typography>
+						<Box sx={style.whatIdoGrid}>
+							{skillsList.map(({ title, subtitle, icon }, i) => (
+								<Box
+									key={i}
+									sx={{
+										display: 'flex',
+										gap: '1rem',
+										borderRadius: '.75rem',
+										p: 3,
+										bgcolor: '#FBF4FE'
+									}}>
+									<Box
+										component='img'
+										src={icon}
+										alt='icon'
+										sx={{
+											objectFit: 'contain',
+											width: '2.5rem',
+											height: '2.5rem',
 											display: 'block',
-											objectFit: 'cover'
+											maxWidth: '100%'
 										}}
 									/>
+									<Box>
+										<Typography
+											component='h3'
+											sx={{ fontWeight: 'bold', fontSize: '1.375rem' }}>
+											{title}
+										</Typography>
+										<Typography mt={1}>{subtitle}</Typography>
+									</Box>
 								</Box>
 							))}
-						</Stack>
-					</Marquee>
+						</Box>
+					</Box>
+					<Box
+						textAlign='center'
+						p={5}
+						sx={{ bgcolor: 'lightgray', borderRadius: 3 }}>
+						<Typography variant='h5' component='h3' fontWeight='800'>
+							Clients
+						</Typography>
+						<Marquee
+							pauseOnHover={true}
+							gradient={false}
+							style={{ paddingTop: '2rem' }}>
+							<Stack direction='row'>
+								{brands.map((brand, i) => (
+									<Box key={i} p={4}>
+										<img
+											src={brand}
+											alt=''
+											style={{
+												maxWidth: '100%',
+												display: 'block',
+												objectFit: 'cover'
+											}}
+										/>
+									</Box>
+								))}
+							</Stack>
+						</Marquee>
+					</Box>
+					<Footer />
 				</Box>
-				<Footer />
-			</StyledSectionContainer>
-		</StyledSection>
+			</Container>
+		</Box>
 	);
 };
 

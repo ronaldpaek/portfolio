@@ -8,6 +8,7 @@ import {
 } from '@mui/material';
 import { Facebook, Twitter, LinkedIn } from '@mui/icons-material';
 
+import { SocialMediaLinks } from './';
 import { ModalWrapper } from '../hoc';
 
 const BlogModalCard = ({
@@ -63,11 +64,9 @@ const BlogModalCard = ({
 						</Box>
           </Box>
           <Stack mt={3} direction='row' justifyContent='flex-end'>
-            <Stack direction='row'>
+					<Stack direction='row' sx={{ alignItems: 'center' }}>
               <Typography>Login With:</Typography>
-              <Facebook />
-              <Twitter />
-              <LinkedIn />
+								<SocialMediaLinks />
             </Stack>
           </Stack>
           <Typography>Leave a Reply</Typography>

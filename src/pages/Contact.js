@@ -1,14 +1,8 @@
 import React from 'react';
 import { Box, Typography, Stack, Grid } from '@mui/material';
-import { Phone, Email, Map } from '@mui/icons-material';
 
 import { Footer } from '../components';
-
-const contactInfo = [
-	{ title: 'Phone', info: '+452 666 386', Icon: Phone },
-	{ title: 'Email', info: 'support@gmail.com', Icon: Email },
-	{ title: 'Address', info: 'Maount View, Oval Road, New York, USA', Icon: Map }
-];
+import { contactInfo } from '../constants';
 
 const Contact = () => {
 	return (

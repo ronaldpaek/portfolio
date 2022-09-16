@@ -8,6 +8,10 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+/**
+ * App
+ */
+
 export const StyledRootContainer = styled(Box)(({ theme }) => ({
 	minHeight: '100vh',
 	width: '100%',
@@ -19,6 +23,10 @@ export const StyledRootContainer = styled(Box)(({ theme }) => ({
 	}
 }));
 
+/**
+ * Header
+ */
+
 export const StyledHeader = styled(Box)(({ theme }) => ({
 	top: 0,
 	left: 0,
@@ -28,7 +36,7 @@ export const StyledHeader = styled(Box)(({ theme }) => ({
 	alignItems: 'center',
 	zIndex: 999,
 	[theme.breakpoints.down('md')]: {
-		position: 'fixed',
+		position: 'fixed'
 	},
 	[theme.breakpoints.up('md')]: {
 		position: 'static'
@@ -56,8 +64,7 @@ export const StyledHeaderLinkAndMobileContainer = styled(Box)(({ theme }) => ({
 	}
 }));
 
-export const StyledHeaderLogoLink = styled(Link)(({ theme }) => ({
-}));
+export const StyledHeaderLogoLink = styled(Link)(({ theme }) => ({}));
 
 export const StyledHeaderImage = styled(Box)(({ theme }) => ({
 	maxWidth: '100%',
@@ -91,11 +98,9 @@ export const StyledImageLink = styled(Box)(({ theme }) => ({
 export const StyledHeaderLink = styled(Link)(({ theme }) => ({
 	textDecoration: 'none',
 	display: 'flex',
-  alignItems: 'center',
-  color: theme.palette.grey,
-  fontSize: theme.spacing(1.75),
-  fontWeight: 600,
-	backgroundColor: theme.palette.common.white,
+	alignItems: 'center',
+	fontSize: 13,
+	fontWeight: 600,
 	borderRadius: theme.spacing(0.75),
 	marginInline: theme.spacing(1.25),
 	paddingInline: 0,
@@ -111,8 +116,6 @@ export const StyledHeaderLink = styled(Link)(({ theme }) => ({
 export const StyledNavSpan = styled(Box)(({ theme }) => ({
 	textTransform: 'capitalize'
 }));
-
-export const StyledSvgIcon = styled(SvgIcon)(({ theme }, props) => ({}));
 
 export const StyledMobileMenuContainer = styled(Box)(({ theme }) => ({
 	display: 'flex',
@@ -154,37 +157,149 @@ export const StyledThemeModeButton = styled(IconButton)(({ theme }) => ({
 	justifyContent: 'center',
 	height: theme.spacing(5.5),
 	width: theme.spacing(5.5),
-	marginLeft: theme.spacing(1),
-	backgroundColor: theme.palette.common.white
-}));
-
-export const StyledSection = styled(Box)(({ theme }) => ({
-	bgcolor: theme.palette.primary,
-	[theme.breakpoints.up('md')]: {
-		borderRadius: theme.spacing(4)
-	}
-}));
-
-export const StyledSectionContainer = styled(Container)(({ theme }) => ({
-	[theme.breakpoints.down('md')]: {
-		paddingInline: theme.spacing(5)
-	},
-	[theme.breakpoints.up('md')]: {
-		paddingInline: theme.spacing(10)
-	}
+	marginLeft: theme.spacing(1)
 }));
 
 export const StyledMobileNavList = styled(Box)(({ theme }) => ({
-  listStyle: 'none',
-  padding: 0,
-  margin: 0,
-  overflow: 'hidden',
-  boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
-  borderBottomLeftRadius: theme.spacing(2.5),
-  borderBottomRightRadius: theme.spacing(2.5),
-  width: '100%',
-  display: 'block',
-  position: 'absolute',
-  top: theme.spacing(10),
-  left: 0
+	listStyle: 'none',
+	padding: 0,
+	margin: 0,
+	overflow: 'hidden',
+	boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
+	borderBottomLeftRadius: theme.spacing(2.5),
+	borderBottomRightRadius: theme.spacing(2.5),
+	width: '100%',
+	display: 'block',
+	position: 'absolute',
+	top: theme.spacing(10),
+	left: 0
 }));
+
+/**
+ * Home
+ */
+
+
+/**
+ * About
+ */
+
+export const style = {
+	sectionContainer: {
+		backgroundColor: 'rgb(255, 255, 255)',
+		maxWidth: {
+			md: 992,
+			lg: 1280
+		},
+		px: {
+			xs: 2,
+			sm: 5,
+			md: 10
+		},
+		borderRadius: {
+			md: 4
+		}
+	},
+	sectionTitle: {
+		fontWeight: 700,
+		fontFamily: 'Roboto Slab, serif',
+		fontSize: '2.5rem',
+		display: 'inline-flex',
+		alignItems: 'center',
+		mt: {
+			xs: 6,
+			md: 0
+		}
+	},
+	titleLine: {
+		background:
+			'linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)',
+		height: 2,
+		width: '11rem',
+		ml: '1.5rem',
+		display: {
+			xs: 'none',
+			sm: 'inline'
+		}
+	},
+	aboutMeContainer: {
+		alignItems: 'center',
+		flexDirection: 'row',
+		flexWrap: 'wrap',
+		gap: 4,
+		pt: {
+			xs: 2,
+			sm: 5
+		}
+	},
+	aboutMeImgContainer: {
+		flexBasis: {
+			xs: '100%',
+			sm: 0
+		},
+		flexGrow: {
+			sm: 4
+		}
+	},
+	aboutMeImg: {
+		maxWidth: '100%',
+		objectFit: 'cover',
+		display: 'block',
+		borderRadius: 8,
+		overflow: 'hidden',
+		width: {
+			xs: '100%',
+			sm: 330
+		},
+		height: {
+			xs: 'auto',
+			sm: 400
+		}
+	},
+	whoAmIContainer: {
+		flexBasis: {
+			xs: '100%',
+			sm: 0
+		},
+		flexGrow: {
+			sm: 8
+		}
+	},
+	whoAmITitle: {
+		fontWeight: 500,
+		fontSize: '1.5625rem',
+		mb: 1.25
+	},
+	whoAmIBody: {
+		color: 'rgb(68, 86, 108)'
+	},
+	gridContainer: {
+		display: 'grid',
+		gap: '1.5rem',
+		gridTemplateColumns: {
+			xs: 'repeat(1, minmax(0, 1fr))',
+			sm: 'repeat(2, minmax(0, 1fr))'
+		}
+	},
+	infoItem: {
+		display: 'flex'
+	},
+	infoContainer: {
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		mr: '.625rem',
+		borderRadius: '.375rem',
+		width: '3rem',
+		color: 'rgb(233 59 129)'
+	},
+	whatIdoGrid: {
+		display: 'grid',
+		gap: '2rem',
+		gridTemplateColumns: {
+			xs: 'repeat(1, minmax(0, 1fr))',
+			sm: 'repeat(2, minmax(0, 1fr))',
+			lg: 'repeat(3, minmax(0, 1fr))'
+		}
+	}
+};
