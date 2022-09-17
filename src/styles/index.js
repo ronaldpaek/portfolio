@@ -179,7 +179,6 @@ export const StyledMobileNavList = styled(Box)(({ theme }) => ({
  * Home
  */
 
-
 /**
  * About
  */
@@ -198,6 +197,9 @@ export const style = {
 		},
 		borderRadius: {
 			md: 4
+		},
+		'@media (min-width: 640px) and (max-width: 767px)': {
+			px: 2.5
 		}
 	},
 	sectionTitle: {
@@ -226,7 +228,9 @@ export const style = {
 		alignItems: 'center',
 		flexDirection: 'row',
 		flexWrap: 'wrap',
-		gap: 4,
+		gap: {
+			sm: 5
+		},
 		pt: {
 			xs: 2,
 			sm: 5
@@ -276,9 +280,9 @@ export const style = {
 	gridContainer: {
 		display: 'grid',
 		gap: '1.5rem',
-		gridTemplateColumns: {
-			xs: 'repeat(1, minmax(0, 1fr))',
-			sm: 'repeat(2, minmax(0, 1fr))'
+		gridTemplateColumns: 'repeat(1, minmax(0, 1fr))',
+		'@media (min-width: 640px)': {
+			gridTemplateColumns: 'repeat(2, minmax(0, 1fr))'
 		}
 	},
 	infoItem: {

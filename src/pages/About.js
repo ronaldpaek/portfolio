@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Typography, Paper, Stack, Container, Icon } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import Marquee from 'react-fast-marquee';
 
-import { skillsList, brands, infoList } from '../constants';
+import { brands, infoList } from '../constants';
 import { about } from '../assets';
 import { Footer } from '../components';
 import { style } from '../styles';
@@ -10,15 +11,21 @@ import { urlFor, client } from '../client';
 
 const About = () => {
 	const [skills, setSkills] = useState([]);
-	console.log(skills);
+	const theme = useTheme();
+	const { pxToRem } = theme.typography;
 
 	useEffect(() => {
 		const query = `*[_type == 'skills']`;
 
-		client.fetch(query).then(data => {
-			setSkills(data);
-		});
+		client
+			.fetch(query)
+			.then(data => {
+				setSkills(data);
+			})
+			.catch(err => console.error(err));
 	}, []);
+
+	// console.log(theme.palette.mode)
 
 	return (
 		<Box component='section'>
@@ -39,21 +46,23 @@ const About = () => {
 								/>
 							</Box>
 							<Box sx={style.whoAmIContainer}>
-								<Box sx={{ mr: { sm: 6, md: 8 } }}>
-									<Typography component='h3' sx={style.whoAmITitle}>
-										Who am i?
-									</Typography>
-									<Typography sx={style.whoAmIBody}>
-										I'm Creative Director and UI/UX Designer from Sydney,
-										Australia, working in web development and print media. I
-										enjoy turning complex problems into simple, beautiful and
-										intuitive designs.
-									</Typography>
-									<Typography mt={1.25} sx={style.whoAmIBody}>
-										My aim is to bring across your message and identity in the
-										most creative way. I created web design for many famous
-										brand companies.
-									</Typography>
+								<Box>
+									<Box sx={{ mr: { sm: 6, md: 8 } }}>
+										<Typography component='h3' sx={style.whoAmITitle}>
+											Who am i?
+										</Typography>
+										<Typography sx={style.whoAmIBody}>
+											I'm Creative Director and UI/UX Designer from Sydney,
+											Australia, working in web development and print media. I
+											enjoy turning complex problems into simple, beautiful and
+											intuitive designs.
+										</Typography>
+										<Typography mt={1.25} sx={style.whoAmIBody}>
+											My aim is to bring across your message and identity in the
+											most creative way. I created web design for many famous
+											brand companies.
+										</Typography>
+									</Box>
 									<Box mt={1.25}>
 										<Typography
 											component='h3'
@@ -61,25 +70,25 @@ const About = () => {
 											sx={{ my: 2.5, fontWeight: 500, fontSize: '1.5625rem' }}>
 											Personal Info
 										</Typography>
-									</Box>
-									<Box sx={style.gridContainer}>
-										{infoList.map(({ title, description, component }, i) => (
-											<Box key={i} sx={style.infoItem}>
-												<Paper component='span' sx={style.infoContainer}>
-													<Icon component={component}></Icon>
-												</Paper>
-												<Box>
-													<Typography sx={{ fontSize: '.75rem' }}>
-														{title}
-													</Typography>
-													<Typography
-														component='h6'
-														sx={{ fontWeight: 'bold' }}>
-														{description}
-													</Typography>
+										<Box sx={style.gridContainer}>
+											{infoList.map(({ title, description, component }, i) => (
+												<Box key={i} sx={style.infoItem}>
+													<Paper component='span' sx={style.infoContainer}>
+														<Icon component={component}></Icon>
+													</Paper>
+													<Box>
+														<Typography sx={{ fontSize: '.75rem' }}>
+															{title}
+														</Typography>
+														<Typography
+															component='h6'
+															sx={{ fontWeight: 'bold' }}>
+															{description}
+														</Typography>
+													</Box>
 												</Box>
-											</Box>
-										))}
+											))}
+										</Box>
 									</Box>
 								</Box>
 							</Box>
@@ -100,7 +109,7 @@ const About = () => {
 										gap: '1rem',
 										borderRadius: '.75rem',
 										p: 3,
-										backgroundColor: bgColor,
+										backgroundColor: bgColor
 									}}>
 									<Box
 										component='img'
@@ -131,31 +140,34 @@ const About = () => {
 					</Box>
 					<Box
 						textAlign='center'
-						p={5}
-						sx={{ bgcolor: 'lightgray', borderRadius: 3 }}>
+						py={'2.5rem'}
+						sx={{ bgcolor: 'rgb(248 251 251)', borderRadius: '.75rem' }}>
 						<Typography variant='h5' component='h3' fontWeight='800'>
 							Clients
 						</Typography>
-						<Marquee
+						<Box
+							component={Marquee}
 							pauseOnHover={true}
 							gradient={false}
-							style={{ paddingTop: '2rem' }}>
-							<Stack direction='row'>
-								{brands.map((brand, i) => (
-									<Box key={i} p={4}>
-										<img
-											src={brand}
-											alt=''
-											style={{
-												maxWidth: '100%',
-												display: 'block',
-												objectFit: 'cover'
-											}}
-										/>
-									</Box>
-								))}
-							</Stack>
-						</Marquee>
+							sx={{
+								pt: '2rem',
+								px: pxToRem(8)
+							}}>
+							{brands.map((brand, i) => (
+								<Box key={i} sx={{ p: '30px', width: 164 }}>
+									<Box
+										component='img'
+										src={brand}
+										alt=''
+										sx={{
+											maxWidth: '100%',
+											display: 'block',
+											objectFit: 'cover'
+										}}
+									/>
+								</Box>
+							))}
+						</Box>
 					</Box>
 					<Footer />
 				</Box>

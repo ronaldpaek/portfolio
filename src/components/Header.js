@@ -23,12 +23,13 @@ import { navLinks } from '../constants';
 import { FaSun, FaMoon } from 'react-icons/fa';
 import { ColorModeContext } from '../contexts';
 
-
 const Header = () => {
 	const theme = useTheme();
 	const [open, setOpen] = useState(false);
 	const { toggleColorMode } = useContext(ColorModeContext);
-	const lightMode = theme.palette.mode === 'light';
+	// console.log(toggleColorMode);
+	// const lightMode = theme.palette.mode === 'light';
+	// console.log(toggleColorMode());
 
 	return (
 		<StyledHeader component='header'>
@@ -43,7 +44,7 @@ const Header = () => {
 					</StyledHeaderLogoLink>
 					<StyledMobileMenuContainer>
 						<StyledThemeMobileToggle onClick={toggleColorMode}>
-							{lightMode ? (
+							{theme.palette.mode === 'light' ? (
 								<Icon component={FaMoon} sx={{ color: 'black' }} />
 							) : (
 								<Icon component={FaSun} sx={{ color: 'white' }} />
@@ -86,8 +87,14 @@ const Header = () => {
 						</Box>
 					))}
 					<Box component='li'>
-						<StyledThemeModeButton onClick={toggleColorMode}>
-							{lightMode ? (
+						<StyledThemeModeButton
+							sx={{
+								'&:hover': {
+									backgroundImage: 'linear-gradient(to right, #DD2476, #FA5252)'
+								}
+							}}
+							onClick={toggleColorMode}>
+							{theme.palette.mode === 'light' ? (
 								<Icon component={FaMoon} sx={{ color: 'black' }} />
 							) : (
 								<Icon component={FaSun} sx={{ color: 'white' }} />

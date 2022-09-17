@@ -45,7 +45,13 @@ const style = {
 		display: 'flex',
 		alignItems: 'center',
 		borderRadius: '35px',
-		backgroundImage: 'linear-gradient(to right, #DD2476, #FA5252)',
+		// backgroundImage: 'linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673)',
+    // boxShadow: '0 4px 15px 0 rgba(49, 196, 190, 0.75)',
+		backgroundImage: 'linear-gradient(to right, #DD2476, #FA5252, #DD2476, #fa5252ef)',
+		'&:hover': {
+			backgroundPosition: '100% 0',
+			transition: 'all .4 ease-in-out'
+		},
 		px: 4,
 		py: 1.5,
 		color: 'rgb(255, 255, 255)',
