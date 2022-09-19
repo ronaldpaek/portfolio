@@ -4,6 +4,7 @@ import { Box, Stack, Link, Icon } from '@mui/material';
 
 import { navLinks } from '@data';
 import { ThemeModeToggleButton } from './';
+import { StayPrimaryLandscape } from '@mui/icons-material';
 
 const DesktopNavigation = ({ handleToggleColorMode }) => {
 	return (
@@ -25,7 +26,8 @@ const DesktopNavigation = ({ handleToggleColorMode }) => {
 								px: {
 									md: '1rem',
 									xl: '1.25rem'
-								},
+                },
+                bgcolor: 'secondary.main',
 								'&:hover': {
 									backgroundImage: 'linear-gradient(to right, #DD2476, #FA5252)'
 								},

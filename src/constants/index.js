@@ -8,7 +8,13 @@ import {
 	MdOutlineDescription,
 	MdBusinessCenter
 } from 'react-icons/md';
-import { FaBlogger } from 'react-icons/fa';
+import {
+	FaBlogger,
+	FaFacebookF,
+	FaTwitter,
+	FaDribbble,
+	FaLinkedinIn
+} from 'react-icons/fa';
 import { RiContactsBookFill } from 'react-icons/ri';
 import {
 	School,
@@ -93,6 +99,29 @@ export const navLinks = [
 	{ title: 'Works', path: '/works', icon: MdBusinessCenter },
 	{ title: 'Blogs', path: '/blogs', icon: FaBlogger },
 	{ title: 'Contact', path: '/contact', icon: RiContactsBookFill }
+];
+
+export const links = [
+	{
+		url: 'https://www.facebook.com',
+		color: '#1773EA',
+		icon: FaFacebookF
+	},
+	{
+		url: 'https://twitter.com',
+		color: '#139CEA',
+		icon: FaTwitter
+	},
+	{
+		url: 'https://dribbble.com',
+		color: '#E14A84',
+		icon: FaDribbble
+	},
+	{
+		url: 'https://www.linkedin.com',
+		color: '#0072B1',
+		icon: FaLinkedinIn
+	}
 ];
 
 export const skillsList = [

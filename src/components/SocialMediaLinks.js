@@ -1,61 +1,33 @@
 import React from 'react';
 import { Stack, Box, Link, Icon } from '@mui/material';
-import {
-	FaFacebookF,
-	FaTwitter,
-	FaDribbble,
-	FaLinkedinIn
-} from 'react-icons/fa';
-
-const links = [
-	{
-		url: 'https://www.facebook.com',
-		color: '#1773EA',
-		component: FaFacebookF
-	},
-	{
-		url: 'https://twitter.com',
-		color: '#139CEA',
-		component: FaTwitter
-	},
-	{
-		url: 'https://dribbble.com',
-		color: '#E14A84',
-		component: FaDribbble
-	},
-	{
-		url: 'https://www.linkedin.com',
-		color: '#0072B1',
-		component: FaLinkedinIn
-	}
-];
+import { links } from '../constants';
 
 const SocialMediaLinks = () => {
 	return (
-		<Stack direction='row' spacing={1.5}>
-			{links.map(({ url, color, component }, i) => (
+		<Stack direction='row' spacing={3}>
+			{links.map(({ url, color, icon }, i) => (
 				<Link
 					key={i}
 					href={url}
 					target='_blank'
 					rel='noopener noreferrer'
 					sx={{
-						bgcolor: theme => (theme.palette.light ? '#212425': '#F3F6F6'),
-						borderRadius: 2
+						bgcolor: 'secondary.main',
+						borderRadius: '.5rem'
 					}}>
 					<Box
 						key={i}
 						component='span'
 						sx={{
 							display: 'flex',
-							height: 40,
-							width: 40,
+							height: '2.5rem',
+							width: '2.5rem',
 							alignItems: 'center',
 							justifyContent: 'center',
-							borderRadius: 2,
+							borderRadius: '.5rem',
 							'&:hover': {
 								backgroundImage: 'linear-gradient(to right, #DD2476, #FA5252)',
-								'&:hover > *': {
+								'&:hover > svg': {
 									color: '#FFF'
 								}
 							}
@@ -65,7 +37,7 @@ const SocialMediaLinks = () => {
 								fontSize: '1rem',
 								color
 							}}
-							component={component}
+							component={icon}
 						/>
 					</Box>
 				</Link>
