@@ -87,12 +87,12 @@ export const infoList = [
 ];
 
 export const navLinks = [
-	{ title: 'Home', path: '/', component: MdHome },
-	{ title: 'About', path: '/about', component: MdPersonOutline },
-	{ title: 'Resume', path: '/resume', component: MdOutlineDescription },
-	{ title: 'Works', path: '/works', component: MdBusinessCenter },
-	{ title: 'Blogs', path: '/blogs', component: FaBlogger },
-	{ title: 'Contact', path: '/contact', component: RiContactsBookFill }
+	{ title: 'Home', path: '/', icon: MdHome },
+	{ title: 'About', path: '/about', icon: MdPersonOutline },
+	{ title: 'Resume', path: '/resume', icon: MdOutlineDescription },
+	{ title: 'Works', path: '/works', icon: MdBusinessCenter },
+	{ title: 'Blogs', path: '/blogs', icon: FaBlogger },
+	{ title: 'Contact', path: '/contact', icon: RiContactsBookFill }
 ];
 
 export const skillsList = [

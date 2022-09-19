@@ -8,6 +8,28 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+import {
+	appWrapper,
+	searchBar,
+	appBar,
+	toolbarWrapper,
+	logoText,
+	sideListWrapper,
+	shortsWrapper,
+	shortsCard,
+	shortsHeader,
+	notificationWrapper,
+	appCardList,
+	appContentWrapper,
+	flexAlignCenter,
+	flexColumnGrow,
+	flexColumnCenter,
+	inlineText,
+	flex,
+	scrollWrapper,
+	hideOnMobile
+} from './styles';
+
 /**
  * App
  */
@@ -306,4 +328,26 @@ export const style = {
 			lg: 'repeat(3, minmax(0, 1fr))'
 		}
 	}
+};
+
+export {
+	appWrapper,
+	searchBar,
+	appBar,
+	toolbarWrapper,
+	logoText,
+	sideListWrapper,
+	shortsWrapper,
+	shortsCard,
+	shortsHeader,
+	notificationWrapper,
+	appCardList,
+	appContentWrapper,
+	flexAlignCenter,
+	flexColumnGrow,
+	flexColumnCenter,
+	inlineText,
+	flex,
+	scrollWrapper,
+	hideOnMobile
 };

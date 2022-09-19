@@ -35,6 +35,7 @@
 // };
 
 // import breakpoints from './breakpoints';
-import customTheme from "./customTheme";
+// import customTheme from './customTheme';
+import { AppThemeProvider, ColorModeContext } from './AppThemeProvider';
 
-export { customTheme };
+export { AppThemeProvider, ColorModeContext };

@@ -29,7 +29,7 @@ const About = () => {
 
 	return (
 		<Box component='section'>
-			<Container disableGutters sx={style.sectionContainer}>
+			<Container disableGutters component={Paper} sx={style.sectionContainer}>
 				<Box>
 					<Box py={6}>
 						<Typography component='h2' sx={style.sectionTitle}>
