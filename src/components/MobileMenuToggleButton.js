@@ -6,19 +6,17 @@ const MobileMenuToggleButton = ({ handleMenuToggle, open }) => {
 	return (
 		<IconButton
 			onClick={handleMenuToggle}
-			sx={{
-				color: 'primary.main',
+			sx={theme => ({
+				color: 'black',
 				ml: 3,
 				height: 40,
-				alignItems: 'center',
-				justifyContent: 'center',
 				width: { xs: 40, lg: 50 },
-				display: { xs: 'flex', lg: 'none' },
-				bgcolor: '#FFF',
+				display: { lg: 'none' },
+				bgcolor: 'white',
 				'&:hover': {
-					backgroundImage: 'linear-gradient(to right, #DD2476, #FA5252)'
+					backgroundImage: `linear-gradient(to right,${theme.gradient.one}, ${theme.gradient.two})`
 				}
-			}}>
+			})}>
 			<Menu sx={{ display: !open ? 'block' : 'none' }} />
 			<Close sx={{ display: open ? 'block' : 'none' }} />
 		</IconButton>

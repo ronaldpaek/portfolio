@@ -1,10 +1,16 @@
 import React from 'react';
 import { Stack, Box, Link, Icon } from '@mui/material';
+
 import { links } from '../constants';
 
 const SocialMediaLinks = () => {
 	return (
-		<Stack direction='row' spacing={3}>
+		<Stack
+			direction='row'
+			sx={{
+				'& > a + a': { ml: 3 }
+			}}
+		>
 			{links.map(({ url, color, icon }, i) => (
 				<Link
 					key={i}
@@ -12,13 +18,14 @@ const SocialMediaLinks = () => {
 					target='_blank'
 					rel='noopener noreferrer'
 					sx={{
-						bgcolor: 'secondary.main',
+						bgcolor: theme => theme.neutral.secondary,
 						borderRadius: '.5rem'
-					}}>
+					}}
+				>
 					<Box
 						key={i}
 						component='span'
-						sx={{
+						sx={theme => ({
 							display: 'flex',
 							height: '2.5rem',
 							width: '2.5rem',
@@ -26,12 +33,13 @@ const SocialMediaLinks = () => {
 							justifyContent: 'center',
 							borderRadius: '.5rem',
 							'&:hover': {
-								backgroundImage: 'linear-gradient(to right, #DD2476, #FA5252)',
+								backgroundImage: `linear-gradient(to right, ${theme.gradient.one}, ${theme.gradient.two})`,
 								'&:hover > svg': {
-									color: '#FFF'
+									color: 'white'
 								}
 							}
-						}}>
+						})}
+					>
 						<Icon
 							sx={{
 								fontSize: '1rem',

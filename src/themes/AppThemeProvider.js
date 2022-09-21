@@ -21,21 +21,79 @@ const AppThemeProvider = ({ children }) => {
 			}
 		},
 		spacing: 4,
+
+		gradient: {
+			one: '#DD2476',
+			two: '#FA5252'
+		},
+		...(mode === 'light'
+			? {
+					// LIGHT MODE
+					neutral: { primary: '#000', secondary: '#F3F6F6' },
+					toggle: { bgcolor: '#FFF' },
+					mobileMenu: { bgcolor: '#FFF', color: '#44566C' },
+					footer: { main: '#F8FBFB' }
+			  }
+			: {
+					// DARK MODE
+					neutral: { primary: '#FFF', secondary: '#212425' },
+					toggle: { bgcolor: '#4D4D4D', color: '#FFF' },
+					mobileMenu: { bgcolor: '#1D1D1D', color: '#FFF' },
+					footer: { main: '#212425' }
+			  }),
+
 		palette: {
 			mode,
 			...(mode === 'light'
 				? {
-						primary: { main: '#44566C' },
-						secondary: { main: '#FFF' }
+						// LIGHT MODE
+						primary: { main: '#FFF' },
+						secondary: { main: '#44566C' }
 				  }
 				: {
-						primary: { main: '#A6A6A6' },
-						secondary: { main: '#212425' }
+						// DARK MODE
+						primary: { main: '#212425' },
+						secondary: { main: '#A6A6A6' }
 				  })
 		},
 		typography: {
 			allVariants: {
 				fontFamily: 'Poppins'
+			},
+			h2: {
+				fontFamily: 'Roboto Slab, serif',
+				fontSize: '2.5rem',
+				fontWeight: 700
+			}
+		},
+		components: {
+			MuiCssBaseline: {
+				styleOverrides: {
+					img: {
+						display: 'block',
+						width: '100%',
+						maxWidth: '100%'
+					},
+					ul: {
+						padding: 0,
+						margin: 0,
+						listStyle: 'none'
+					}
+				}
+			},
+			MuiLink: {
+				styleOverrides: {
+					root: {
+						textDecoration: 'none',
+						fontSize: '.8125rem',
+						fontWeight: 500
+					}
+				}
+			},
+			MuiContainer: {
+				defaultProps: {
+					disableGutters: true
+				}
 			}
 		}
 	});

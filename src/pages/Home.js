@@ -35,6 +35,7 @@ const Home = ({ name, title }) => {
 			/>
 			<Typography
 				component='h3'
+				variant='h3'
 				sx={{
 					fontSize: '1.625rem',
 					fontWeight: 600,

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Stack } from '@mui/material';
 
 import {
@@ -9,11 +9,12 @@ import {
 	ThemeModeToggleButton
 } from './';
 import { ColorModeContext } from '@themes';
+import { OpenContext } from '../contexts';
 
 const Header = () => {
-	const [open, setOpen] = useState(false);
 	const handleMenuToggle = () => setOpen(open => !open);
 	const toggleColorMode = useContext(ColorModeContext);
+	const { open, setOpen } = useContext(OpenContext);
 
 	return (
 		<Stack
@@ -26,24 +27,29 @@ const Header = () => {
 				left: 0,
 				width: 1,
 				position: { xs: 'fixed', lg: 'static' }
-			}}>
+			}}
+		>
 			<Stack
 				direction='row'
 				justifyContent='space-between'
 				sx={{
 					width: 1,
 					px: 4,
-					bgcolor: { xs: 'secondary.main', lg: 'transparent' }
-				}}>
+					bgcolor: theme => ({ xs: theme.neutral.secondary, lg: 'transparent' })
+				}}
+			>
 				<Stack
 					direction='row'
 					justifyContent='space-between'
 					alignItems='center'
-					spacing={4}
 					sx={{
 						width: 1,
-						my: { xs: 5, lg: 8 }
-					}}>
+						my: { xs: 5, lg: 8 },
+						'& > * + * ': {
+							ml: 4
+						}
+					}}
+				>
 					<Logo />
 					<Stack direction='row' alignItems='center'>
 						<ThemeModeToggleButton

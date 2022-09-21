@@ -1,19 +1,24 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 
-
-const Footer = ({ backgroundColor, borderRadius }) => {
+const Footer = () => {
 	return (
 		<Box
-			py={3}
 			component='footer'
-			textAlign='center'
 			sx={{
-				backgroundColor,
-				borderBottomLeftRadius: borderRadius,
-				borderBottomRightRadius: borderRadius
-			}}>
-			<Typography componenet='p'>
+				overflow: 'hidden',
+				borderBottomLeftRadius: '1rem',
+				borderBottomRightRadius: '1rem',
+				bgcolor: 'inherit'
+			}}
+		>
+			<Typography
+				sx={{
+					color: 'secondary.main',
+					textAlign: 'center',
+					py: 6
+				}}
+			>
 				© 2022 All Rights Reserved by ib-themes.
 			</Typography>
 		</Box>

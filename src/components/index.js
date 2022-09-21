@@ -10,6 +10,12 @@ import Logo from './Logo';
 import MobileMenuToggleButton from './MobileMenuToggleButton';
 import MobileNavigation from './MobileNavigation';
 import ThemeModeToggleButton from './ThemeModeToggleButton';
+import AboutMe from './AboutMe';
+import AboutMeImage from './AboutMeImage';
+import WhoAmI from './WhoAmI';
+import PersonalInfo from './PersonalInfo';
+import WhatIDo from './WhatIDo';
+import Clients from './Clients';
 
 export {
 	Footer,
@@ -23,5 +29,11 @@ export {
 	Logo,
 	MobileMenuToggleButton,
 	MobileNavigation,
-	ThemeModeToggleButton
+	ThemeModeToggleButton,
+	AboutMe,
+	AboutMeImage,
+	WhoAmI,
+	PersonalInfo,
+	WhatIDo,
+	Clients
 };

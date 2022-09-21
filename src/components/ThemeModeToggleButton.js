@@ -6,36 +6,34 @@ const ThemeModeToggleButton = ({ handleToggleColorMode, displayMode }) => {
 	return (
 		<IconButton
 			onClick={handleToggleColorMode}
-			sx={{
+			sx={theme => ({
 				display:
 					displayMode === 'mobile'
-						? { xs: 'flex', lg: 'none' }
-						: { xs: 'none', lg: 'flex' },
-				alignItems: 'center',
-				justifyContent: 'center',
+						? { xs: 'inline-flex', lg: 'none' }
+						: { xs: 'none', lg: 'inline-flex' },
 				width: 44,
 				height: 44,
 				ml: 2,
-				bgcolor: theme => (theme.palette.mode === 'light' ? '#FFF' : '#4D4D4D'),
+				bgcolor: theme.toggle.bgcolor,
+				color: theme.palette.mode === 'light' ? 'black' : 'white',
 				'&:hover': {
-					backgroundImage: 'linear-gradient(to right, #DD2476, #FA5252)'
+					backgroundImage: `linear-gradient(${theme.gradient.one}, ${theme.gradient.two})`,
+					color: 'white'
 				}
-			}}>
-			<Icon
-				component={FaSun}
-				sx={{
-					display: theme => (theme.palette.mode === 'light' ? 'block' : 'none'),
-					color: '#000',
-					fontSize: '1.25rem'
-				}}
-			/>
+			})}>
 			<Icon
 				component={FaMoon}
-				sx={{
-					display: theme => (theme.palette.mode === 'dark' ? 'block' : 'none'),
-					color: '#FFF',
+				sx={theme => ({
+					display: theme.palette.mode === 'light' ? 'block' : 'none',
 					fontSize: '1.25rem'
-				}}
+				})}
+			/>
+			<Icon
+				component={FaSun}
+				sx={theme => ({
+					display: theme.palette.mode === 'dark' ? 'block' : 'none',
+					fontSize: '1.25rem'
+				})}
 			/>
 		</IconButton>
 	);

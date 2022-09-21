@@ -1,15 +1,3 @@
-import { ColorModeContext, ColorModeProvider } from './ColorModeProvider';
-import { useTheme } from '@mui/material/styles';
+import { OpenContext, OpenContextProvider } from './OpenContextProvider';
 
-export { ColorModeProvider, ColorModeContext };
-
-// const theme = useTheme();
-// const styles = {
-// 	components: {
-// 		MuiLink: {
-// 			styleOverrides: {
-// 				root: {}
-// 			}
-// 		}
-// 	}
-// };
+export { OpenContext, OpenContextProvider };

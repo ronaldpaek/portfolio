@@ -4,7 +4,6 @@ import { Box, Stack, Link, Icon } from '@mui/material';
 
 import { navLinks } from '@data';
 import { ThemeModeToggleButton } from './';
-import { StayPrimaryLandscape } from '@mui/icons-material';
 
 const DesktopNavigation = ({ handleToggleColorMode }) => {
 	return (
@@ -15,28 +14,27 @@ const DesktopNavigation = ({ handleToggleColorMode }) => {
 						<Link
 							component={RouterLink}
 							to={path}
-							sx={{
+							sx={theme => ({
 								display: 'flex',
 								alignItems: 'center',
-								fontWeight: 500,
-								fontSize: '.8125rem',
 								mx: '0.625rem',
 								borderRadius: '0.375rem',
 								py: '0.625rem',
 								px: {
 									md: '1rem',
 									xl: '1.25rem'
-                },
-                bgcolor: 'secondary.main',
+								},
+								bgcolor: 'primary.main',
+								color: 'secondary.main',
 								'&:hover': {
-									backgroundImage: 'linear-gradient(to right, #DD2476, #FA5252)'
+									backgroundImage: `linear-gradient(to right, ${theme.gradient.one}, ${theme.gradient.two})`,
+									color: 'white'
 								},
 								'&.active': {
-									backgroundImage:
-										'linear-gradient(to right, #DD2476, #FA5252)',
-									color: '#FFF'
+									backgroundImage: `linear-gradient(to right,${theme.gradient.one}, ${theme.gradient.two})`,
+									color: 'white'
 								}
-							}}>
+							})}>
 							<Icon component={icon} sx={{ mr: 2 }} />
 							{title}
 						</Link>
