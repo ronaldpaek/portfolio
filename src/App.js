@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Container, Box, CssBaseline } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
 import { Routes, Route } from 'react-router-dom';
 
 import { OpenContextProvider } from './contexts';
@@ -9,12 +8,10 @@ import { Home, About, Resume, Portfolio, Blogs, Contact } from './pages';
 import { bg, bgDark } from './assets';
 
 function App() {
-	const theme = useTheme();
-
 	return (
 		<OpenContextProvider>
 			<Box
-				sx={{
+				sx={theme => ({
 					minHeight: '100vh',
 					backgroundSize: 'cover',
 					backgroundPosition: 'center',
@@ -24,7 +21,7 @@ function App() {
 					backgroundImage: `url(${
 						theme.palette.mode === 'light' ? bg : bgDark
 					})`
-				}}
+				})}
 			>
 				<Box>
 					<CssBaseline />

@@ -1,8 +1,6 @@
 import React, { createContext, useState } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-const ColorModeContext = createContext(null);
-
 const AppThemeProvider = ({ children }) => {
 	const [mode, setMode] = useState('light');
 
@@ -104,5 +102,7 @@ const AppThemeProvider = ({ children }) => {
 		</ColorModeContext.Provider>
 	);
 };
+
+const ColorModeContext = createContext(null);
 
 export { AppThemeProvider, ColorModeContext };
