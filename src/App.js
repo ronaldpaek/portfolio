@@ -1,38 +1,34 @@
 import React from 'react';
 import { Container, Box, CssBaseline } from '@mui/material';
 import { Routes, Route } from 'react-router-dom';
+import { useTheme } from '@mui/material/styles';
 
+// Imported the header straight from the component
+import Header from './components/Header/Header';
 import { OpenContextProvider } from './contexts';
-import { Header } from './components';
 import { Home, About, Resume, Portfolio, Blogs, Contact } from './pages';
 import { bg, bgDark } from './assets';
 
 function App() {
+
 	return (
 		<OpenContextProvider>
 			<Box
-				sx={theme => ({
+				sx={{
 					minHeight: '100vh',
 					backgroundSize: 'cover',
 					backgroundPosition: 'center',
 					backgroundRepeat: 'no-repeat',
+					backgroundAttachment: 'fixed',
 					width: 1,
 					pb: { md: 16 },
-					backgroundImage: `url(${
-						theme.palette.mode === 'light' ? bg : bgDark
-					})`
-				})}
+					backgroundImage: theme =>
+						`url(${theme.palette.mode === 'light' ? bg : bgDark})`
+				}}
 			>
 				<Box>
 					<CssBaseline />
-					<Container
-						sx={{
-							'@media (max-width: 992px)': {
-								maxWidth: '992px'
-							},
-							maxWidth: { xl: 1280 }
-						}}
-					>
+					<Container sx={theme => theme.container}>
 						<Header />
 						<Routes>
 							<Route

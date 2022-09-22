@@ -1,11 +1,13 @@
 import React from 'react';
 import { IconButton, Icon } from '@mui/material';
 import { FaSun, FaMoon } from 'react-icons/fa';
+import { useColorModeContext } from '../../contexts';
 
-const ThemeModeToggleButton = ({ handleToggleColorMode, displayMode }) => {
+const ThemeModeToggleButton = ({ displayMode }) => {
+	const { toggleColorMode } = useColorModeContext();
 	return (
 		<IconButton
-			onClick={handleToggleColorMode}
+			onClick={toggleColorMode}
 			sx={theme => ({
 				display:
 					displayMode === 'mobile'
@@ -14,13 +16,14 @@ const ThemeModeToggleButton = ({ handleToggleColorMode, displayMode }) => {
 				width: 44,
 				height: 44,
 				ml: 2,
-				bgcolor: theme.toggle.bgcolor,
+				bgcolor: theme.custom.toggle.bgcolor,
 				color: theme.palette.mode === 'light' ? 'black' : 'white',
 				'&:hover': {
-					backgroundImage: `linear-gradient(${theme.gradient.one}, ${theme.gradient.two})`,
+					backgroundImage: theme => theme.gradient.secondary,
 					color: 'white'
 				}
-			})}>
+			})}
+		>
 			<Icon
 				component={FaMoon}
 				sx={theme => ({

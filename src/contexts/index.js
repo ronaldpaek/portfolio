@@ -1,3 +1,4 @@
-import { OpenContext, OpenContextProvider } from './OpenContextProvider';
+import { OpenContextProvider, useOpenContext } from './OpenContextProvider';
+import { useColorModeContext } from '../themes';
 
-export { OpenContext, OpenContextProvider };
+export { OpenContextProvider, useOpenContext, useColorModeContext };

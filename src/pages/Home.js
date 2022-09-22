@@ -18,7 +18,8 @@ const Home = ({ name, title }) => {
 					lg: '80vh',
 					xl: '71vh'
 				}
-			}}>
+			}}
+		>
 			<Box
 				component='img'
 				alt='profile'
@@ -35,20 +36,21 @@ const Home = ({ name, title }) => {
 			/>
 			<Typography
 				component='h3'
-				variant='h3'
 				sx={{
 					fontSize: '1.625rem',
 					fontWeight: 600,
 					mb: '0.25rem',
 					mt: '1.5rem'
-				}}>
+				}}
+			>
 				{name}
 			</Typography>
 			<Typography
 				sx={{
 					color: '#7B7B7B',
 					mb: '1rem'
-				}}>
+				}}
+			>
 				{title}
 			</Typography>
 			<SocialMediaLinks />
@@ -60,8 +62,7 @@ const Home = ({ name, title }) => {
 					display: 'flex',
 					alignItems: 'center',
 					borderRadius: '35px',
-					backgroundImage:
-						'linear-gradient(to right, #DD2476, #FA5252, #DD2476, #fa5252ef)',
+					backgroundImage: theme => theme.gradient.secondary,
 					'&:hover': {
 						backgroundPosition: '100% 0',
 						transition: 'all .4 ease-in-out'
@@ -71,7 +72,8 @@ const Home = ({ name, title }) => {
 					color: '#FFF',
 					fontSize: '1.125rem'
 				}}
-				startIcon={<Download />}>
+				startIcon={<Download />}
+			>
 				Download CV
 			</Button>
 		</Stack>

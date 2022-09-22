@@ -1,8 +1,32 @@
 import React from 'react';
-import { Box, Typography, Grid, Stack, LinearProgress, Paper, Container } from '@mui/material';
+import {
+	Box,
+	Typography,
+	Grid,
+	Stack,
+	LinearProgress,
+	Paper,
+	Container
+} from '@mui/material';
 
 import Footer from '../components/Footer';
 import { resumeList, skills, items } from '../constants';
+
+const ResumeV2 = () => {
+	return (
+		<Box
+			component='section'
+			sx={{
+				bgcolor: theme => (theme.palette.mode === 'light' ? 'white' : '#111'),
+				borderRadius: { lg: '1rem' }
+			}}
+		>
+			{/* <Box>
+				<Container 
+			</Box> */}
+		</Box>
+	);
+};
 
 const Resume = () => {
 	return (
@@ -14,7 +38,8 @@ const Resume = () => {
 				borderRadius: {
 					md: '1rem'
 				}
-			}}>
+			}}
+		>
 			<Box>
 				<Container
 					// minWidth={{md}}
@@ -32,7 +57,8 @@ const Resume = () => {
 							sm: 5,
 							lg: 10
 						}
-					}}>
+					}}
+				>
 					<Box py={6} px={2}>
 						<Typography
 							variant='h3'
@@ -46,7 +72,8 @@ const Resume = () => {
 									xs: 5,
 									md: 0
 								}
-							}}>
+							}}
+						>
 							Resume
 							<Box
 								component='span'
@@ -60,7 +87,8 @@ const Resume = () => {
 										xs: 'none',
 										sm: 'inline'
 									}
-								}}></Box>
+								}}
+							></Box>
 						</Typography>
 						<Grid container spacing={2}>
 							{resumeList.map(({ topic, Icon, list }, _) => (
@@ -77,7 +105,8 @@ const Resume = () => {
 												key={i}
 												spacing={2}
 												p={2}
-												sx={{ backgroundColor: '#5F9EA0', borderRadius: 2 }}>
+												sx={{ backgroundColor: '#5F9EA0', borderRadius: 2 }}
+											>
 												<Typography color='gray'>{date}</Typography>
 												<Typography>{title}</Typography>
 												<Typography>{subtitle}</Typography>
@@ -97,7 +126,8 @@ const Resume = () => {
 								sm: 5,
 								lg: 10
 							}
-						}}>
+						}}
+					>
 						<Grid
 							container
 							spacing={2}
@@ -106,7 +136,8 @@ const Resume = () => {
 									xs: 'column',
 									lg: 'row'
 								}
-							}}>
+							}}
+						>
 							<Grid item xs={12} sm={6}>
 								<Typography variant='h4' componenet='h3' marginBottom={3}>
 									Working Skills
@@ -143,7 +174,8 @@ const Resume = () => {
 											xs: 1.5,
 											md: 2
 										}
-									}}>
+									}}
+								>
 									{items.map((item, i) => (
 										<Box
 											key={i}
@@ -152,7 +184,8 @@ const Resume = () => {
 												paddingBlock: 0.75,
 												paddingInline: 2,
 												borderRadius: 1
-											}}>
+											}}
+										>
 											{item}
 										</Box>
 									))}

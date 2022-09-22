@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Container } from '@mui/material';
 
-import { AboutMe, WhatIDo, Clients, Footer } from '../components';
+import { WhatIDo, Clients, Footer } from '../components';
+import { AboutMe } from '../components/About';
 import { fetchData } from '../utils/fetchData';
 
 const About = () => {

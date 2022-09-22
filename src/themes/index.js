@@ -1,3 +1,6 @@
-import { AppThemeProvider, ColorModeContext } from './AppThemeProvider';
+import {
+	AppThemeProvider,
+	useColorModeContext
+} from './AppThemeProvider';
 
-export { AppThemeProvider, ColorModeContext };
+export { AppThemeProvider, useColorModeContext };

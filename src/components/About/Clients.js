@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import Marquee from 'react-fast-marquee';
 
-import { brands } from '../constants';
+import { brands } from '../../constants';
 
 const Clients = () => {
 	return (
@@ -20,7 +20,7 @@ const Clients = () => {
 				<Typography
 					component='h3'
 					sx={{
-						color: theme => theme.neutral.primary,
+						color: theme => theme.custom.neutral.primary,
 						textAlign: 'center',
 						fontSize: '1.75rem',
 						fontWeight: 600,
@@ -43,10 +43,8 @@ const Clients = () => {
 							<Box
 								component='img'
 								src={brand}
-								alt=''
+								alt='brand'
 								sx={{
-									maxWidth: '100%',
-									display: 'block',
 									objectFit: 'cover'
 								}}
 							/>
@@ -59,37 +57,3 @@ const Clients = () => {
 };
 
 export default Clients;
-
-{/* <Box
-	textAlign='center'
-	py={'2.5rem'}
-	sx={{ bgcolor: 'rgb(248 251 251)', borderRadius: '.75rem' }}
->
-	<Typography variant='h5' component='h3' fontWeight='800'>
-		Clients
-	</Typography>
-	<Box
-		component={Marquee}
-		pauseOnHover={true}
-		gradient={false}
-		sx={{
-			pt: '2rem',
-			px: pxToRem(8)
-		}}
-	>
-		{brands.map((brand, i) => (
-			<Box key={i} sx={{ p: '30px', width: 164 }}>
-				<Box
-					component='img'
-					src={brand}
-					alt=''
-					sx={{
-						maxWidth: '100%',
-						display: 'block',
-						objectFit: 'cover'
-					}}
-				/>
-			</Box>
-		))}
-	</Box>
-</Box>; */}

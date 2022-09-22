@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, Stack } from '@mui/material';
 
-import { urlFor } from '../client';
+import { urlFor } from '../../client';
 
 const WhatIDo = ({ skills }) => {
 	return (
@@ -12,7 +12,7 @@ const WhatIDo = ({ skills }) => {
 					fontWeight: 500,
 					fontSize: '35px',
 					pb: 5,
-					color: theme => theme.neutral.primary
+					color: theme => theme.custom.neutral.primary
 				}}
 			>
 				What I do!
@@ -25,8 +25,8 @@ const WhatIDo = ({ skills }) => {
 				}}
 			>
 				{skills.map(({ name, bgColor, icon }, i) => (
-					<Box
-						display='flex'
+					<Stack
+						direction='row'
 						key={i}
 						sx={{
 							gap: '1rem',
@@ -49,7 +49,7 @@ const WhatIDo = ({ skills }) => {
 							<Typography
 								component='h3'
 								sx={{
-									color: theme => theme.neutral.primary,
+									color: theme => theme.custom.neutral.primary,
 									fontWeight: 600,
 									fontSize: '1.375rem'
 								}}
@@ -61,7 +61,7 @@ const WhatIDo = ({ skills }) => {
 								diam euismod volutpat.
 							</Typography>
 						</Box>
-					</Box>
+					</Stack>
 				))}
 			</Box>
 		</Box>

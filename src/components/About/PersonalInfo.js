@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, Typography, Grid, Icon } from '@mui/material';
+import { Box, Typography, Icon, Stack } from '@mui/material';
 
-import { infoList } from '../constants';
+import { infoList } from '../../constants';
 
 const PersonalInfo = () => {
 	return (
@@ -12,7 +12,7 @@ const PersonalInfo = () => {
 					fontWeight: 500,
 					fontSize: '1.5625rem',
 					my: 5,
-					color: theme => theme.neutral.primary
+					color: theme => theme.custom.neutral.primary
 				}}
 			>
 				Personal Info
@@ -28,11 +28,11 @@ const PersonalInfo = () => {
 				}}
 			>
 				{infoList.map(({ title, description, component }, i) => (
-					<Box key={i} display='flex'>
-						<Box
+					<Stack key={i} direction='row'>
+						<Stack
+							direciton='row'
 							component='span'
 							sx={{
-								display: 'flex',
 								alignItems: 'center',
 								justifyContent: 'center',
 								mr: 2.5,
@@ -42,7 +42,7 @@ const PersonalInfo = () => {
 							}}
 						>
 							<Icon component={component} />
-						</Box>
+						</Stack>
 						<Box sx={{ '& > * + *': { my: 1 } }}>
 							<Typography
 								sx={{
@@ -56,7 +56,7 @@ const PersonalInfo = () => {
 								{description}
 							</Typography>
 						</Box>
-					</Box>
+					</Stack>
 				))}
 			</Box>
 		</Box>

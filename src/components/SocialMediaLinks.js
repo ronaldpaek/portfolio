@@ -18,7 +18,7 @@ const SocialMediaLinks = () => {
 					target='_blank'
 					rel='noopener noreferrer'
 					sx={{
-						bgcolor: theme => theme.neutral.secondary,
+						bgcolor: theme => theme.custom.neutral.secondary,
 						borderRadius: '.5rem'
 					}}
 				>
@@ -33,7 +33,7 @@ const SocialMediaLinks = () => {
 							justifyContent: 'center',
 							borderRadius: '.5rem',
 							'&:hover': {
-								backgroundImage: `linear-gradient(to right, ${theme.gradient.one}, ${theme.gradient.two})`,
+								backgroundImage: `'theme.gradient.toRight'`,
 								'&:hover > svg': {
 									color: 'white'
 								}

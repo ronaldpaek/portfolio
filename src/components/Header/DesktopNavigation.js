@@ -5,7 +5,7 @@ import { Box, Stack, Link, Icon } from '@mui/material';
 import { navLinks } from '@data';
 import { ThemeModeToggleButton } from './';
 
-const DesktopNavigation = ({ handleToggleColorMode }) => {
+const DesktopNavigation = () => {
 	return (
 		<Box component='nav' sx={{ display: { xs: 'none', lg: 'block' } }}>
 			<Stack direction='row' my={12} component='ul'>
@@ -27,24 +27,22 @@ const DesktopNavigation = ({ handleToggleColorMode }) => {
 								bgcolor: 'primary.main',
 								color: 'secondary.main',
 								'&:hover': {
-									backgroundImage: `linear-gradient(to right, ${theme.gradient.one}, ${theme.gradient.two})`,
+									backgroundImage: theme.gradient.main,
 									color: 'white'
 								},
 								'&.active': {
-									backgroundImage: `linear-gradient(to right,${theme.gradient.one}, ${theme.gradient.two})`,
+									backgroundImage: theme.gradient.main,
 									color: 'white'
 								}
-							})}>
+							})}
+						>
 							<Icon component={icon} sx={{ mr: 2 }} />
 							{title}
 						</Link>
 					</Box>
 				))}
 				<Box component='li'>
-					<ThemeModeToggleButton
-						displayMode='desktop'
-						handleToggleColorMode={handleToggleColorMode}
-					/>
+					<ThemeModeToggleButton displayMode='desktop' />
 				</Box>
 			</Stack>
 		</Box>

@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 import { Box } from '@mui/material';
 
-import { about } from '../assets';
+import { about } from '../../assets';
 
 const AboutMeImage = () => {
-  return (
-    <Box gridColumn={{ xs: 'span 12', md: 'span 4' }}>
+	return (
+		<Box gridColumn={{ xs: 'span 12', md: 'span 4' }}>
 			<Box
 				component='img'
 				src={about}
@@ -18,6 +18,6 @@ const AboutMeImage = () => {
 			/>
 		</Box>
 	);
-}
+};
 
-export default AboutMeImage
+export default AboutMeImage;
