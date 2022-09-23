@@ -24,7 +24,7 @@ const WhatIDo = ({ skills }) => {
 					gridTemplateColumns: { xs: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }
 				}}
 			>
-				{skills.map(({ name, bgColor, icon }, i) => (
+				{skills.map(({ name, bgcolor, icon }, i) => (
 					<Stack
 						direction='row'
 						key={i}
@@ -32,7 +32,7 @@ const WhatIDo = ({ skills }) => {
 							gap: '1rem',
 							borderRadius: '.75rem',
 							p: '1.5rem',
-							bgcolor: bgColor
+							bgcolor
 						}}
 					>
 						<Box
