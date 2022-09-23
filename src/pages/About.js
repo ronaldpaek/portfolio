@@ -22,11 +22,7 @@ const About = () => {
 						lg: 20
 					},
 					borderRadius: { lg: '1rem' },
-					bgcolor: 'primary.main',
-					maxWidth: { xl: '1280px' },
-					'@media (max-width: 992px)': {
-						maxWidth: '992px'
-					}
+					bgcolor: 'primary.main'
 				}}
 			>
 				<Box>

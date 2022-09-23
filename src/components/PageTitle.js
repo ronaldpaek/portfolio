@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography } from '@mui/material';
 import { useOpenContext } from '../contexts';
 
-const PageTitle = ({ pageTitle }) => {
+const PageTitle = ({ pageTitle, mb }) => {
 	const { open } = useOpenContext();
 
 	return (
@@ -11,6 +11,7 @@ const PageTitle = ({ pageTitle }) => {
 			variant='h2'
 			sx={theme => ({
 				mt: { xs: 12, lg: 0 },
+				mb: mb || 0,
 				position: 'relative',
 				display: 'inline-block',
 				zIndex: open ? -1 : 0,

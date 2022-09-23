@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Box, CssBaseline } from '@mui/material';
 import { Routes, Route } from 'react-router-dom';
-import { useTheme } from '@mui/material/styles';
 
 // Imported the header straight from the component
 import Header from './components/Header/Header';
@@ -10,7 +9,6 @@ import { Home, About, Resume, Portfolio, Blogs, Contact } from './pages';
 import { bg, bgDark } from './assets';
 
 function App() {
-
 	return (
 		<OpenContextProvider>
 			<Box
@@ -28,7 +26,7 @@ function App() {
 			>
 				<Box>
 					<CssBaseline />
-					<Container sx={theme => theme.container}>
+					<Container>
 						<Header />
 						<Routes>
 							<Route

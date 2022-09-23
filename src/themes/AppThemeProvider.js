@@ -25,15 +25,9 @@ export const AppThemeProvider = ({ children }) => {
 		gradient: {
 			main: 'linear-gradient(to right, #FA5252, #DD2476)',
 			secondary: 'linear-gradient(to right, #DD2476, #FA5252)'
-		},
-		container: {
-			'@media (max-width: 992px)': {
-				maxWidth: '992px'
-			},
-			maxWidth: { xl: 1280 }
 		}
 	});
-	
+
 	return (
 		<ColorModeContext.Provider value={{ mode, toggleColorMode }}>
 			<ThemeProvider theme={theme}>{children}</ThemeProvider>

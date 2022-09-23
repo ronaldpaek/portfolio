@@ -79,6 +79,9 @@ export const customComponents = {
 					padding: 0,
 					margin: 0,
 					listStyle: 'none'
+				},
+				button: {
+					border: 0,
 				}
 			}
 		},
@@ -94,6 +97,16 @@ export const customComponents = {
 		MuiContainer: {
 			defaultProps: {
 				disableGutters: true
+			},
+			styleOverrides: {
+				root: {
+					'@media (min-width: 992px)': {
+						maxWidth: 992
+					},
+					'@media (min-width: 1280px)': {
+						maxWidth: 1280
+					}
+				}
 			}
 		}
 	}

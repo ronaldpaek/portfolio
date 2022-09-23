@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink as RouterLink } from 'react-router-dom';
-import { Box, Link, Icon } from '@mui/material';
+import { Box, Link, Icon, hslToRgb } from '@mui/material';
 
 import { navLinks } from '@data';
 import { useOpenContext } from '../../contexts';
@@ -18,7 +18,7 @@ const MobileNavigation = () => {
 				component='ul'
 				sx={{
 					display: open ? 'block' : 'none',
-					boxShadow: 3,
+					boxShadow: '0 4px 4px rgb(0 0 0 / 0.2)',
 					borderBottomRightRadius: 20,
 					borderBottomLeftRadius: 20,
 					width: 1,

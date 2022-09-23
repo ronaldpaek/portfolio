@@ -13,17 +13,12 @@ import {
 	FaFacebookF,
 	FaTwitter,
 	FaDribbble,
-	FaLinkedinIn
+	FaLinkedinIn,
+	FaGraduationCap,
+	FaAward
 } from 'react-icons/fa';
 import { RiContactsBookFill } from 'react-icons/ri';
-import {
-	School,
-	BusinessCenter,
-	WorkspacePremium,
-	Phone,
-	Email,
-	Map
-} from '@mui/icons-material';
+import { Phone, Email, Map } from '@mui/icons-material';
 
 import {
 	smallImage1,
@@ -176,82 +171,100 @@ export const brands = [
 	brand4
 ];
 
-export const resumeList = [
+export const resumeData = [
 	{
-		topic: 'Education',
-		Icon: School,
-		list: [
+		title: 'Education',
+		icon: FaGraduationCap,
+		items: [
 			{
-				date: '2021-2023',
+				year: '2021-2023',
 				title: 'Ph.D in Horribleness',
-				subtitle: 'ABC University, Los Angeles, CA'
+				desc: 'ABC University, Los Angeles, CA',
+				bgcolor: '#FFF4F4',
+				id: 1
 			},
 			{
-				date: '2019 - Present',
+				year: '2019 - Present',
 				title: 'Sr. Software Tester',
-				subtitle: 'Google Inc.'
+				desc: 'Google Inc.',
+				bgcolor: '#FFF1FB',
+				id: 2
 			},
 			{
-				date: '2021',
+				year: '2021',
 				title: 'Best Developer',
-				subtitle: 'University Of Melbourne, NA'
+				desc: 'University Of Melbourne, NA',
+				bgcolor: '#FFF4F4',
+				id: 3
 			}
 		]
 	},
 	{
-		topic: 'Experience',
-		Icon: BusinessCenter,
-		list: [
+		title: 'Experience',
+		icon: MdBusinessCenter,
+		items: [
 			{
-				date: '2017-2021',
+				year: '2017-2021',
 				title: 'Computer Science',
-				subtitle: 'Imperialize Technical Institute'
+				desc: 'Imperialize Technical Institute',
+				bgcolor: '#EEF5FA',
+				id: 1
 			},
 			{
-				date: '2015-2017',
+				year: '2015-2017',
 				title: 'Cr. Web Developer',
-				subtitle: 'ib-themes ltd.'
+				desc: 'ib-themes ltd.',
+				bgcolor: '#F2F4FF',
+				id: 2
 			},
 			{
-				date: '2008',
+				year: '2008',
 				title: 'Best Writter',
-				subtitle: 'Online Typodev Soluation Ltd.'
+				desc: 'Online Typodev Soluation Ltd.',
+				bgcolor: '#EEF5FA',
+				id: 3
 			}
 		]
 	},
 	{
-		topic: 'Awards',
-		Icon: WorkspacePremium,
-		list: [
+		title: 'Awards',
+		icon: FaAward,
+		items: [
 			{
-				date: '2015-2017',
+				year: '2015-2017',
 				title: 'Graphic Designer',
-				subtitle: 'Web Graphy, Los Angeles, CA'
+				desc: 'Web Graphy, Los Angeles, CA',
+				bgcolor: '#FCF4FF',
+				id: 1
 			},
 			{
-				date: '2014 - 2015',
+				year: '2014 - 2015',
 				title: 'Jr. Web Developer',
-				subtitle: 'Creative Gigs.'
+				desc: 'Creative Gigs.',
+				bgcolor: '#FCF9F2',
+				id: 2
 			},
 			{
-				date: '2015-2017',
+				year: '2015-2017',
 				title: 'Best Freelancer',
-				subtitle: 'Fiver & Upwork Level 2 & Top Rated'
+				desc: 'Fiver & Upwork Level 2 & Top Rated',
+				bgcolor: '#FCF4FF',
+				id: 3
 			}
 		]
 	}
 ];
 
 export const skills = [
-	{ skill: 'WebDesign', val: 65, color: 'warning' },
-	{ skill: 'Mobile App', val: 85, color: 'secondary' },
-	{ skill: 'Illustrator', val: 75, color: 'primary' },
-	{ skill: 'Photoshope', val: 90, color: 'success' }
+	{ title: 'WebDesign', value: 65, color: '#FF6464' },
+	{ title: 'Mobile App', value: 85, color: '#9272D4' },
+	{ title: 'Illustrator', value: 75, color: '#5185D4' },
+	{ title: 'Photoshop', value: 90, color: '#CA56F2' }
 ];
 
-export const items = [
+export const buttons = [
 	'Digital Design',
-	'Maarketing',
+	'Marketing',
 	'Social Media',
 	'Print',
 	'Time Management',
