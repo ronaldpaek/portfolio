@@ -22,7 +22,7 @@ const About = () => {
 						lg: 20
 					},
 					borderRadius: { lg: '1rem' },
-					bgcolor: 'primary.main'
+					bgcolor: 'container.bgcolor'
 				}}
 			>
 				<Box>

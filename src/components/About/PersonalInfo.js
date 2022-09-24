@@ -12,7 +12,7 @@ const PersonalInfo = () => {
 					fontWeight: 500,
 					fontSize: '1.5625rem',
 					my: 5,
-					color: theme => theme.custom.neutral.primary
+					color: 'text.header',
 				}}
 			>
 				Personal Info
@@ -47,7 +47,7 @@ const PersonalInfo = () => {
 							<Typography
 								sx={{
 									fontSize: '.75rem',
-									color: 'secondary.main'
+									color: 'text.p.home'
 								}}
 							>
 								{title}

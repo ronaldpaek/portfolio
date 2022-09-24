@@ -18,7 +18,7 @@ const WhoAmI = () => {
 				sx={{
 					lineHeight: 1.7,
 					mb: 2.5,
-					color: 'secondary.main'
+					color: 'text.p.about'
 				}}
 			>
 				I'm Creative Director and UI/UX Designer from Sydney, Australia, working
@@ -29,7 +29,7 @@ const WhoAmI = () => {
 				sx={{
 					lineHeight: 1.7,
 					mt: 2.5,
-					color: 'secondary.main'
+					color: 'text.p.about'
 				}}
 			>
 				My aim is to bring across your message and identity in the most creative

@@ -20,7 +20,7 @@ const Clients = () => {
 				<Typography
 					component='h3'
 					sx={{
-						color: theme => theme.custom.neutral.primary,
+						color: 'text.header',
 						textAlign: 'center',
 						fontSize: '1.75rem',
 						fontWeight: 600,

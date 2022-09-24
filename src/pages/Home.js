@@ -62,7 +62,7 @@ const Home = ({ name, title }) => {
 					display: 'flex',
 					alignItems: 'center',
 					borderRadius: '35px',
-					backgroundImage: theme => theme.gradient.secondary,
+					backgroundImage: theme => theme.backgroundImage.button,
 					'&:hover': {
 						backgroundPosition: '100% 0',
 						transition: 'all .4 ease-in-out'

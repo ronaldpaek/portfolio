@@ -2,8 +2,6 @@ import React, { createContext, useState, useContext } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {
 	customTheme,
-	customLightMode,
-	customDarkMode,
 	customLightModePalette,
 	customDarkModePalette
 } from '../styles';
@@ -17,15 +15,12 @@ export const AppThemeProvider = ({ children }) => {
 
 	const theme = createTheme({
 		...customTheme,
-		palette: {
-			mode,
-			...(mode === 'light' ? customLightModePalette : customDarkModePalette)
+		...(mode === 'light' ? customLightModePalette : customDarkModePalette),
+		backgroundImage: {
+			nav: 'linear-gradient(to right, #FA5252, #DD2476)',
+			button: 'linear-gradient(to right, #DD2476, #FA5252)'
 		},
-		...(mode === 'light' ? customLightMode : customDarkMode),
-		gradient: {
-			main: 'linear-gradient(to right, #FA5252, #DD2476)',
-			secondary: 'linear-gradient(to right, #DD2476, #FA5252)'
-		}
+		border: '2px solid rgb(33 36 37)'
 	});
 
 	return (

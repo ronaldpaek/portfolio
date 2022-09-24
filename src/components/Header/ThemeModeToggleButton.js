@@ -1,10 +1,12 @@
 import React from 'react';
 import { IconButton, Icon } from '@mui/material';
 import { FaSun, FaMoon } from 'react-icons/fa';
+
 import { useColorModeContext } from '../../contexts';
 
 const ThemeModeToggleButton = ({ displayMode }) => {
 	const { toggleColorMode } = useColorModeContext();
+
 	return (
 		<IconButton
 			onClick={toggleColorMode}
@@ -16,11 +18,11 @@ const ThemeModeToggleButton = ({ displayMode }) => {
 				width: 44,
 				height: 44,
 				ml: 2,
-				bgcolor: theme.custom.toggle.bgcolor,
+				bgcolor: 'themeButton.bgcolor',
 				color: theme.palette.mode === 'light' ? 'black' : 'white',
 				'&:hover': {
-					backgroundImage: theme => theme.gradient.secondary,
-					color: 'white'
+					color: 'white',
+					bgcolor: 'themeButton.hover'
 				}
 			})}
 		>

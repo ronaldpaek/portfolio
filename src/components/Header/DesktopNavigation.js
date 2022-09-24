@@ -24,14 +24,14 @@ const DesktopNavigation = () => {
 									md: '1rem',
 									xl: '1.25rem'
 								},
-								bgcolor: 'primary.main',
-								color: 'secondary.main',
+								bgcolor: 'nav.bgcolor',
+								color: 'nav.color',
 								'&:hover': {
-									backgroundImage: theme.gradient.main,
+									backgroundImage: theme.backgroundImage.nav,
 									color: 'white'
 								},
 								'&.active': {
-									backgroundImage: theme.gradient.main,
+									backgroundImage: theme.backgroundImage.nav,
 									color: 'white'
 								}
 							})}

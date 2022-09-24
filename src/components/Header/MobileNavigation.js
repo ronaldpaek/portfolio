@@ -1,12 +1,13 @@
 import React from 'react';
 import { NavLink as RouterLink } from 'react-router-dom';
-import { Box, Link, Icon, hslToRgb } from '@mui/material';
+import { Box, Link, Icon } from '@mui/material';
 
 import { navLinks } from '@data';
 import { useOpenContext } from '../../contexts';
 
 const MobileNavigation = () => {
 	const { open, toggleOpenMenu } = useOpenContext();
+
 	return (
 		<Box
 			component='nav'
@@ -25,7 +26,7 @@ const MobileNavigation = () => {
 					position: 'absolute',
 					left: 0,
 					top: '5rem',
-					bgcolor: theme => theme.custom.mobileMenu.bgcolor
+					bgcolor: 'mobileMenu.bgcolor'
 				}}
 			>
 				{navLinks.map(({ title, path, icon }, i) => (
@@ -33,20 +34,20 @@ const MobileNavigation = () => {
 						<Link
 							to={path}
 							component={RouterLink}
-							sx={theme => ({
+							sx={{
 								display: 'flex',
 								alignItems: 'center',
-								color: theme.custom.mobileMenu.color,
+								color: 'mobileMenu.nav.color',
 								py: '0.625rem',
 								pl: '1rem',
 								px: { md: '1rem', xl: '1.25rem' },
 								'&:hover': {
-									color: theme.gradient.main
+									color: 'active.mobile.color'
 								},
 								'&.active': {
-									color: theme.gradient.main
+									color: 'active.mobile.color'
 								}
-							})}
+							}}
 						>
 							<Icon component={icon} sx={{ mr: 2, fontSize: '1.75rem' }} />
 							{title}

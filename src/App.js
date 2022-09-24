@@ -11,6 +11,7 @@ import { bg, bgDark } from './assets';
 function App() {
 	return (
 		<OpenContextProvider>
+			<CssBaseline />
 			<Box
 				sx={{
 					minHeight: '100vh',
@@ -25,7 +26,6 @@ function App() {
 				}}
 			>
 				<Box>
-					<CssBaseline />
 					<Container>
 						<Header />
 						<Routes>

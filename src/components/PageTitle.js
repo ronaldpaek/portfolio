@@ -22,7 +22,7 @@ const PageTitle = ({ pageTitle, mb }) => {
 					top: '50%',
 					height: '0.125rem',
 					borderRadius: '.375rem',
-					backgroundImage: theme.gradient.main,
+					backgroundImage: theme.backgroundImage.nav,
 					'@media (min-width: 768px)': {
 						width: '12rem'
 					}

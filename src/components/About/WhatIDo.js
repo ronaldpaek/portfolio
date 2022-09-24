@@ -2,8 +2,11 @@ import React from 'react';
 import { Box, Typography, Stack } from '@mui/material';
 
 import { urlFor } from '../../client';
+import { useColorModeContext } from '../../themes';
 
 const WhatIDo = ({ skills }) => {
+	const { mode } = useColorModeContext();
+
 	return (
 		<Box pb={12}>
 			<Typography
@@ -12,7 +15,7 @@ const WhatIDo = ({ skills }) => {
 					fontWeight: 500,
 					fontSize: '35px',
 					pb: 5,
-					color: theme => theme.custom.neutral.primary
+					color: 'text.header'
 				}}
 			>
 				What I do!
@@ -28,12 +31,19 @@ const WhatIDo = ({ skills }) => {
 					<Stack
 						direction='row'
 						key={i}
-						sx={{
-							gap: '1rem',
-							borderRadius: '.75rem',
-							p: '1.5rem',
-							bgcolor
-						}}
+						sx={[
+							{
+								gap: '1rem',
+								borderRadius: '.75rem',
+								borderColor: 'transparent',
+								p: '1.5rem',
+								bgcolor
+							},
+							(mode === 'dark') && {
+								bgcolor: 'transparent',
+								border: theme => theme.border
+							}
+						]}
 					>
 						<Box
 							component='img'
@@ -49,14 +59,14 @@ const WhatIDo = ({ skills }) => {
 							<Typography
 								component='h3'
 								sx={{
-									color: theme => theme.custom.neutral.primary,
+									color: 'text.header',
 									fontWeight: 600,
 									fontSize: '1.375rem'
 								}}
 							>
 								{name}
 							</Typography>
-							<Typography lineHeight='2rem' color='#A6A6A6'>
+							<Typography lineHeight='2rem' color='#text.p.home'>
 								Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
 								diam euismod volutpat.
 							</Typography>

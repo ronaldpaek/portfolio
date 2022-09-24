@@ -29,10 +29,10 @@ const Header = () => {
 				sx={{
 					width: 1,
 					px: 4,
-					bgcolor: theme => ({
-						xs: theme.custom.neutral.secondary,
+					bgcolor: {
+						xs: 'menuBar.bgcolor',
 						lg: 'transparent'
-					})
+					}
 				}}
 			>
 				<Stack
