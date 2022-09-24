@@ -1,160 +1,76 @@
 import React from 'react';
-import { Box, Typography, Grid, Stack, LinearProgress } from '@mui/material';
+import { Box, Container } from '@mui/material';
 
 import Footer from '../components/Footer';
-import { resumeList, skills, items } from '../constants';
+import { resumeData } from '../constants';
+import { PageTitle } from '../components';
+import {
+	ColumnTitle,
+	ColumnItem,
+	WorkingSkills,
+	Knowledges
+} from '../components/Resume';
 
 const Resume = () => {
 	return (
-		<>
-			<Box
-				componenet='section'
-				sx={{
-					backgroundColor: '#87CEFA',
-					borderTopLeftRadius: {
-						xs: 0,
-						md: 15
-					},
-					borderTopRightRadius: {
-						xs: 0,
-						md: 20
-					},
-					paddingInline: {
-						xs: 2.5,
-						sm: 5,
-						lg: 10
-					}
-				}}>
-				<Box py={6} px={2}>
-					<Typography
-						variant='h3'
-						componenet='h2'
-						fontWeight={800}
-						mb={5}
-						sx={{
-							display: 'inline-flex',
-							alignItems: 'center',
-							marginTop: {
-								xs: 5,
-								md: 0
-							}
-						}}>
-						Resume
+		<Box
+			component='section'
+			sx={{
+				bgcolor: theme => (theme.palette.mode === 'light' ? 'white' : '#111'),
+				borderRadius: { lg: '1rem' }
+			}}
+		>
+			<Box>
+				<Container sx={{ px: { sm: 5, md: 10, lg: 20 } }}>
+					<Box px={4} py={12}>
+						<PageTitle pageTitle='Resume' mb='40px' />
 						<Box
-							component='span'
+							display='grid'
+							gap={6}
 							sx={{
-								background:
-									'linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)',
-								height: 2,
-								width: '11rem',
-								marginLeft: '1.5rem',
-								display: {
-									xs: 'none',
-									sm: 'inline'
+								gridTemplateColumns: {
+									xs: 'repeat(1, 1fr)',
+									md: 'repeat(2, 1fr)',
+									lg: 'repeat(3, 1fr)'
 								}
-							}}></Box>
-					</Typography>
-					<Grid container spacing={2}>
-						{resumeList.map(({ topic, Icon, list }, _) => (
-							<Grid key={topic} item xs={12} sm={6} lg={4}>
-								<Stack spacing={3}>
-									<Stack direction='row'>
-										<Icon sx={{ fontSize: 35, marginRight: 1 }} />
-										<Typography variant='h4' componenet='h3'>
-											{topic}
-										</Typography>
-									</Stack>
-									{list.map(({ date, title, subtitle }, i) => (
-										<Stack
-											key={i}
-											spacing={2}
-											p={2}
-											sx={{ backgroundColor: '#5F9EA0', borderRadius: 2 }}>
-											<Typography color='gray'>{date}</Typography>
-											<Typography>{title}</Typography>
-											<Typography>{subtitle}</Typography>
-										</Stack>
+							}}
+						>
+							{resumeData.map(({ title, icon, items }, _) => (
+								<Box key={title}>
+									<ColumnTitle title={title} icon={icon} />
+
+									{items.map((item, i) => (
+										<ColumnItem key={i} {...item} />
 									))}
-								</Stack>
-							</Grid>
-						))}
-					</Grid>
-				</Box>
-			</Box>
-			<Box backgroundColor='salmon' py={6}>
-				<Box
+								</Box>
+							))}
+						</Box>
+					</Box>
+				</Container>
+				<Container
 					sx={{
-						paddingInline: {
-							xs: 3,
-							sm: 5,
-							lg: 10
-						}
-					}}>
-					<Grid
-						container
-						spacing={2}
+						px: { sm: 5, md: 10, lg: 20 },
+						bgcolor: theme =>
+							theme.palette.mode === 'light' ? '#F8FBFB' : '#0D0D0D'
+					}}
+				>
+					<Box
+						display='grid'
+						gap={8}
 						sx={{
-							direction: {
-								xs: 'column',
-								lg: 'row'
+							gridTemplateColumns: {
+								xs: 'repeat(1, 1fr)',
+								md: 'repeat(2, 1fr)'
 							}
-						}}>
-						<Grid item xs={12} sm={6}>
-							<Typography variant='h4' componenet='h3' marginBottom={3}>
-								Working Skills
-							</Typography>
-							<Stack spacing={2.5}>
-								{skills.map(({ skill, val, color }, i) => (
-									<Box key={i}>
-										<Stack direction='row' justifyContent='space-between'>
-											<Typography>{skill}</Typography>
-											<Typography>{val + '%'}</Typography>
-										</Stack>
-										<LinearProgress
-											variant='determinate'
-											color={color}
-											value={val}
-										/>
-									</Box>
-								))}
-							</Stack>
-						</Grid>
-						<Grid item xs={12} sm={6}>
-							<Typography variant='h4' componenet='h3' marginBottom={4}>
-								Knowledges
-							</Typography>
-							<Stack
-								sx={{
-									flexDirection: 'row',
-									flexWrap: 'wrap',
-									rowGap: {
-										xs: 1.5,
-										md: 2
-									},
-									columnGap: {
-										xs: 1.5,
-										md: 2
-									}
-								}}>
-								{items.map((item, i) => (
-									<Box
-										key={i}
-										sx={{
-											backgroundColor: 'lightgray',
-											paddingBlock: 0.75,
-											paddingInline: 2,
-											borderRadius: 1
-										}}>
-										{item}
-									</Box>
-								))}
-							</Stack>
-						</Grid>
-					</Grid>
-				</Box>
+						}}
+					>
+						<WorkingSkills />
+						<Knowledges />
+					</Box>
+				</Container>
+				<Footer />
 			</Box>
-			<Footer backgroundColor='#87CEFA' borderRadius={15} />
-		</>
+		</Box>
 	);
 };
 
