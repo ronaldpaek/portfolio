@@ -6,7 +6,9 @@ import {
 	MdHome,
 	MdPersonOutline,
 	MdOutlineDescription,
-	MdBusinessCenter
+	MdBusinessCenter,
+	MdPhone,
+	MdMap
 } from 'react-icons/md';
 import {
 	FaBlogger,
@@ -18,7 +20,6 @@ import {
 	FaAward
 } from 'react-icons/fa';
 import { RiContactsBookFill } from 'react-icons/ri';
-import { Phone, Email, Map } from '@mui/icons-material';
 
 import {
 	smallImage1,
@@ -178,15 +179,15 @@ export const brands = [
 export const resumeData = [
 	{
 		title: 'Education',
-		icon: FaGraduationCap,
+		icon: FaGraduationCap
 	},
 	{
 		title: 'Experience',
-		icon: MdBusinessCenter,
+		icon: MdBusinessCenter
 	},
 	{
 		title: 'Awards',
-		icon: FaAward,
+		icon: FaAward
 	}
 ];
 
@@ -398,7 +399,7 @@ export const dummyData = [
 		tag: 'Inspiration',
 		title: 'How to Own Your Audience by Creating an Email List.',
 		id: 'blog1',
-		color: '#FCF5FF'
+		color: '#FCF4FF'
 	},
 	{
 		smallImage: smallImage2,
@@ -407,7 +408,7 @@ export const dummyData = [
 		tag: 'Inspiration',
 		title: 'Everything You Need to Know About Web Accessibility.',
 		id: 'blog2',
-		color: '#FCF4FF'
+		color: '#EEFBFF'
 	},
 	{
 		smallImage: smallImage3,
@@ -461,7 +462,17 @@ export const loremText = {
 };
 
 export const contactInfo = [
-	{ title: 'Phone', info: '+452 666 386', Icon: Phone },
-	{ title: 'Email', info: 'support@gmail.com', Icon: Email },
-	{ title: 'Address', info: 'Maount View, Oval Road, New York, USA', Icon: Map }
+	{ title: 'Phone', info: '+452 666 386', icon: MdPhone, bgcolor: '#FCF4FF' },
+	{
+		title: 'Email',
+		info: 'support@gmail.com',
+		icon: MdEmail,
+		bgcolor: '#EEFBFF'
+	},
+	{
+		title: 'Address',
+		info: 'Maount View, Oval Road, New York, USA',
+		icon: MdMap,
+		bgcolor: '#F2F4FF'
+	}
 ];
