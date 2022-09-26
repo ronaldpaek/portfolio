@@ -8,7 +8,7 @@ import { fetchData } from '../utils/fetchData';
 const About = () => {
 	const [skills, setSkills] = useState([]);
 	useEffect(() => {
-		fetchData('skills', setSkills);
+		fetchData('skill', setSkills);
 	}, []);
 
 	return (

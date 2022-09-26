@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stack, Box, Typography } from '@mui/material';
 
-import { urlFor } from '@/client';
+import { urlFor } from '@client';
 
 const Skill = ({ bgcolor, icon, name }) => {
 	return (

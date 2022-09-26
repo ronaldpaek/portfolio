@@ -40,7 +40,7 @@ const Clients = () => {
 					}}
 				>
 					{brands.map((brand, i) => (
-						<Brand key={i} {...brand} />
+						<Brand key={i} brand={brand} />
 					))}
 				</Box>
 			</Box>
