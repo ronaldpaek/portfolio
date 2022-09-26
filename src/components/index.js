@@ -1,7 +1,6 @@
 import Footer from './Footer';
-
-import PortfolioModalCard from './PortfolioModalCard';
-import PortfolioCard from './PortfolioCard';
+import PortfolioModalCard from './Portfolio/PortfolioModalCard';
+import PortfolioCard from './Portfolio/PortfolioCard';
 import BlogCard from './BlogCard';
 import BlogModalCard from './BlogModalCard';
 import SocialMediaLinks from './SocialMediaLinks';
