@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography, Stack } from '@mui/material';
 
-import { buttons } from '../../constants';
+import { buttons } from '@constants';
 
 const Knowledges = () => {
 	return (
@@ -9,10 +9,9 @@ const Knowledges = () => {
 			<Typography
 				component='h4'
 				sx={{
-					fontWeight: 500,
 					fontSize: '1.625rem',
 					mb: 8,
-					color: theme => theme.custom.neutral.main
+					color: 'text.header'
 				}}
 			>
 				Knowledges
@@ -29,13 +28,12 @@ const Knowledges = () => {
 						component='button'
 						sx={{
 							borderRadius: '.5rem',
-							color: 'secondary.main',
-							bgcolor: theme =>
-								theme.palette.mode === 'light' ? '#EDF2F2' : '#1C1C1C',
+							fontWeight: 500,
+							color: 'text.p.about',
+							bgcolor: 'resume.knowledges.button.bgcolor',
 							px: '1.25rem',
 							py: '.5rem',
-							fontSize: 'inherit',
-							fontWeight: 'inherit'
+							fontSize: 'inherit'
 						}}
 					>
 						{title}

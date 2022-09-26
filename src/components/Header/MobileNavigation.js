@@ -1,12 +1,12 @@
 import React from 'react';
-import { NavLink as RouterLink } from 'react-router-dom';
-import { Box, Link, Icon } from '@mui/material';
+import { Box } from '@mui/material';
 
-import { navLinks } from '@data';
-import { useOpenContext } from '../../contexts';
+import { navLinks } from '@constants';
+import { MobileLink } from './';
+import { useOpenContext } from '@contexts';
 
 const MobileNavigation = () => {
-	const { open, toggleOpenMenu } = useOpenContext();
+	const { open } = useOpenContext();
 
 	return (
 		<Box
@@ -29,30 +29,8 @@ const MobileNavigation = () => {
 					bgcolor: 'mobileMenu.bgcolor'
 				}}
 			>
-				{navLinks.map(({ title, path, icon }, i) => (
-					<Box key={i} component='li' onClick={toggleOpenMenu}>
-						<Link
-							to={path}
-							component={RouterLink}
-							sx={{
-								display: 'flex',
-								alignItems: 'center',
-								color: 'mobileMenu.nav.color',
-								py: '0.625rem',
-								pl: '1rem',
-								px: { md: '1rem', xl: '1.25rem' },
-								'&:hover': {
-									color: 'active.mobile.color'
-								},
-								'&.active': {
-									color: 'active.mobile.color'
-								}
-							}}
-						>
-							<Icon component={icon} sx={{ mr: 2, fontSize: '1.75rem' }} />
-							{title}
-						</Link>
-					</Box>
+				{navLinks.map((link, i) => (
+					<MobileLink key={i} {...link} />
 				))}
 			</Box>
 		</Box>

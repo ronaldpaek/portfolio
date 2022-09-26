@@ -1,17 +1,16 @@
-import React, { useState, createContext, useContext } from 'react';
+import { useState } from 'react';
+import { OpenContext } from './';
 
-export const OpenContextProvider = ({ children }) => {
+const OpenContextProvider = ({ children }) => {
 	const [open, setOpen] = useState(false);
 
-	const toggleOpenMenu = () => setOpen(open => !open);
+	const handleToggleOpenMenu = () => setOpen(open => !open);
 
 	return (
-		<OpenContext.Provider value={{ open, toggleOpenMenu }}>
+		<OpenContext.Provider value={{ open, handleToggleOpenMenu }}>
 			{children}
 		</OpenContext.Provider>
 	);
 };
 
-const OpenContext = createContext(null);
-
-export const useOpenContext = () => useContext(OpenContext);
+export default OpenContextProvider;

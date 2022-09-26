@@ -14,7 +14,7 @@ const Footer = () => {
 		>
 			<Typography
 				sx={{
-					color: 'text.about',
+					color: 'text.p.about',
 					textAlign: 'center',
 					py: 6
 				}}
