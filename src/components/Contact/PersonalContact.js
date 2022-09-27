@@ -17,7 +17,7 @@ const PersonalContact = () => {
 				}
 			}}
 		>
-			{contactInfo.map(({ info, title, img, bgcolor }) => (
+			{contactInfo.map(({ line1, line2, title, img, bgcolor }) => (
 				<Stack
 					key={title}
 					direction='row'
@@ -48,11 +48,14 @@ const PersonalContact = () => {
 							}
 						}}
 					>
-						<Typography fontWeight={600} fontSize='1.25rem'>
+						<Typography fontWeight={600} fontSize='20px'>
 							{title}:
 						</Typography>
-						<Typography color='nav.color' fontSize='1.25rem'>
-							{info}
+						<Typography color='nav.color' fontSize='18px'>
+							{line1}
+						</Typography>
+						<Typography color='nav.color' fontSize='18px'>
+							{line2}
 						</Typography>
 					</Box>
 				</Stack>

@@ -645,16 +645,24 @@ export const loremText = {
 };
 
 export const contactInfo = [
-	{ title: 'Phone', info: '+452 666 386', img: phoneCall, bgcolor: '#FCF4FF' },
+	{
+		title: 'Phone',
+		line1: '+452 666 386',
+		line2: '+452 666 386',
+		img: phoneCall,
+		bgcolor: '#FCF4FF'
+	},
 	{
 		title: 'Email',
-		info: 'support@gmail.com',
+		line1: 'support@gmail.com',
+		line2: 'example@gmail.com',
 		img: email,
 		bgcolor: '#EEFBFF'
 	},
 	{
 		title: 'Address',
-		info: 'Maount View, Oval Road, New York, USA',
+		line1: '5000 Stratford Cir',
+		line2: 'Los Angeles, CA, USA',
 		img: map,
 		bgcolor: '#F2F4FF'
 	}
