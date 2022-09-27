@@ -7,6 +7,7 @@ import SocialMediaLinks from './SocialMediaLinks';
 import WhatIDo from './About/WhatIDo';
 import Clients from './About/Clients';
 import PageTitle from './PageTitle';
+import Header from './Header';
 
 export {
 	Footer,
@@ -17,5 +18,6 @@ export {
 	SocialMediaLinks,
 	WhatIDo,
 	Clients,
-	PageTitle
+	PageTitle,
+	Header,
 };

@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import { bg, bgDark } from '../assets';
+import { bg, bgDark } from '@assets';
 
 /* custom styled components */
 

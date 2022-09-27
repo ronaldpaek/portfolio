@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from '@mui/material';
-import { useOpenContext } from '../contexts';
+import { useOpenContext } from '@contexts';
 
 const PageTitle = ({ pageTitle, mb }) => {
 	const { open } = useOpenContext();

@@ -9,12 +9,15 @@ module.exports = {
 			'@contexts': path.join(path.resolve(__dirname, './src/contexts')),
 			'@constants': path.join(path.resolve(__dirname, './src/constants')),
 			'@themes': path.join(
-				path.resolve(__dirname, './src/themesAppThemeProvider')
+				path.resolve(__dirname, './src/themes/AppThemeProvider')
 			),
 			'@hoc': path.join(path.resolve(__dirname, './src/hoc')),
 			'@styles': path.join(path.resolve(__dirname, './src/styles')),
 			'@pages': path.join(path.resolve(__dirname, './src/pages')),
-			'@utils': path.join(path.resolve(__dirname, './src/utils/fetchData'))
+			'@utils': path.join(path.resolve(__dirname, './src/utils/fetchData')),
+			'@header': path.join(
+				path.resolve(__dirname, './src/components/Header/index')
+			)
 		}
 	}
 };

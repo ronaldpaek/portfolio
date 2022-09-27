@@ -7,7 +7,7 @@ import {
 	MobileMenuToggleButton,
 	MobileNavigation,
 	ThemeModeToggleButton
-} from './';
+} from '@header';
 
 const Header = () => {
 	return (
