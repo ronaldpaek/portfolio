@@ -45,6 +45,7 @@ export const customLightModePalette = {
 				color: '#44566C'
 			}
 		},
+		personalInfo: {bgcolor: 'white'},
 		active: { mobile: { color: '#FA5252' } },
 		menuBar: { bgcolor: '#F3F6F6' },
 		nav: {
@@ -135,6 +136,7 @@ export const customDarkModePalette = {
 				color: 'white'
 			}
 		},
+		personalInfo: { bgcolor: 'rgb(33 36 37)' },
 		active: { mobile: { color: '#FA5252' } },
 		menuBar: { bgcolor: 'black' },
 		nav: {

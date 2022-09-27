@@ -13,6 +13,7 @@ const Info = ({ component, color, title, description }) => {
 					mr: 2.5,
 					borderRadius: '.375rem',
 					width: '3rem',
+					bgcolor: 'personalInfo.bgcolor',
 					boxShadow: '0 4px 6px 0 rgba(0, 0, 0, 0.08)'
 				}}
 			>
