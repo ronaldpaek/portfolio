@@ -116,6 +116,11 @@ export const customLightModePalette = {
 					color: '#B5B5B5',
 				}
 			}
+		},
+		contact: {
+			input: {
+				bgcolor: '#F8FBFB'
+			}
 		}
 	}
 };
@@ -200,6 +205,11 @@ export const customDarkModePalette = {
 				border: {
 					color: '#333'
 				}
+			}
+		},
+		contact: {
+			input: {
+				bgcolor: '#111'
 			}
 		}
 	}

@@ -10,7 +10,7 @@ const Skill = ({ bgcolor, icon, name }) => {
 			sx={theme => ({
 				gap: '1rem',
 				borderRadius: '.75rem',
-				borderColor: 'transparent',
+				bordercolor: 'transparent',
 				p: '1.5rem',
 				bgcolor,
 				...(theme.palette.mode === 'dark' && {

@@ -660,4 +660,17 @@ export const contactInfo = [
 	}
 ];
 
-export const contactData = ['Name', 'Email', 'Message'];
+export const contactData = [
+	{
+		title: 'Name',
+		color: 'error'
+	},
+	{
+		title: 'Email',
+		color: 'success'
+	},
+	{
+		title: 'Message',
+		color: 'secondary'
+	}
+];

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Button } from '@mui/material';
+import { Box, Typography, Button, TextField } from '@mui/material';
 
 import { contactData } from '@constants';
 
@@ -16,11 +16,15 @@ const MessageBox = () => {
 			}}
 		>
 			<Box
-				sx={{
+				sx={theme => ({
 					p: { xs: 4, md: '48px' },
 					mb: { xs: '30px', md: '60px' },
-					borderRadius: '.75rem'
-				}}
+					borderRadius: '.75rem',
+					bgcolor: 'contact.input.bgcolor',
+					...(theme.palette.mode === 'dark' && {
+						border: theme.border
+					})
+				})}
 			>
 				<Typography component='h3' fontSize='1.5625rem'>
 					<Box component='span' color='nav.color'>
@@ -31,16 +35,70 @@ const MessageBox = () => {
 						design work or partnerships.
 					</Box>
 				</Typography>
-				<Box component='form'>
-					{contactData.map((title, i) => (
-						<Box
+				<Box
+					component='form'
+					noValidate
+					autoComplete='off'
+					sx={{
+						'& > :first-of-type': {
+							mt: '40px'
+						}
+					}}
+				>
+					{contactData.map(({ title, color }, i) => (
+						<TextField
+							required
 							key={i}
-							width={1}
-							mt='40px'
-							mb={8}
-							sx={{ position: 'relative' }}
+							label={title}
+							variant='standard'
+							color={color}
+							sx={{
+								width: 1,
+								mb: 8
+							}}
+						/>
+					))}
+
+					<Box display='inline-block' borderRadius='.5rem' mt='.75rem'>
+						<Button
+							fontWeight='600'
+							py={2}
+							px={6}
+							bordercolor='rgb(166 166 166)'
+							variant='containeed'
+							sx={{
+								border: '2px solid rgb(166 166 166)',
+								borderRadius: '.5rem',
+								color: 'text.header',
+								cursor: 'pointer',
+								fontSize: '1rem',
+								fontWeight: 600,
+								textTransform: 'capitalize',
+								'&:hover': {
+									backgroundImage: theme => theme.backgroundImage.button,
+									color: 'white'
+								}
+							}}
 						>
-							<Box
+							Submit
+						</Button>
+					</Box>
+				</Box>
+			</Box>
+		</Box>
+	);
+};
+
+export default MessageBox;
+
+// <Box
+// 			key={i}
+// 			width={1}
+// 			mt='40px'
+// 			mb={8}
+// 		></Box>
+
+/* <Box
 								component='input'
 								width={1}
 								display='block'
@@ -65,34 +123,4 @@ const MessageBox = () => {
 							>
 								{title} *
 							</Box>
-						</Box>
-					))}
-
-					<Box display='inline-block' borderRadius='.5rem' mt='.75rem'>
-						<Button
-							fontWeight='600'
-							py={2}
-							px={6}
-							borderColor='rgb(166 166 166)'
-							borderRadius='.5rem'
-							variant='containeed'
-							sx={{
-								border: '2px solid rgb(166 166 166)',
-								color: 'text.header',
-								cursor: 'pointer',
-								fontSize: '1rem',
-								'&:hover': {
-									backgroundImage: theme => theme.backgroundImage.button
-								}
-							}}
-						>
-							Submit
-						</Button>
-					</Box>
-				</Box>
-			</Box>
-		</Box>
-	);
-};
-
-export default MessageBox;
+						</Box> */
