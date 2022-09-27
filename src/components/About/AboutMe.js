@@ -7,7 +7,7 @@ import { PageTitle } from '@components';
 const AboutMe = () => {
 	return (
 		<Box py={12}>
-			<PageTitle pageTitle='About Me' />
+			<PageTitle pageTitle='About Me' left='13rem' />
 			<Box
 				sx={{
 					display: 'grid',

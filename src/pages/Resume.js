@@ -11,7 +11,7 @@ const Resume = () => {
 		<Section>
 			<Container sx={{ px: { sm: 5, md: 10, lg: 20 } }}>
 				<Box px={4} py={12}>
-					<PageTitle pageTitle='Resume' mb='40px' />
+					<PageTitle pageTitle='Resume' mb='40px' left='11rem' />
 					<Box
 						display='grid'
 						gap={6}

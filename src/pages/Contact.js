@@ -19,7 +19,7 @@ const Contact = () => {
 				}}
 			>
 				<Box py={12}>
-					<PageTitle pageTitle='Contact' mb='40px' />
+					<PageTitle pageTitle='Contact' mb='40px' left='10rem' />
 					<Box
 						sx={{
 							columnGap: 20,

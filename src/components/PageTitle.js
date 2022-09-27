@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography } from '@mui/material';
 import { useOpenContext } from '@contexts';
 
-const PageTitle = ({ pageTitle, mb }) => {
+const PageTitle = ({ pageTitle, mb, left }) => {
 	const { open } = useOpenContext();
 
 	return (
@@ -17,7 +17,7 @@ const PageTitle = ({ pageTitle, mb }) => {
 				zIndex: open ? -1 : 0,
 				'&:after': {
 					content: '""',
-					left: '13rem',
+					left: left || 0,
 					position: 'absolute',
 					top: '50%',
 					height: '0.125rem',

@@ -32,7 +32,7 @@ const Blogs = () => {
 				}}
 			>
 				<Box py={12}>
-					<PageTitle pageTitle='Blogs' />
+					<PageTitle pageTitle='Blogs' left='8rem' />
 					<Box
 						display='grid'
 						sx={{

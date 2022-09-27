@@ -34,7 +34,7 @@ const Portfolio = () => {
 				}}
 			>
 				<Box py={12}>
-					<PageTitle pageTitle='Portfolio' />
+					<PageTitle pageTitle='Portfolio' left='12rem' />
 					<PortfolioLinks
 						setFilterChoice={setFilterChoice}
 						filterChoice={filterChoice}
