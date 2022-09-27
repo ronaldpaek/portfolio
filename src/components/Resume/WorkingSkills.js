@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography, LinearProgress, Stack } from '@mui/material';
 
-import { skills } from '../../constants';
+import { skills } from '@constants';
 
 const WorkingSkills = () => {
 	return (
@@ -9,9 +9,8 @@ const WorkingSkills = () => {
 			<Typography
 				component='h4'
 				sx={{
-					color: theme => theme.custom.neutral.primary,
+					color: 'text.header',
 					fontSize: '1.625rem',
-					fontWeight: 500,
 					mb: 6
 				}}
 			>
@@ -22,20 +21,18 @@ const WorkingSkills = () => {
 					<Stack direction='row' justifyContent='space-between' mb={1}>
 						<Box
 							component='span'
-              sx={{
-                fontWeight: 600,
-								color: theme =>
-									theme.palette.mode === 'light' ? '#526377' : '#A6A6A6'
+							sx={{
+								fontWeight: 600,
+								color: 'resume.skills.one.color'
 							}}
 						>
 							{title}
 						</Box>
 						<Box
 							component='span'
-              sx={{
-                fontWeight: 600,
-								color: theme =>
-									theme.palette.mode === 'light' ? '#526377' : '#A6A6A6'
+							sx={{
+								fontWeight: 600,
+								color: 'resume.skills.two.color'
 							}}
 						>
 							{`${value}%`}

@@ -62,10 +62,12 @@ const Home = ({ name, title }) => {
 					display: 'flex',
 					alignItems: 'center',
 					borderRadius: '35px',
+					textTransform: 'capitalize',
 					backgroundImage: theme => theme.backgroundImage.button,
 					'&:hover': {
 						backgroundPosition: '100% 0',
-						transition: 'all .4 ease-in-out'
+						transition: 'all .4 ease-in-out',
+						backgroundImage: theme => theme.backgroundImage.nav,
 					},
 					px: '2rem',
 					py: '.75rem',

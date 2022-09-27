@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box } from '@mui/material';
 
-import { AboutMeImage, WhoAmI, PersonalInfo } from '.';
-import { PageTitle } from '..';
+import { AboutMeImage, WhoAmI, PersonalInfo } from './';
+import { PageTitle } from '@components';
 
 const AboutMe = () => {
 	return (

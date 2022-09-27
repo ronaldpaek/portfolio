@@ -1,4 +1,11 @@
-import { OpenContextProvider, useOpenContext } from './OpenContextProvider';
-import { useColorModeContext } from '../themes';
+import { createContext, useContext } from 'react';
 
-export { OpenContextProvider, useOpenContext, useColorModeContext };
+const ColorModeContext = createContext(null);
+
+const useColorModeContext = () => useContext(ColorModeContext);
+
+const OpenContext = createContext(null);
+
+const useOpenContext = () => useContext(OpenContext);
+
+export { ColorModeContext, useColorModeContext, OpenContext, useOpenContext };

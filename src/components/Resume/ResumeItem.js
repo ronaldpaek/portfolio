@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography, Box } from '@mui/material';
 
-const ColumnItem = ({ bgcolor, year, title, desc }) => {
+const ResumeItem = ({ bgcolor, year, title, desc }) => {
 	return (
 		<Box
 			sx={theme => ({
@@ -13,8 +13,7 @@ const ColumnItem = ({ bgcolor, year, title, desc }) => {
 				bgcolor,
 				...(theme.palette.mode === 'dark' && {
 					bgcolor: 'transparent',
-					borderColor: '#212425',
-					borderWidth: 2
+					border: theme.border
 				})
 			})}
 		>
@@ -22,8 +21,7 @@ const ColumnItem = ({ bgcolor, year, title, desc }) => {
 				component='span'
 				sx={{
 					fontSize: '.875rem',
-					color: theme =>
-						theme.palette.mode === 'light' ? '#44566C' : '#B7B7B7'
+					color: 'text.span.resume'
 				}}
 			>
 				{year}
@@ -31,15 +29,17 @@ const ColumnItem = ({ bgcolor, year, title, desc }) => {
 			<Typography
 				component='h3'
 				sx={{
-					color: theme => theme.custom.neutral,
-					fontSize: '1.25rem'
+					color: 'text.header',
+					fontSize: '1.25rem',
+					mt: 2
 				}}
 			>
 				{title}
 			</Typography>
 			<Typography
 				sx={{
-					color: theme => (theme.palette.mode === 'light' ? 'black' : '#B7B7B7')
+					color: 'resume.columnItem.p.color',
+					mt: 2
 				}}
 			>
 				{desc}
@@ -48,4 +48,4 @@ const ColumnItem = ({ bgcolor, year, title, desc }) => {
 	);
 };
 
-export default ColumnItem;
+export default ResumeItem;

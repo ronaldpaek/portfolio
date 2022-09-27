@@ -67,23 +67,27 @@ import {
 export const infoList = [
 	{
 		title: 'Phone',
-		description: '323 555 5555',
-		component: MdPhoneIphone
+		description: '323-555-5555',
+		component: MdPhoneIphone,
+		color: 'rgb(202, 71, 121)'
 	},
 	{
 		title: 'Location',
 		description: 'Los Angeles, California',
-		component: MdLocationOn
+		component: MdLocationOn,
+		color: 'rgb(228, 103, 125)'
 	},
 	{
 		title: 'Email',
 		description: 'helloworld@gmail.com',
-		component: MdEmail
+		component: MdEmail,
+		color: 'rgb(74, 197, 200)'
 	},
 	{
 		title: 'Birthday',
 		description: 'Jan 23, 1949',
-		component: MdCalendarToday
+		component: MdCalendarToday,
+		color: 'rgb(193 124 235)'
 	}
 ];
 
