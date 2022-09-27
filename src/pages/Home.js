@@ -2,8 +2,8 @@ import React from 'react';
 import { Stack, Typography, Button, Box } from '@mui/material';
 import { Download } from '@mui/icons-material';
 
-import { SocialMediaLinks } from '../components';
-import { avatar } from '../assets';
+import { SocialMediaLinks } from '@components';
+import { avatar } from '@assets';
 
 const Home = ({ name, title }) => {
 	return (

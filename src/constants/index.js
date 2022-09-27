@@ -6,7 +6,9 @@ import {
 	MdHome,
 	MdPersonOutline,
 	MdOutlineDescription,
-	MdBusinessCenter
+	MdBusinessCenter,
+	MdPhone,
+	MdMap
 } from 'react-icons/md';
 import {
 	FaBlogger,
@@ -18,7 +20,6 @@ import {
 	FaAward
 } from 'react-icons/fa';
 import { RiContactsBookFill } from 'react-icons/ri';
-import { Phone, Email, Map } from '@mui/icons-material';
 
 import {
 	smallImage1,
@@ -178,84 +179,15 @@ export const brands = [
 export const resumeData = [
 	{
 		title: 'Education',
-		icon: FaGraduationCap,
-		items: [
-			{
-				year: '2021-2023',
-				title: 'Ph.D in Horribleness',
-				desc: 'ABC University, Los Angeles, CA',
-				bgcolor: '#FFF4F4',
-				id: 1
-			},
-			{
-				year: '2019 - Present',
-				title: 'Sr. Software Tester',
-				desc: 'Google Inc.',
-				bgcolor: '#FFF1FB',
-				id: 2
-			},
-			{
-				year: '2021',
-				title: 'Best Developer',
-				desc: 'University Of Melbourne, NA',
-				bgcolor: '#FFF4F4',
-				id: 3
-			}
-		]
+		icon: FaGraduationCap
 	},
 	{
 		title: 'Experience',
-		icon: MdBusinessCenter,
-		items: [
-			{
-				year: '2017-2021',
-				title: 'Computer Science',
-				desc: 'Imperialize Technical Institute',
-				bgcolor: '#EEF5FA',
-				id: 1
-			},
-			{
-				year: '2015-2017',
-				title: 'Cr. Web Developer',
-				desc: 'ib-themes ltd.',
-				bgcolor: '#F2F4FF',
-				id: 2
-			},
-			{
-				year: '2008',
-				title: 'Best Writter',
-				desc: 'Online Typodev Soluation Ltd.',
-				bgcolor: '#EEF5FA',
-				id: 3
-			}
-		]
+		icon: MdBusinessCenter
 	},
 	{
 		title: 'Awards',
-		icon: FaAward,
-		items: [
-			{
-				year: '2015-2017',
-				title: 'Graphic Designer',
-				desc: 'Web Graphy, Los Angeles, CA',
-				bgcolor: '#FCF4FF',
-				id: 1
-			},
-			{
-				year: '2014 - 2015',
-				title: 'Jr. Web Developer',
-				desc: 'Creative Gigs.',
-				bgcolor: '#FCF9F2',
-				id: 2
-			},
-			{
-				year: '2015-2017',
-				title: 'Best Freelancer',
-				desc: 'Fiver & Upwork Level 2 & Top Rated',
-				bgcolor: '#FCF4FF',
-				id: 3
-			}
-		]
+		icon: FaAward
 	}
 ];
 
@@ -467,7 +399,7 @@ export const dummyData = [
 		tag: 'Inspiration',
 		title: 'How to Own Your Audience by Creating an Email List.',
 		id: 'blog1',
-		color: '#FCF5FF'
+		color: '#FCF4FF'
 	},
 	{
 		smallImage: smallImage2,
@@ -476,7 +408,7 @@ export const dummyData = [
 		tag: 'Inspiration',
 		title: 'Everything You Need to Know About Web Accessibility.',
 		id: 'blog2',
-		color: '#FCF4FF'
+		color: '#EEFBFF'
 	},
 	{
 		smallImage: smallImage3,
@@ -530,7 +462,17 @@ export const loremText = {
 };
 
 export const contactInfo = [
-	{ title: 'Phone', info: '+452 666 386', Icon: Phone },
-	{ title: 'Email', info: 'support@gmail.com', Icon: Email },
-	{ title: 'Address', info: 'Maount View, Oval Road, New York, USA', Icon: Map }
+	{ title: 'Phone', info: '+452 666 386', icon: MdPhone, bgcolor: '#FCF4FF' },
+	{
+		title: 'Email',
+		info: 'support@gmail.com',
+		icon: MdEmail,
+		bgcolor: '#EEFBFF'
+	},
+	{
+		title: 'Address',
+		info: 'Maount View, Oval Road, New York, USA',
+		icon: MdMap,
+		bgcolor: '#F2F4FF'
+	}
 ];
