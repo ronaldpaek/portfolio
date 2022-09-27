@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stack, Box, Link, Icon } from '@mui/material';
 
-import { links } from '../constants';
+import { links } from '@constants';
 
 const SocialMediaLinks = () => {
 	return (

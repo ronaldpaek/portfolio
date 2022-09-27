@@ -1,11 +1,10 @@
 import React from 'react';
 import { Box, Container } from '@mui/material';
 
-import { StyledSection } from '../styles';
-import Footer from '../components/Footer';
-import { resumeData } from '../constants';
-import { PageTitle } from '../components';
-import { WorkingSkills, Knowledges, ResumeColumn } from '../components/Resume';
+import { StyledSection } from '@styles';
+import { resumeData } from '@constants';
+import { PageTitle, Footer } from '@components';
+import { WorkingSkills, Knowledges, ResumeColumn } from '@components/Resume';
 
 const Resume = () => {
 	return (

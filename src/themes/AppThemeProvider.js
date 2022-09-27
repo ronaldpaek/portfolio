@@ -5,8 +5,8 @@ import {
 	customTheme,
 	customLightModePalette,
 	customDarkModePalette
-} from '../styles';
-import { ColorModeContext } from '../contexts';
+} from '@styles';
+import { ColorModeContext } from '@contexts';
 
 const AppThemeProvider = ({ children }) => {
 	const [mode, setMode] = useState('light');

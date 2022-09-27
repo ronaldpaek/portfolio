@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Box, Modal, Container } from '@mui/material';
 
-import { PortfolioModalCard, Footer } from '@components';
+import { PortfolioModalCard, Footer, PageTitle } from '@components';
 import { projects } from '@constants';
-import { PageTitle } from '@components';
 import { PortfolioLinks, PortfolioGallery } from '@components/Portfolio';
 import { StyledSection } from '@styles';
 
@@ -17,7 +16,6 @@ const Portfolio = () => {
 
 	const handleRenderCard = id => {
 		const card = projects.find(card => card.id === id);
-		console.log('test');
 		setCard(card);
 		handleOpen();
 	};

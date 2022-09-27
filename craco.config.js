@@ -8,9 +8,12 @@ module.exports = {
 			'@components': path.join(path.resolve(__dirname, './src/components')),
 			'@contexts': path.join(path.resolve(__dirname, './src/contexts')),
 			'@constants': path.join(path.resolve(__dirname, './src/constants')),
-			'@themes': path.join(path.resolve(__dirname, './src/themes')),
+			'@themes': path.join(
+				path.resolve(__dirname, './src/themesAppThemeProvider')
+			),
 			'@hoc': path.join(path.resolve(__dirname, './src/hoc')),
 			'@styles': path.join(path.resolve(__dirname, './src/styles')),
+			'@pages': path.join(path.resolve(__dirname, './src/pages')),
 			'@utils': path.join(path.resolve(__dirname, './src/utils/fetchData'))
 		}
 	}
