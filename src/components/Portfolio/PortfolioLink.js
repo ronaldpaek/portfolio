@@ -10,6 +10,7 @@ const PortfolioLink = ({ link, setFilterChoice, filterChoice }) => {
 			sx={{
 				mr: 4,
 				mx: { md: 4 },
+				cursor: 'pointer',
 				color: choice === filterChoice ? 'active.mobile.color' : 'text.p.about',
 				'&:hover': {
 					color: 'active.mobile.color'

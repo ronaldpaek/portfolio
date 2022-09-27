@@ -22,12 +22,16 @@ const PersonalContact = () => {
 					key={title}
 					direction='row'
 					flexWrap='wrap'
-					sx={{
-						bgcolor,
+					sx={theme => ({
 						p: '30px',
 						borderRadius: '.75rem',
-						gap: 2
-					}}
+						gap: 2,
+						bgcolor,
+						...(theme.palette.mode === 'dark' && {
+							bgcolor: 'transparent',
+							border: theme.border
+						})
+					})}
 				>
 					<Box component='span' width='2rem' mt={2}>
 						<Box
@@ -47,7 +51,7 @@ const PersonalContact = () => {
 						<Typography fontWeight={600} fontSize='1.25rem'>
 							{title}:
 						</Typography>
-						<Typography color='rgb(68 86 108)' fontSize='1.25rem'>
+						<Typography color='nav.color' fontSize='1.25rem'>
 							{info}
 						</Typography>
 					</Box>

@@ -103,6 +103,19 @@ export const customLightModePalette = {
 			modal: {
 				bgcolor: 'white'
 			}
+		},
+		blogs: {
+			box: {
+				bgcolor: 'white'
+			},
+			textArea: {
+				bgcolor: '#F3F6F6'
+			},
+			input: {
+				border: {
+					color: '#B5B5B5',
+				}
+			}
 		}
 	}
 };
@@ -174,6 +187,19 @@ export const customDarkModePalette = {
 		portfolio: {
 			modal: {
 				bgcolor: 'rgb(50 50 50)'
+			}
+		},
+		blogs: {
+			box: {
+				bgcolor: '#232220'
+			},
+			textArea: {
+				bgcolor: '#0B0B0B5E'
+			},
+			input: {
+				border: {
+					color: '#333'
+				}
 			}
 		}
 	}

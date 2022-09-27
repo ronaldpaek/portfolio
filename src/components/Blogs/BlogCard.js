@@ -11,32 +11,50 @@ const BlogCard = ({
 	tag
 }) => {
 	return (
-		<Box p={5} borderRadius='.5rem' mb={2} height={1} bgcolor={color}>
+		<Box
+			p={5}
+			borderRadius='.5rem'
+			mb={2}
+			height={1}
+			sx={theme => ({
+				bgcolor: color,
+				...(theme.palette.mode === 'dark' && {
+					bgcolor: 'transparent',
+					border: theme.border
+				})
+			})}
+		>
 			<Box borderRadius='.5rem'>
 				<Box
 					component='img'
 					src={smallImage}
 					alt=''
 					borderRadius='.5rem'
+					sx={{
+						cursor: 'pointer'
+					}}
 					onClick={() => handleModalCard(id)}
 				/>
 			</Box>
 			<Stack direction='row' mt={4}>
-				<Typography component='span'>{date}</Typography>
+				<Typography component='span' color='nav.color'>
+					{date}
+				</Typography>
 				<Typography
 					component='span'
 					sx={{
 						position: 'relative',
 						pl: '1.5rem',
+						color: 'nav.color',
 						'&:after': {
-							content: '""',
+							content: `''`,
 							position: 'absolute',
 							left: '0.5rem',
 							top: '50%',
 							height: '0.25rem',
 							width: '0.25rem',
-							transform: 'translate(0, -50%)',
-							color: '#44566C'
+							transform: 'scaleX(1) scaleY(1)',
+							bgcolor: 'rgb(68 86 108)',
 						}
 					}}
 				>
@@ -48,8 +66,13 @@ const BlogCard = ({
 				onClick={() => handleModalCard(id)}
 				sx={{
 					fontSize: '1.125rem',
+					color: 'text.header',
 					pr: 4,
-					mt: 3
+					mt: 3,
+					cursor: 'pointer',
+					'&:hover': {
+						color: 'active.mobile.color'
+					}
 				}}
 			>
 				{title}

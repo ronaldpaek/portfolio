@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, Button } from '@mui/material';
 
 import { contactData } from '@constants';
 
@@ -23,11 +23,11 @@ const MessageBox = () => {
 				}}
 			>
 				<Typography component='h3' fontSize='1.5625rem'>
-					<Box component='span' color='rgb(68 86 108)'>
+					<Box component='span' color='nav.color'>
 						I'm always open to discussing product
 					</Box>
 					<br />
-					<Box component='span' fontWeight={600}>
+					<Box component='span' fontWeight={600} color='text.header'>
 						design work or partnerships.
 					</Box>
 				</Typography>
@@ -48,6 +48,7 @@ const MessageBox = () => {
 									borderWidth: 0,
 									borderBottomWidth: 2,
 									backgroundColor: 'transparent',
+									color: 'blogs.input.border.color',
 									py: 2,
 									px: 0
 								}}
@@ -68,15 +69,16 @@ const MessageBox = () => {
 					))}
 
 					<Box display='inline-block' borderRadius='.5rem' mt='.75rem'>
-						<Box
-							component='button'
+						<Button
 							fontWeight='600'
 							py={2}
 							px={6}
 							borderColor='rgb(166 166 166)'
 							borderRadius='.5rem'
+							variant='containeed'
 							sx={{
-								borderWidth: 2,
+								border: '2px solid rgb(166 166 166)',
+								color: 'text.header',
 								cursor: 'pointer',
 								fontSize: '1rem',
 								'&:hover': {
@@ -85,7 +87,7 @@ const MessageBox = () => {
 							}}
 						>
 							Submit
-						</Box>
+						</Button>
 					</Box>
 				</Box>
 			</Box>

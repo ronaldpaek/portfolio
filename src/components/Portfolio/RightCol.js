@@ -17,7 +17,8 @@ const RightCol = ({ column2 }) => {
 					flexDirection='row'
 					alignItems='center'
 					sx={{
-						fontSize: { xs: '15px', sm: '1.125rem' }
+						fontSize: { xs: '15px', sm: '1.125rem' },
+						color: 'text.header'
 					}}
 				>
 					<Icon
@@ -25,6 +26,7 @@ const RightCol = ({ column2 }) => {
 						sx={{
 							fontSize: { sm: '1.125rem', md: '1.25rem' },
 							display: { xs: 'none', sm: 'block' },
+							color: 'text.header',
 							mr: 2
 						}}
 					/>

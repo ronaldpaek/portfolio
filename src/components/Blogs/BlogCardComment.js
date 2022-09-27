@@ -15,7 +15,7 @@ const BlogCardComment = ({ about, time, pText4, name }) => {
 			<Stack
 				direction='row'
 				sx={{
-					bgcolor: 'white',
+					bgcolor: 'blogs.box.bgcolor',
 					p: 4,
 					borderRadius: '.5rem'
 				}}

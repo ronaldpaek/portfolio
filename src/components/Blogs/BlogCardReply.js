@@ -17,6 +17,7 @@ const BlogCardReply = () => {
 							rows={3}
 							sx={{
 								borderRadius: '.25rem',
+								
 								'&:hover': {
 									outline: 'none',
 									
@@ -26,7 +27,7 @@ const BlogCardReply = () => {
                 },
                 border: 0,
 								width: 1,
-								bgcolor: 'rgb(243 246 246)'
+								bgcolor: 'blogs.textArea.bgcolor'
 							}}
 						></Box>
 					</Box>

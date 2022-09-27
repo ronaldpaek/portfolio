@@ -17,7 +17,8 @@ const LeftCol = ({ column1 }) => {
 					flexDirection='row'
 					alignItems='center'
 					sx={{
-						fontSize: { xs: '15px', sm: '1.125rem' }
+						fontSize: { xs: '15px', sm: '1.125rem' },
+						color: 'text.header'
 					}}
 				>
 					<Icon
@@ -25,10 +26,11 @@ const LeftCol = ({ column1 }) => {
 						sx={{
 							fontSize: { sm: '1.125rem', md: '1.25rem' },
 							display: { xs: 'none', sm: 'block' },
-							mr: 2
+							mr: 2,
+							color: 'text.headeder'
 						}}
 					/>
-					{title} :&nbsp;<Box component='span'>{desc}</Box>
+					{title} :&nbsp;<Box component='span' color='text.header'>{desc}</Box>
 				</Stack>
 			))}
 		</Box>

@@ -33,7 +33,7 @@ const ModalWrapper = Component => props => {
 					position: 'absolute',
 					right: 0,
 					top: 0,
-					backgroundColor: 'white',
+					backgroundColor: 'resume.bgcolor',
 					borderRadius: '50%',
 					cursor: 'pointer'
 				}}

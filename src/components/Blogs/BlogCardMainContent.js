@@ -60,13 +60,13 @@ const BlogCardMainContent = ({
 			>
 				{title}
 			</Typography>
-			<Typography my={2} fontSize={15}>
+			<Typography my={4} fontSize={15}>
 				{pText1}
 			</Typography>
-			<Typography my={2} fontSize={15}>
+			<Typography my={4} fontSize={15}>
 				{pText2}
 			</Typography>
-			<Typography my={2} fontSize={15}>
+			<Typography my={4} fontSize={15}>
 				{pText3}
 			</Typography>
 		</Box>
