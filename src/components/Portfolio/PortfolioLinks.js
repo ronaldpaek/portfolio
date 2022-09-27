@@ -4,7 +4,7 @@ import { Stack } from '@mui/material';
 import { PortfolioLink } from './';
 import { navList } from '@constants';
 
-const PortfolioLinks = ({ setFilterChoice }) => {
+const PortfolioLinks = ({ setFilterChoice, filterChoice }) => {
 	return (
 		<Stack
 			direction='row'
@@ -17,7 +17,12 @@ const PortfolioLinks = ({ setFilterChoice }) => {
 			}}
 		>
 			{navList.map((link, i) => (
-				<PortfolioLink key={i} link={link} setFilterChoice={setFilterChoice} />
+				<PortfolioLink
+					key={i}
+					link={link}
+					setFilterChoice={setFilterChoice}
+					filterChoice={filterChoice}
+				/>
 			))}
 		</Stack>
 	);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Stack, Icon, Typography } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 
 import { contactInfo } from '@constants';
 
@@ -17,7 +17,7 @@ const PersonalContact = () => {
 				}
 			}}
 		>
-			{contactInfo.map(({ icon, title, info, bgcolor }) => (
+			{contactInfo.map(({ info, title, img, bgcolor }) => (
 				<Stack
 					key={title}
 					direction='row'
@@ -29,7 +29,14 @@ const PersonalContact = () => {
 						gap: 2
 					}}
 				>
-					<Icon component={icon} sx={{ width: '2rem', mt: 2 }} />
+					<Box component='span' width='2rem' mt={2}>
+						<Box
+							component='img'
+							src={img}
+							alt='icon'
+							sx={{ fontSize: '1.5625rem' }}
+						/>
+					</Box>
 					<Box
 						sx={{
 							'& > p + p': {
@@ -37,11 +44,15 @@ const PersonalContact = () => {
 							}
 						}}
 					>
-						<Typography>{title}:</Typography>
-						<Typography>{info}</Typography>
+						<Typography fontWeight={600} fontSize='1.25rem'>
+							{title}:
+						</Typography>
+						<Typography color='rgb(68 86 108)' fontSize='1.25rem'>
+							{info}
+						</Typography>
 					</Box>
 				</Stack>
-      ))}
+			))}
 		</Box>
 	);
 };

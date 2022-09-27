@@ -4,7 +4,7 @@ import { Box, Modal, Container } from '@mui/material';
 import { PortfolioModalCard, Footer, PageTitle } from '@components';
 import { projects } from '@constants';
 import { PortfolioLinks, PortfolioGallery } from '@components/Portfolio';
-import { StyledSection } from '@styles';
+import { Section } from '@styles';
 
 const Portfolio = () => {
 	const [card, setCard] = useState({});
@@ -26,7 +26,7 @@ const Portfolio = () => {
 	};
 
 	return (
-		<StyledSection>
+		<Section>
 			<Container
 				sx={{
 					mb: 8,
@@ -35,7 +35,10 @@ const Portfolio = () => {
 			>
 				<Box py={12}>
 					<PageTitle pageTitle='Portfolio' />
-					<PortfolioLinks setFilterChoice={setFilterChoice} />
+					<PortfolioLinks
+						setFilterChoice={setFilterChoice}
+						filterChoice={filterChoice}
+					/>
 				</Box>
 				<PortfolioGallery
 					handleRenderCard={handleRenderCard}
@@ -48,7 +51,7 @@ const Portfolio = () => {
 				</Box>
 			</Modal>
 			<Footer />
-		</StyledSection>
+		</Section>
 	);
 };
 

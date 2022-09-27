@@ -3,11 +3,11 @@ import { Box, Container } from '@mui/material';
 
 import { Footer, PageTitle } from '@components';
 import { PersonalContact, MessageBox } from '@components/Contact';
-import { StyledSection } from '@styles';
+import { Section } from '@styles';
 
 const Contact = () => {
 	return (
-		<StyledSection>
+		<Section>
 			<Container
 				sx={{
 					px: {
@@ -34,7 +34,7 @@ const Contact = () => {
 				</Box>
 			</Container>
 			<Footer />
-		</StyledSection>
+		</Section>
 	);
 };
 

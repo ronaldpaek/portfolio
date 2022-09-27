@@ -1,3 +1,5 @@
-import BlogsContainer from './BlogsContainer';
+import BlogCardMainContent from './BlogCardMainContent';
+import BlogCardComment from './BlogCardComment';
+import BlogCardReply from './BlogCardReply';
 
-export { BlogsContainer };
+export { BlogCardMainContent, BlogCardComment, BlogCardReply };

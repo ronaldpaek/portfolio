@@ -1,14 +1,9 @@
 import React from 'react';
-import {
-	Typography,
-	Box,
-	Stack,
-	TextareaAutosize,
-	Button
-} from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 
-import { SocialMediaLinks } from '../';
+import { BlogCardMainContent, BlogCardComment, BlogCardReply } from '.';
 import { ModalWrapper } from '@hoc';
+import { SocialMediaLinks } from '@components';
 
 const BlogModalCard = ({
 	title,
@@ -25,68 +20,28 @@ const BlogModalCard = ({
 }) => {
 	return (
 		<>
-			<Stack>
-				<img
-					src={largeImage}
-					alt=''
-					style={{
-						width: '100%',
-						maxWidth: '100%',
-						display: 'block',
-						borderRadius: 15,
-						marginTop: '1.5rem'
-					}}
-				/>
-				<Typography mt={2}>
-					{date} &#8226; {tag}
+			<BlogCardMainContent
+				{...{ largeImage, date, tag, title, pText1, pText2, pText3 }}
+			/>
+			<BlogCardComment {...{ about, pText4, name, time }} />
+			<Stack
+				flexDirection='row'
+				alignItems='center'
+				sx={{
+					justifyContent: { md: 'flex-end' },
+					mt: 8,
+					mr: 3,
+					'& > * + *': {
+						ml: 4
+					}
+				}}
+			>
+				<Typography component='h6' fontSize={20}>
+					Login width:
 				</Typography>
-				<Typography mt={1} variant='h5' component='h3' fontWeight={700}>
-					{title}
-				</Typography>
-				<Typography my={2}>{pText1}</Typography>
-				<Typography my={2}>{pText2}</Typography>
-				<Typography my={2}>{pText3}</Typography>
-				<Box
-					sx={{
-						border: '1px solid red',
-						display: 'grid',
-						padding: '1rem',
-						gridTemplateColumns: '20% 80%',
-						borderRadius: 2
-					}}
-				>
-					<Box>
-						<img
-							src={about}
-							alt=''
-							style={{
-								display: 'block',
-								maxWidth: '100%',
-								width: '100%',
-								objectFit: 'contain'
-							}}
-						/>
-					</Box>
-					<Box sx={{ paddingLeft: '1.3rem' }}>
-						<Stack direction='row' justifyContent='space-between'>
-							<Typography>{name}</Typography>
-							<Typography>{time} min ago</Typography>
-						</Stack>
-						<Typography sx={{ paddingRight: 8 }}>{pText4}</Typography>
-					</Box>
-				</Box>
-				<Stack mt={3} direction='row' justifyContent='flex-end'>
-					<Stack direction='row' sx={{ alignItems: 'center' }}>
-						<Typography>Login With:</Typography>
-						<SocialMediaLinks />
-					</Stack>
-				</Stack>
-				<Typography>Leave a Reply</Typography>
-				<TextareaAutosize></TextareaAutosize>
+				<SocialMediaLinks />
 			</Stack>
-			<Button sx={{ marginTop: 4 }} variant='contained'>
-				Comment
-			</Button>
+			<BlogCardReply />
 		</>
 	);
 };

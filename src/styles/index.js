@@ -3,7 +3,7 @@ import { bg, bgDark } from '@assets';
 
 /* custom styled components */
 
-export const StyledSection = ({ children }) => (
+export const Section = ({ children }) => (
 	<Box
 		component='section'
 		sx={{
@@ -15,7 +15,7 @@ export const StyledSection = ({ children }) => (
 	</Box>
 );
 
-export const StyledAppBox = ({ children }) => (
+export const AppContainer = ({ children }) => (
 	<Box
 		sx={{
 			minHeight: '100vh',
@@ -98,6 +98,11 @@ export const customLightModePalette = {
 				two: { color: '#526377' },
 				bgcolor: '#F8FBFB'
 			}
+		},
+		portfolio: {
+			modal: {
+				bgcolor: 'white'
+			}
 		}
 	}
 };
@@ -164,6 +169,11 @@ export const customDarkModePalette = {
 				one: { color: '#A6A6A6' },
 				two: { color: '#526377' },
 				bgcolor: '#0D0D0D'
+			}
+		},
+		portfolio: {
+			modal: {
+				bgcolor: 'rgb(50 50 50)'
 			}
 		}
 	}

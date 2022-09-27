@@ -3,9 +3,8 @@ import { Container, Box, Modal } from '@mui/material';
 
 import { about } from '@assets';
 import { dummyData, loremText } from '@constants';
-import { StyledSection } from '@styles';
-import { PageTitle, Footer, BlogModalCard } from '@components';
-import { BlogsContainer } from '@components/Blogs';
+import { Section } from '@styles';
+import { PageTitle, Footer, BlogModalCard, BlogCard } from '@components';
 
 const Blogs = () => {
 	const [card, setCard] = useState({});
@@ -21,7 +20,7 @@ const Blogs = () => {
 	};
 
 	return (
-		<StyledSection>
+		<Section>
 			<Container
 				sx={{
 					px: {
@@ -34,21 +33,42 @@ const Blogs = () => {
 			>
 				<Box py={12}>
 					<PageTitle pageTitle='Blogs' />
-					<BlogsContainer handleModalCard={handleModalCard} />
-				</Box>
-				<Modal open={open} onClose={handleClose}>
-					<Box>
-						<BlogModalCard
-							{...card}
-							{...loremText}
-							about={about}
-							handleClose={handleClose}
-						/>
+					<Box
+						display='grid'
+						sx={{
+							gridTemplateColumns: {
+								xs: 'repeat(1, 1fr)',
+								sm: 'repeat(2, 1fr)',
+								lg: 'repeat(3, 1fr)'
+							},
+							mt: '30px',
+							mb: 6,
+							columnGap: 10,
+							rowGap: 7
+						}}
+					>
+						{dummyData.map((blog, i) => (
+							<BlogCard
+								key={i}
+								{...blog}
+								handleModalCard={() => handleModalCard(blog.id)}
+							/>
+						))}
 					</Box>
-				</Modal>
+				</Box>
 			</Container>
+			<Modal open={open} onClose={handleClose}>
+				<Box>
+					<BlogModalCard
+						{...card}
+						{...loremText}
+						about={about}
+						handleClose={handleClose}
+					/>
+				</Box>
+			</Modal>
 			<Footer />
-		</StyledSection>
+		</Section>
 	);
 };
 

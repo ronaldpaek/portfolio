@@ -5,13 +5,13 @@ import { Routes, Route } from 'react-router-dom';
 import { Header }  from '@components';
 import OpenContextProvider from '@contexts/OpenContextProvider';
 import { Home, About, Resume, Portfolio, Blogs, Contact } from '@pages';
-import { StyledAppBox } from '@styles';
+import { AppContainer } from '@styles';
 
 function App() {
 	return (
 		<OpenContextProvider>
 			<CssBaseline />
-			<StyledAppBox>
+			<AppContainer>
 				<Container>
 					<Header />
 					<Routes>
@@ -26,7 +26,7 @@ function App() {
 						<Route path='contact' element={<Contact />} />
 					</Routes>
 				</Container>
-			</StyledAppBox>
+			</AppContainer>
 		</OpenContextProvider>
 	);
 }
