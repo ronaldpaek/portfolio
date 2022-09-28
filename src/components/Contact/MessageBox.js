@@ -32,7 +32,6 @@ const MessageBox = () => {
 		}
 	};
 
-	console.log(formData);
 	return (
 		<Box
 			sx={{
