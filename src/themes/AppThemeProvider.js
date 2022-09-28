@@ -1,15 +1,17 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 import {
 	customTheme,
 	customLightModePalette,
 	customDarkModePalette
-} from '../styles';
+} from '@styles';
+import { ColorModeContext } from '@contexts';
 
-export const AppThemeProvider = ({ children }) => {
+const AppThemeProvider = ({ children }) => {
 	const [mode, setMode] = useState('light');
 
-	const toggleColorMode = () => {
+	const handleToggleColorMode = () => {
 		setMode(prevMode => (prevMode === 'light' ? 'dark' : 'light'));
 	};
 
@@ -24,12 +26,10 @@ export const AppThemeProvider = ({ children }) => {
 	});
 
 	return (
-		<ColorModeContext.Provider value={{ mode, toggleColorMode }}>
+		<ColorModeContext.Provider value={{ mode, handleToggleColorMode }}>
 			<ThemeProvider theme={theme}>{children}</ThemeProvider>
 		</ColorModeContext.Provider>
 	);
 };
 
-const ColorModeContext = createContext(null);
-
-export const useColorModeContext = () => useContext(ColorModeContext);
+export default AppThemeProvider;

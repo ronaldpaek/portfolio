@@ -1,66 +1,52 @@
 import React from 'react';
-import { Card, CardContent } from '@mui/material';
+import { Box } from '@mui/material';
 import { Close } from '@mui/icons-material';
 
 const ModalWrapper = Component => props => {
 	return (
-		<Card
+		<Box
+			display='inline-block'
+			boxShadow={20}
 			sx={{
 				position: 'absolute',
-				display: 'flex',
-				flexDirection: 'column',
 				top: '50%',
 				left: '50%',
 				transform: 'translate(-50%, -50%)',
-				maxHeight: {
-					xs: '80vh'
-				},
-				minWidth: {
-					lg: '800px'
-				},
+				maxWidth: 800,
 				width: {
-					xs: '100%',
-					sm: '84%',
-					md: '100%'
+					xs: 1,
+					md: '83%',
+					lg: 800
 				},
-				maxWidth: {
-					xs: '800px'
-				},
-				bgcolor: 'background.paper',
-				borderRadius: 3,
+				mx: 'auto',
+				alignItems: 'center',
+				bgcolor: 'portfolio.modal.bgcolor',
+				boxShadow: '0 0 15px 15px rgb(0 0 0 / 0.1)',
+				borderRadius: '.75rem',
 				outline: 'none',
-				p: {
-					xs: 2,
-					md: 4
-				}
-			}}>
+				p: { xs: '1rem', md: '2rem' }
+			}}
+		>
 			<Close
-				variant='contained'
 				onClick={props.handleClose}
 				sx={{
 					position: 'absolute',
 					right: 0,
 					top: 0,
-					backgroundColor: 'white',
+					backgroundColor: 'resume.bgcolor',
 					borderRadius: '50%',
-					height: 25,
-					width: 25,
 					cursor: 'pointer'
 				}}
 			/>
-			<CardContent
+			<Box
 				sx={{
-					padding: 0,
-					paddingRight: '10px',
-					'&:last-child': {
-						paddingBottom: 0
-					},
 					overflowY: 'auto',
-					width: '100%'
-				}}>
+					maxHeight: { xs: '60vh', lg: '80vh' }
+				}}
+			>
 				<Component {...props} />
-			</CardContent>
-		</Card>
+			</Box>
+		</Box>
 	);
 };
 

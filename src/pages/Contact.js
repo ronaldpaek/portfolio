@@ -1,76 +1,40 @@
 import React from 'react';
-import { Box, Typography, Stack, Grid } from '@mui/material';
+import { Box, Container } from '@mui/material';
 
-import { Footer } from '../components';
-import { contactInfo } from '../constants';
+import { Footer, PageTitle } from '@components';
+import { PersonalContact, MessageBox } from '@components/Contact';
+import { Section } from '@styles';
 
 const Contact = () => {
 	return (
-		<Box
-			component='section'
-			sx={{
-				backgroundColor: 'palegoldenrod',
-				borderRadius: 5
-			}}>
-			<Box
+		<Section>
+			<Container
 				sx={{
-					paddingInline: {
-						xs: 2,
+					px: {
+						xs: 4,
 						sm: 5,
-						md: 7.5
+						md: 10,
+						lg: 20
 					}
-				}}>
-				<Box py={6}>
-					<Typography
-						variant='h3'
-						component='h2'
-						fontWeight='800'
+				}}
+			>
+				<Box py={12}>
+					<PageTitle pageTitle='Contact' mb='40px' left='10rem' />
+					<Box
 						sx={{
-							display: 'inline-flex',
-							alignItems: 'center',
-							marginTop: {
-								xs: 5,
-								md: 0
+							columnGap: 20,
+							display: {
+								lg: 'flex'
 							}
-						}}>
-						Contact
-						<Box
-							component='span'
-							sx={{
-								background:
-									'linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)',
-								height: 2,
-								width: '11rem',
-								marginLeft: '1.5rem',
-								display: {
-									xs: 'none',
-									sm: 'inline'
-								}
-							}}
-						/>
-					</Typography>
+						}}
+					>
+						<PersonalContact />
+						<MessageBox />
+					</Box>
 				</Box>
-				<Grid container>
-					<Grid item>
-						<Stack>
-							{contactInfo.map(({ Icon, title, info }) => (
-								<Box key={title}>
-									<Icon />
-									<Typography>{title}:</Typography>
-									<Typography>{info}</Typography>
-								</Box>
-							))}
-						</Stack>
-          </Grid>
-          <Grid item>
-            <Box>
-              <Typography>I'm always open to discussing product <Box component='span'>design work or partnerships.</Box></Typography>
-            </Box>
-          </Grid>
-				</Grid>
-			</Box>
-			<Footer backgroundColor='white' borderRadius={20} />
-		</Box>
+			</Container>
+			<Footer />
+		</Section>
 	);
 };
 

@@ -44,6 +44,9 @@ import largeImage5 from './blogsLarge5.jpeg';
 import largeImage6 from './blogsLarge6.jpeg';
 import bg from './bg.jpeg';
 import bgDark from './bg-dark.jpeg';
+import map from './map.png';
+import email from './email.png';
+import phoneCall from './phone-call.png';
 
 export {
 	about,
@@ -91,5 +94,8 @@ export {
 	largeImage5,
 	largeImage6,
 	bg,
-	bgDark
+	bgDark,
+	map,
+	email,
+	phoneCall
 };

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Box } from '@mui/material';
 
-import { AboutMeImage, WhoAmI, PersonalInfo } from '.';
-import { PageTitle } from '..';
+import { AboutMeImage, WhoAmI, PersonalInfo } from './';
+import { PageTitle } from '@components';
 
 const AboutMe = () => {
 	return (
 		<Box py={12}>
-			<PageTitle pageTitle='About Me' />
+			<PageTitle pageTitle='About Me' left='13rem' />
 			<Box
 				sx={{
 					display: 'grid',

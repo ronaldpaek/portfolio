@@ -7,7 +7,6 @@ const WhoAmI = () => {
 			<Typography
 				component='h3'
 				sx={{
-					fontWeight: 500,
 					fontSize: '1.5625rem',
 					mb: 2.5
 				}}

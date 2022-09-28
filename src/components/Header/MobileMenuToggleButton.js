@@ -2,14 +2,14 @@ import React from 'react';
 import { IconButton } from '@mui/material';
 import { Menu, Close } from '@mui/icons-material';
 
-import { useOpenContext } from '../../contexts';
+import { useOpenContext } from '@contexts';
 
 const MobileMenuToggleButton = () => {
-	const { open, toggleOpenMenu } = useOpenContext();
+	const { open, handleToggleOpenMenu } = useOpenContext();
 
 	return (
 		<IconButton
-			onClick={toggleOpenMenu}
+			onClick={handleToggleOpenMenu}
 			sx={{
 				color: 'black',
 				ml: 3,
@@ -17,6 +17,11 @@ const MobileMenuToggleButton = () => {
 				width: { xs: 40, lg: 50 },
 				display: { lg: 'none' },
 				bgcolor: 'white',
+				transition: theme =>
+					theme.transitions.create('background-color', {
+						duration: theme.transitions.duration.standard,
+						easing: theme.transitions.easing.easeInOut
+					}),
 				'&:hover': {
 					bgcolor: 'themeButton.hover'
 				}

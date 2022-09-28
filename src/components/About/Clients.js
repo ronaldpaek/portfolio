@@ -2,7 +2,8 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import Marquee from 'react-fast-marquee';
 
-import { brands } from '../../constants';
+import { brands } from '@constants';
+import { Brand } from './';
 
 const Clients = () => {
 	return (
@@ -39,16 +40,7 @@ const Clients = () => {
 					}}
 				>
 					{brands.map((brand, i) => (
-						<Box key={i} sx={{ p: '30px', width: 164 }}>
-							<Box
-								component='img'
-								src={brand}
-								alt='brand'
-								sx={{
-									objectFit: 'cover'
-								}}
-							/>
-						</Box>
+						<Brand key={i} brand={brand} />
 					))}
 				</Box>
 			</Box>

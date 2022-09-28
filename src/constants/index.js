@@ -6,7 +6,8 @@ import {
 	MdHome,
 	MdPersonOutline,
 	MdOutlineDescription,
-	MdBusinessCenter
+	MdBusinessCenter,
+	MdCode
 } from 'react-icons/md';
 import {
 	FaBlogger,
@@ -18,7 +19,7 @@ import {
 	FaAward
 } from 'react-icons/fa';
 import { RiContactsBookFill } from 'react-icons/ri';
-import { Phone, Email, Map } from '@mui/icons-material';
+import { FiExternalLink } from 'react-icons/fi';
 
 import {
 	smallImage1,
@@ -61,29 +62,36 @@ import {
 	banner6,
 	banner7,
 	banner8,
-	banner9
+	banner9,
+	email,
+	map,
+	phoneCall
 } from '../assets';
 
 export const infoList = [
 	{
 		title: 'Phone',
-		description: '323 555 5555',
-		component: MdPhoneIphone
+		description: '323-555-5555',
+		component: MdPhoneIphone,
+		color: 'rgb(202, 71, 121)'
 	},
 	{
 		title: 'Location',
 		description: 'Los Angeles, California',
-		component: MdLocationOn
+		component: MdLocationOn,
+		color: 'rgb(228, 103, 125)'
 	},
 	{
 		title: 'Email',
 		description: 'helloworld@gmail.com',
-		component: MdEmail
+		component: MdEmail,
+		color: 'rgb(74, 197, 200)'
 	},
 	{
 		title: 'Birthday',
 		description: 'Jan 23, 1949',
-		component: MdCalendarToday
+		component: MdCalendarToday,
+		color: 'rgb(193 124 235)'
 	}
 ];
 
@@ -174,84 +182,15 @@ export const brands = [
 export const resumeData = [
 	{
 		title: 'Education',
-		icon: FaGraduationCap,
-		items: [
-			{
-				year: '2021-2023',
-				title: 'Ph.D in Horribleness',
-				desc: 'ABC University, Los Angeles, CA',
-				bgcolor: '#FFF4F4',
-				id: 1
-			},
-			{
-				year: '2019 - Present',
-				title: 'Sr. Software Tester',
-				desc: 'Google Inc.',
-				bgcolor: '#FFF1FB',
-				id: 2
-			},
-			{
-				year: '2021',
-				title: 'Best Developer',
-				desc: 'University Of Melbourne, NA',
-				bgcolor: '#FFF4F4',
-				id: 3
-			}
-		]
+		icon: FaGraduationCap
 	},
 	{
 		title: 'Experience',
-		icon: MdBusinessCenter,
-		items: [
-			{
-				year: '2017-2021',
-				title: 'Computer Science',
-				desc: 'Imperialize Technical Institute',
-				bgcolor: '#EEF5FA',
-				id: 1
-			},
-			{
-				year: '2015-2017',
-				title: 'Cr. Web Developer',
-				desc: 'ib-themes ltd.',
-				bgcolor: '#F2F4FF',
-				id: 2
-			},
-			{
-				year: '2008',
-				title: 'Best Writter',
-				desc: 'Online Typodev Soluation Ltd.',
-				bgcolor: '#EEF5FA',
-				id: 3
-			}
-		]
+		icon: MdBusinessCenter
 	},
 	{
 		title: 'Awards',
-		icon: FaAward,
-		items: [
-			{
-				year: '2015-2017',
-				title: 'Graphic Designer',
-				desc: 'Web Graphy, Los Angeles, CA',
-				bgcolor: '#FCF4FF',
-				id: 1
-			},
-			{
-				year: '2014 - 2015',
-				title: 'Jr. Web Developer',
-				desc: 'Creative Gigs.',
-				bgcolor: '#FCF9F2',
-				id: 2
-			},
-			{
-				year: '2015-2017',
-				title: 'Best Freelancer',
-				desc: 'Fiver & Upwork Level 2 & Top Rated',
-				bgcolor: '#FCF4FF',
-				id: 3
-			}
-		]
+		icon: FaAward
 	}
 ];
 
@@ -356,10 +295,30 @@ export const itemData = [
 export const projects = [
 	{
 		title: 'UI/UX Project',
-		project: 'Website',
-		client: 'Envato',
-		languages: 'Photoshop, Figma',
-		preview: 'www.envato.com',
+		column1: [
+			{
+				icon: MdOutlineDescription,
+				title: 'Project',
+				desc: 'Website'
+			},
+			{
+				icon: MdCode,
+				title: 'Languages',
+				desc: 'Photoshop, Figma'
+			}
+		],
+		column2: [
+			{
+				icon: MdPersonOutline,
+				title: 'Client',
+				desc: 'Envato'
+			},
+			{
+				icon: FiExternalLink,
+				title: 'Preview',
+				desc: 'www.envato.com'
+			}
+		],
 		body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia placeat magnam possimus iusto blanditiis pariatur labore explicabo quo repellat hic dolorum numquam asperiores, voluptatum fugiat reiciendis aspernatur, non, odio aperiam voluptas ex tempora vitae. Dolor, consequatur quidem! Quas magni distinctio dolorum dolore natus, vel numquam accusamus. Nostrum eligendi recusandae qui tempore deserunt!',
 		img: banner1,
 		category: ['web design', 'graphic design'],
@@ -367,10 +326,30 @@ export const projects = [
 	},
 	{
 		title: 'Logo Project',
-		project: 'Website',
-		client: 'Envato',
-		languages: 'Photoshop, Figma',
-		preview: 'www.envato.com',
+		column1: [
+			{
+				icon: MdOutlineDescription,
+				title: 'Project',
+				desc: 'Website'
+			},
+			{
+				icon: MdCode,
+				title: 'Languages',
+				desc: 'Photoshop, Figma'
+			}
+		],
+		column2: [
+			{
+				icon: MdPersonOutline,
+				title: 'Client',
+				desc: 'Envato'
+			},
+			{
+				icon: FiExternalLink,
+				title: 'Preview',
+				desc: 'www.envato.com'
+			}
+		],
 		body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia placeat magnam possimus iusto blanditiis pariatur labore explicabo quo repellat hic dolorum numquam asperiores, voluptatum fugiat reiciendis aspernatur, non, odio aperiam voluptas ex tempora vitae. Dolor, consequatur quidem! Quas magni distinctio dolorum dolore natus, vel numquam accusamus. Nostrum eligendi recusandae qui tempore deserunt!',
 		img: banner2,
 		category: ['video', 'logo'],
@@ -378,10 +357,30 @@ export const projects = [
 	},
 	{
 		title: 'T-Shirt Design Project',
-		project: 'Website',
-		client: 'Envato',
-		languages: 'Photoshop, Figma',
-		preview: 'www.envato.com',
+		column1: [
+			{
+				icon: MdOutlineDescription,
+				title: 'Project',
+				desc: 'Website'
+			},
+			{
+				icon: MdCode,
+				title: 'Languages',
+				desc: 'Photoshop, Figma'
+			}
+		],
+		column2: [
+			{
+				icon: MdPersonOutline,
+				title: 'Client',
+				desc: 'Envato'
+			},
+			{
+				icon: FiExternalLink,
+				title: 'Preview',
+				desc: 'www.envato.com'
+			}
+		],
 		body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia placeat magnam possimus iusto blanditiis pariatur labore explicabo quo repellat hic dolorum numquam asperiores, voluptatum fugiat reiciendis aspernatur, non, odio aperiam voluptas ex tempora vitae. Dolor, consequatur quidem! Quas magni distinctio dolorum dolore natus, vel numquam accusamus. Nostrum eligendi recusandae qui tempore deserunt!',
 		img: banner3,
 		category: ['web design'],
@@ -389,10 +388,30 @@ export const projects = [
 	},
 	{
 		title: 'Packaging Box Project',
-		project: 'Website',
-		client: 'Envato',
-		languages: 'Photoshop, Figma',
-		preview: 'www.envato.com',
+		column1: [
+			{
+				icon: MdOutlineDescription,
+				title: 'Project',
+				desc: 'Website'
+			},
+			{
+				icon: MdCode,
+				title: 'Languages',
+				desc: 'Photoshop, Figma'
+			}
+		],
+		column2: [
+			{
+				icon: MdPersonOutline,
+				title: 'Client',
+				desc: 'Envato'
+			},
+			{
+				icon: FiExternalLink,
+				title: 'Preview',
+				desc: 'www.envato.com'
+			}
+		],
 		body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia placeat magnam possimus iusto blanditiis pariatur labore explicabo quo repellat hic dolorum numquam asperiores, voluptatum fugiat reiciendis aspernatur, non, odio aperiam voluptas ex tempora vitae. Dolor, consequatur quidem! Quas magni distinctio dolorum dolore natus, vel numquam accusamus. Nostrum eligendi recusandae qui tempore deserunt!',
 		img: banner4,
 		category: ['video', 'graphic design'],
@@ -400,10 +419,30 @@ export const projects = [
 	},
 	{
 		title: 'Modern Bag Design Project',
-		project: 'Website',
-		client: 'Envato',
-		languages: 'Photoshop, Figma',
-		preview: 'www.envato.com',
+		column1: [
+			{
+				icon: MdOutlineDescription,
+				title: 'Project',
+				desc: 'Website'
+			},
+			{
+				icon: MdCode,
+				title: 'Languages',
+				desc: 'Photoshop, Figma'
+			}
+		],
+		column2: [
+			{
+				icon: MdPersonOutline,
+				title: 'Client',
+				desc: 'Envato'
+			},
+			{
+				icon: FiExternalLink,
+				title: 'Preview',
+				desc: 'www.envato.com'
+			}
+		],
 		body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia placeat magnam possimus iusto blanditiis pariatur labore explicabo quo repellat hic dolorum numquam asperiores, voluptatum fugiat reiciendis aspernatur, non, odio aperiam voluptas ex tempora vitae. Dolor, consequatur quidem! Quas magni distinctio dolorum dolore natus, vel numquam accusamus. Nostrum eligendi recusandae qui tempore deserunt!',
 		img: banner5,
 		category: ['logo'],
@@ -411,10 +450,30 @@ export const projects = [
 	},
 	{
 		title: 'Aura Dione Project',
-		project: 'Website',
-		client: 'Envato',
-		languages: 'Photoshop, Figma',
-		preview: 'www.envato.com',
+		column1: [
+			{
+				icon: MdOutlineDescription,
+				title: 'Project',
+				desc: 'Website'
+			},
+			{
+				icon: MdCode,
+				title: 'Languages',
+				desc: 'Photoshop, Figma'
+			}
+		],
+		column2: [
+			{
+				icon: MdPersonOutline,
+				title: 'Client',
+				desc: 'Envato'
+			},
+			{
+				icon: FiExternalLink,
+				title: 'Preview',
+				desc: 'www.envato.com'
+			}
+		],
 		body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia placeat magnam possimus iusto blanditiis pariatur labore explicabo quo repellat hic dolorum numquam asperiores, voluptatum fugiat reiciendis aspernatur, non, odio aperiam voluptas ex tempora vitae. Dolor, consequatur quidem! Quas magni distinctio dolorum dolore natus, vel numquam accusamus. Nostrum eligendi recusandae qui tempore deserunt!',
 		img: banner6,
 		category: ['logo'],
@@ -422,10 +481,30 @@ export const projects = [
 	},
 	{
 		title: 'UI/UX Project',
-		project: 'Website',
-		client: 'Envato',
-		languages: 'Photoshop, Figma',
-		preview: 'www.envato.com',
+		column1: [
+			{
+				icon: MdOutlineDescription,
+				title: 'Project',
+				desc: 'Website'
+			},
+			{
+				icon: MdCode,
+				title: 'Languages',
+				desc: 'Photoshop, Figma'
+			}
+		],
+		column2: [
+			{
+				icon: MdPersonOutline,
+				title: 'Client',
+				desc: 'Envato'
+			},
+			{
+				icon: FiExternalLink,
+				title: 'Preview',
+				desc: 'www.envato.com'
+			}
+		],
 		body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia placeat magnam possimus iusto blanditiis pariatur labore explicabo quo repellat hic dolorum numquam asperiores, voluptatum fugiat reiciendis aspernatur, non, odio aperiam voluptas ex tempora vitae. Dolor, consequatur quidem! Quas magni distinctio dolorum dolore natus, vel numquam accusamus. Nostrum eligendi recusandae qui tempore deserunt!',
 		img: banner7,
 		category: ['video', 'logo'],
@@ -433,10 +512,30 @@ export const projects = [
 	},
 	{
 		title: 'Aura Dione Project',
-		project: 'Website',
-		client: 'Envato',
-		languages: 'Photoshop, Figma',
-		preview: 'www.envato.com',
+		column1: [
+			{
+				icon: MdOutlineDescription,
+				title: 'Project',
+				desc: 'Website'
+			},
+			{
+				icon: MdCode,
+				title: 'Languages',
+				desc: 'Photoshop, Figma'
+			}
+		],
+		column2: [
+			{
+				icon: MdPersonOutline,
+				title: 'Client',
+				desc: 'Envato'
+			},
+			{
+				icon: FiExternalLink,
+				title: 'Preview',
+				desc: 'www.envato.com'
+			}
+		],
 		body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia placeat magnam possimus iusto blanditiis pariatur labore explicabo quo repellat hic dolorum numquam asperiores, voluptatum fugiat reiciendis aspernatur, non, odio aperiam voluptas ex tempora vitae. Dolor, consequatur quidem! Quas magni distinctio dolorum dolore natus, vel numquam accusamus. Nostrum eligendi recusandae qui tempore deserunt!',
 		img: banner8,
 		category: ['web design', 'graphic design'],
@@ -444,10 +543,30 @@ export const projects = [
 	},
 	{
 		title: 'UI/UX Project',
-		project: 'Website',
-		client: 'Envato',
-		languages: 'Photoshop, Figma',
-		preview: 'www.envato.com',
+		column1: [
+			{
+				icon: MdOutlineDescription,
+				title: 'Project',
+				desc: 'Website'
+			},
+			{
+				icon: MdCode,
+				title: 'Languages',
+				desc: 'Photoshop, Figma'
+			}
+		],
+		column2: [
+			{
+				icon: MdPersonOutline,
+				title: 'Client',
+				desc: 'Envato'
+			},
+			{
+				icon: FiExternalLink,
+				title: 'Preview',
+				desc: 'www.envato.com'
+			}
+		],
 		body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia placeat magnam possimus iusto blanditiis pariatur labore explicabo quo repellat hic dolorum numquam asperiores, voluptatum fugiat reiciendis aspernatur, non, odio aperiam voluptas ex tempora vitae. Dolor, consequatur quidem! Quas magni distinctio dolorum dolore natus, vel numquam accusamus. Nostrum eligendi recusandae qui tempore deserunt!',
 		img: banner9,
 		category: ['web design'],
@@ -463,7 +582,7 @@ export const dummyData = [
 		tag: 'Inspiration',
 		title: 'How to Own Your Audience by Creating an Email List.',
 		id: 'blog1',
-		color: '#FCF5FF'
+		color: '#FCF4FF'
 	},
 	{
 		smallImage: smallImage2,
@@ -472,7 +591,7 @@ export const dummyData = [
 		tag: 'Inspiration',
 		title: 'Everything You Need to Know About Web Accessibility.',
 		id: 'blog2',
-		color: '#FCF4FF'
+		color: '#EEFBFF'
 	},
 	{
 		smallImage: smallImage3,
@@ -526,7 +645,43 @@ export const loremText = {
 };
 
 export const contactInfo = [
-	{ title: 'Phone', info: '+452 666 386', Icon: Phone },
-	{ title: 'Email', info: 'support@gmail.com', Icon: Email },
-	{ title: 'Address', info: 'Maount View, Oval Road, New York, USA', Icon: Map }
+	{
+		title: 'Phone',
+		line1: '+452 666 386',
+		line2: '+452 666 386',
+		img: phoneCall,
+		bgcolor: '#FCF4FF'
+	},
+	{
+		title: 'Email',
+		line1: 'support@gmail.com',
+		line2: 'example@gmail.com',
+		img: email,
+		bgcolor: '#EEFBFF'
+	},
+	{
+		title: 'Address',
+		line1: '5000 Stratford Cir',
+		line2: 'Los Angeles, CA, USA',
+		img: map,
+		bgcolor: '#F2F4FF'
+	}
+];
+
+export const contactData = [
+	{
+		title: 'Name',
+		color: 'error',
+		type: 'text'
+	},
+	{
+		title: 'Email',
+		color: 'success',
+		type: 'email'
+	},
+	{
+		title: 'Message',
+		color: 'secondary',
+		type: 'text'
+	}
 ];

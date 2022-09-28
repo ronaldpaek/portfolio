@@ -7,7 +7,7 @@ import {
 	MobileMenuToggleButton,
 	MobileNavigation,
 	ThemeModeToggleButton
-} from './';
+} from '@header';
 
 const Header = () => {
 	return (
@@ -20,6 +20,7 @@ const Header = () => {
 				top: 0,
 				left: 0,
 				width: 1,
+				zIndex: 1,
 				position: { xs: 'fixed', lg: 'static' }
 			}}
 		>

@@ -1,4 +1,4 @@
-import { client } from '../client';
+import { client } from '@client';
 
 export const fetchData = async (type, setState) => {
 	const query = `*[_type == '${type}']`;

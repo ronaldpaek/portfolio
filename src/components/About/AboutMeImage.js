@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
 
-import { about } from '../../assets';
+import { about } from '@assets';
 
 const AboutMeImage = () => {
 	return (
@@ -13,7 +13,10 @@ const AboutMeImage = () => {
 				sx={{
 					borderRadius: '35px',
 					overflow: 'hidden',
-					mb: 3
+					objectFit: 'cover',
+					mb: { xs: 3, md: 0 },
+					width: { md: 330 },
+					height: { md: 400 }
 				}}
 			/>
 		</Box>
