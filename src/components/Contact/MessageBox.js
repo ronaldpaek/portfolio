@@ -1,9 +1,38 @@
-import React from 'react';
-import { Box, Typography, Button, TextField } from '@mui/material';
+import React, { useState } from 'react';
+import axios from 'axios';
+import { Box, Typography, TextField } from '@mui/material';
 
 import { contactData } from '@constants';
 
 const MessageBox = () => {
+	const [formData, setFormData] = useState({
+		name: '',
+		email: '',
+		message: ''
+	});
+
+	const handleChange = (e, title) => {
+		setFormData({ ...formData, [title]: e.target.value });
+	};
+
+	const handleSubmit = async e => {
+		e.preventDefault();
+		try {
+			await axios.post('https://formspree.io/f/myyvwabr', {
+				...formData
+			});
+			setFormData({
+				name: '',
+				email: '',
+				message: ''
+			});
+			window.location.assign('https://formspree.io/thanks');
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
+	console.log(formData);
 	return (
 		<Box
 			sx={{
@@ -37,7 +66,7 @@ const MessageBox = () => {
 				</Typography>
 				<Box
 					component='form'
-					noValidate
+					onSubmit={handleSubmit}
 					autoComplete='off'
 					sx={{
 						'& > :first-of-type': {
@@ -45,22 +74,30 @@ const MessageBox = () => {
 						}
 					}}
 				>
-					{contactData.map(({ title, color }, i) => (
-						<TextField
-							required
-							key={i}
-							label={title}
-							variant='standard'
-							color={color}
-							sx={{
-								width: 1,
-								mb: 8
-							}}
-						/>
-					))}
+					{contactData.map(({ title, color, type }, i) => {
+						const lowercased = title[0].toLowerCase() + title.slice(1);
+						return (
+							<TextField
+								required
+								key={i}
+								label={title}
+								type={type}
+								variant='standard'
+								color={color}
+								value={formData[lowercased]}
+								onChange={e => handleChange(e, lowercased)}
+								sx={{
+									width: 1,
+									mb: 8
+								}}
+							/>
+						);
+					})}
 
 					<Box display='inline-block' borderRadius='.5rem' mt='.75rem'>
-						<Button
+						<Box
+							component='button'
+							type='submit'
 							fontWeight='600'
 							py={2}
 							px={6}
@@ -74,14 +111,16 @@ const MessageBox = () => {
 								fontSize: '1rem',
 								fontWeight: 600,
 								textTransform: 'capitalize',
+								bgcolor: 'transparent',
 								'&:hover': {
 									backgroundImage: theme => theme.backgroundImage.button,
-									color: 'white'
+									color: 'white',
+									borderColor: 'transparent'
 								}
 							}}
 						>
 							Submit
-						</Button>
+						</Box>
 					</Box>
 				</Box>
 			</Box>

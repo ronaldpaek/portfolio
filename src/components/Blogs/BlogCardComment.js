@@ -49,8 +49,12 @@ const BlogCardComment = ({ about, time, pText4, name }) => {
 						component='button'
 						sx={{
 							fontSize: '.875rem',
-              cursor: 'pointer',
-              bgcolor: 'transparent',
+							cursor: 'pointer',
+							bgcolor: 'transparent',
+							color: 'reply.color',
+							fontFamily: 'inherit',
+							fontWeight: 500,
+							p: 0,
 							'&:hover': {
 								color: 'themeButton.hover'
 							}

@@ -39,13 +39,14 @@ export const customLightModePalette = {
 	palette: {
 		mode: 'light',
 		container: { bgcolor: 'white' },
+		reply: { color: '#000' },
 		mobileMenu: {
 			bgcolor: 'white',
 			nav: {
 				color: '#44566C'
 			}
 		},
-		personalInfo: {bgcolor: 'white'},
+		personalInfo: { bgcolor: 'white' },
 		active: { mobile: { color: '#FA5252' } },
 		menuBar: { bgcolor: '#F3F6F6' },
 		nav: {
@@ -114,7 +115,7 @@ export const customLightModePalette = {
 			},
 			input: {
 				border: {
-					color: '#B5B5B5',
+					color: '#B5B5B5'
 				}
 			}
 		},
@@ -130,6 +131,7 @@ export const customDarkModePalette = {
 	palette: {
 		mode: 'dark',
 		container: { bgcolor: '#111' },
+		reply: { color: '#DEDEDE' },
 		mobileMenu: {
 			bgcolor: '#1D1D1D',
 			nav: {

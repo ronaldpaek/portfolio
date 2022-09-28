@@ -36,8 +36,8 @@ const BlogCard = ({
 					onClick={() => handleModalCard(id)}
 				/>
 			</Box>
-			<Stack direction='row' mt={4}>
-				<Typography component='span' color='nav.color'>
+			<Stack direction='row' mt={4} fontSize={14}>
+				<Typography component='span' color='nav.color' fontSize='inherit'>
 					{date}
 				</Typography>
 				<Typography
@@ -46,15 +46,17 @@ const BlogCard = ({
 						position: 'relative',
 						pl: '1.5rem',
 						color: 'nav.color',
+						fontSize: 'inherit',
 						'&:after': {
-							content: `''`,
+							content: '""',
 							position: 'absolute',
 							left: '0.5rem',
 							top: '50%',
 							height: '0.25rem',
 							width: '0.25rem',
-							transform: 'scaleX(1) scaleY(1)',
 							bgcolor: 'rgb(68 86 108)',
+							borderRadius: '50%',
+							transform: 'translateY(-50%)'
 						}
 					}}
 				>

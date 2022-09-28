@@ -671,14 +671,17 @@ export const contactInfo = [
 export const contactData = [
 	{
 		title: 'Name',
-		color: 'error'
+		color: 'error',
+		type: 'text'
 	},
 	{
 		title: 'Email',
-		color: 'success'
+		color: 'success',
+		type: 'email'
 	},
 	{
 		title: 'Message',
-		color: 'secondary'
+		color: 'secondary',
+		type: 'text'
 	}
 ];
