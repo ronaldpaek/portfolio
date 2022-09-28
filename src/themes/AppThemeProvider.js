@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useMediaQuery } from '@mui/material';
 
 import {
 	customTheme,
@@ -9,7 +10,8 @@ import {
 import { ColorModeContext } from '@contexts';
 
 const AppThemeProvider = ({ children }) => {
-	const [mode, setMode] = useState('light');
+	const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+	const [mode, setMode] = useState(prefersDarkMode ? 'dark' : 'light');
 
 	const handleToggleColorMode = () => {
 		setMode(prevMode => (prevMode === 'light' ? 'dark' : 'light'));
