@@ -33,7 +33,20 @@ const RightCol = ({ column2 }) => {
 					{title} :&nbsp;
 					<Box component='span'>
 						{title === 'Preview' ? (
-							<Link href='#' sx={{ color: 'inherit' }}>
+							<Link
+								href='#'
+								sx={{
+									color: 'inherit',
+									transition: theme =>
+										theme.transitions.create('color', {
+											duration: theme.transitions.duration.standard,
+											easing: theme.transitions.easing.easeInOut
+										}),
+									'&:hover': {
+										color: 'themeButton.hover'
+									}
+								}}
+							>
 								www.envato.com
 							</Link>
 						) : (

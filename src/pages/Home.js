@@ -56,24 +56,28 @@ const Home = ({ name, title }) => {
 			<SocialMediaLinks />
 			<Button
 				variant='contained'
-				sx={{
+				sx={theme => ({
 					mx: 'auto',
 					mt: '1.5rem',
 					display: 'flex',
 					alignItems: 'center',
 					borderRadius: '35px',
 					textTransform: 'capitalize',
-					backgroundImage: theme => theme.backgroundImage.button,
+					transition: theme.transitions.create('background-image', {
+						duration: theme.transitions.duration.standard,
+						easing: theme.transitions.easing.easeInOut
+					}),
+					backgroundImage: theme.backgroundImage.button,
 					'&:hover': {
 						backgroundPosition: '100% 0',
 						transition: 'all .4 ease-in-out',
-						backgroundImage: theme => theme.backgroundImage.nav,
+						backgroundImage: theme.backgroundImage.nav
 					},
 					px: '2rem',
 					py: '.75rem',
 					color: '#FFF',
 					fontSize: '1.125rem'
-				}}
+				})}
 				startIcon={<Download />}
 			>
 				Download CV

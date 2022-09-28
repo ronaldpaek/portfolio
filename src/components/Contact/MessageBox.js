@@ -102,7 +102,7 @@ const MessageBox = () => {
 							px={6}
 							bordercolor='rgb(166 166 166)'
 							variant='containeed'
-							sx={{
+							sx={theme => ({
 								border: '2px solid rgb(166 166 166)',
 								borderRadius: '.5rem',
 								color: 'text.header',
@@ -111,12 +111,19 @@ const MessageBox = () => {
 								fontWeight: 600,
 								textTransform: 'capitalize',
 								bgcolor: 'transparent',
+								transition: theme.transitions.create(
+									['background-image', 'color', 'border-color'],
+									{
+										duration: theme.transitions.duration.standard,
+										easing: theme.transitions.easing.easeInOut
+									}
+								),
 								'&:hover': {
-									backgroundImage: theme => theme.backgroundImage.button,
+									backgroundImage: theme.backgroundImage.button,
 									color: 'white',
 									borderColor: 'transparent'
 								}
-							}}
+							})}
 						>
 							Submit
 						</Box>
@@ -128,37 +135,3 @@ const MessageBox = () => {
 };
 
 export default MessageBox;
-
-// <Box
-// 			key={i}
-// 			width={1}
-// 			mt='40px'
-// 			mb={8}
-// 		></Box>
-
-/* <Box
-								component='input'
-								width={1}
-								display='block'
-								sx={{
-									borderWidth: 0,
-									borderBottomWidth: 2,
-									backgroundColor: 'transparent',
-									color: 'blogs.input.border.color',
-									py: 2,
-									px: 0
-								}}
-							/>
-							<Box
-								component='label'
-								sx={{
-									transform: 'scaleX(1) scaleY(1)',
-									transitionDuration: '300ms',
-									transformOrigin: 0,
-									top: '.75rem',
-									position: 'absolute'
-								}}
-							>
-								{title} *
-							</Box>
-						</Box> */

@@ -19,6 +19,11 @@ const MobileLink = ({ path, icon, title }) => {
 					py: '0.625rem',
 					pl: '1rem',
 					px: { md: '1rem', xl: '1.25rem' },
+					transition: theme =>
+						theme.transitions.create('color', {
+							duration: theme.transitions.duration.standard,
+							easing: theme.transitions.easing.easeInOut
+						}),
 					'&:hover': {
 						color: 'active.mobile.color'
 					},

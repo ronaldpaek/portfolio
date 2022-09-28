@@ -55,6 +55,11 @@ const BlogCardComment = ({ about, time, pText4, name }) => {
 							fontFamily: 'inherit',
 							fontWeight: 500,
 							p: 0,
+							transition: theme =>
+								theme.transitions.create('color', {
+									duration: theme.transitions.duration.standard,
+									easing: theme.transitions.easing.easeInOut
+								}),
 							'&:hover': {
 								color: 'themeButton.hover'
 							}

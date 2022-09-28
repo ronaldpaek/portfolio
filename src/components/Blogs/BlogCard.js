@@ -24,16 +24,23 @@ const BlogCard = ({
 				})
 			})}
 		>
-			<Box borderRadius='.5rem'>
+			<Box borderRadius='.5rem' overflow='hidden'>
 				<Box
 					component='img'
 					src={smallImage}
 					alt=''
 					borderRadius='.5rem'
-					sx={{
-						cursor: 'pointer'
-					}}
 					onClick={() => handleModalCard(id)}
+					sx={{
+						cursor: 'pointer',
+						transition: theme =>
+							theme.transitions.create('transform', {
+								duration: theme.transitions.duration.standard
+							}),
+						'&:hover': {
+							transform: 'scale(1.1)'
+						}
+					}}
 				/>
 			</Box>
 			<Stack direction='row' mt={4} fontSize={14}>
@@ -72,6 +79,11 @@ const BlogCard = ({
 					pr: 4,
 					mt: 3,
 					cursor: 'pointer',
+					transition: theme =>
+						theme.transitions.create('color', {
+							duration: theme.transitions.duration.standard,
+							easing: theme.transitions.easing.easeInOut
+						}),
 					'&:hover': {
 						color: 'active.mobile.color'
 					}

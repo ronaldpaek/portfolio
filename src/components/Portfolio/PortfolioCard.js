@@ -24,18 +24,34 @@ const PortfolioCard = ({
 				})}
 			>
 				<Box borderRadius='.5rem'>
+					<Box borderRadius='.5rem' overflow='hidden'>
+						<Box
+							component='img'
+							src={image}
+							alt=''
+							sx={{
+								borderRadius: '.5rem',
+								objectFit: 'cover',
+								cursor: 'pointer',
+								transition: theme =>
+									theme.transitions.create('transform', {
+										duration: theme.transitions.duration.standard,
+										easing: theme.transitions.easing.easeInOut
+									}),
+								'&:hover': {
+									transform: 'scale(1.1)'
+								}
+							}}
+							onClick={() => handleRenderCard(id)}
+						/>
+					</Box>
 					<Box
-						component='img'
-						src={image}
-						alt=''
-						sx={{
-							borderRadius: '.5rem',
-							objectFit: 'cover',
-							cursor: 'pointer',
-						}}
-						onClick={() => handleRenderCard(id)}
-					/>
-					<Box component='span' pt={5} color='nav.color' fontSize={14} display='block'>
+						component='span'
+						pt={5}
+						color='nav.color'
+						fontSize={14}
+						display='block'
+					>
 						{title}
 					</Box>
 					<Typography
@@ -45,6 +61,11 @@ const PortfolioCard = ({
 							fontSize: '1.25rem',
 							cursor: 'pointer',
 							color: 'text.header',
+							transition: theme =>
+								theme.transitions.create('color', {
+									duration: theme.transitions.duration.standard,
+									easing: theme.transitions.easing.easeInOut
+								}),
 							'&:hover': {
 								color: 'active.mobile.color'
 							}

@@ -17,6 +17,11 @@ const MobileMenuToggleButton = () => {
 				width: { xs: 40, lg: 50 },
 				display: { lg: 'none' },
 				bgcolor: 'white',
+				transition: theme =>
+					theme.transitions.create('background-color', {
+						duration: theme.transitions.duration.standard,
+						easing: theme.transitions.easing.easeInOut
+					}),
 				'&:hover': {
 					bgcolor: 'themeButton.hover'
 				}

@@ -43,7 +43,7 @@ const BlogCardMainContent = ({
 							height: '0.25rem',
 							width: '0.25rem',
 							transform: 'translate(0, 1)',
-							content: `''`,
+							content: '""',
 							bgcolor: 'rgb(68 86 108)'
 						}
 					}}

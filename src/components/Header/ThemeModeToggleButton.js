@@ -20,6 +20,12 @@ const ThemeModeToggleButton = ({ displayMode }) => {
 				ml: 2,
 				bgcolor: 'themeButton.bgcolor',
 				color: 'themeButton.color',
+				transition: theme =>
+					theme.transitions.create(['background-color', 'color'], {
+						duration: theme.transitions.duration.standard,
+						easing: theme.transitions.easing.easeInOut
+					}),
+
 				'&:hover': {
 					color: 'white',
 					bgcolor: 'themeButton.hover'

@@ -20,6 +20,10 @@ const DesktopLink = ({ icon, title, path }) => {
 					},
 					bgcolor: 'nav.bgcolor',
 					color: 'nav.color',
+					transition: theme.transitions.create(['color', 'background-image'], {
+						duration: theme.transitions.duration.standard,
+						easing: theme.transitions.easing.easeInOut
+					}),
 					fontSize: 13,
 					'&:hover': {
 						backgroundImage: theme.backgroundImage.nav,

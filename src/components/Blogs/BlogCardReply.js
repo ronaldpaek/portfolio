@@ -17,15 +17,14 @@ const BlogCardReply = () => {
 							rows={3}
 							sx={{
 								borderRadius: '.25rem',
-								
+
 								'&:hover': {
-									outline: 'none',
-									
+									outline: 'none'
 								},
 								'&:focus': {
 									outline: 'none'
-                },
-                border: 0,
+								},
+								border: 0,
 								width: 1,
 								bgcolor: 'blogs.textArea.bgcolor'
 							}}
@@ -33,23 +32,27 @@ const BlogCardReply = () => {
 					</Box>
 					<Button
 						variant='contained'
-						sx={{
+						sx={theme => ({
 							mt: '1.5rem',
 							display: 'flex',
 							alignItems: 'center',
 							borderRadius: '35px',
 							textTransform: 'capitalize',
-							backgroundImage: theme => theme.backgroundImage.button,
+							transition: theme.transitions.create('background-image', {
+								duration: theme.transitions.duration.standard,
+								easing: theme.transitions.easing.easeInOut
+							}),
+							backgroundImage: theme.backgroundImage.button,
 							'&:hover': {
 								backgroundPosition: '100% 0',
 								transition: 'all .4 ease-in-out',
-								backgroundImage: theme => theme.backgroundImage.nav
+								backgroundImage: theme.backgroundImage.nav
 							},
 							px: '2rem',
 							py: '.75rem',
 							color: '#FFF',
 							fontSize: '1.125rem'
-						}}
+						})}
 					>
 						Comment
 					</Button>
