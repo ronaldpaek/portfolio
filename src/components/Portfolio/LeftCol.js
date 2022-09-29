@@ -30,7 +30,10 @@ const LeftCol = ({ column1 }) => {
 							color: 'text.headeder'
 						}}
 					/>
-					{title} :&nbsp;<Box component='span' color='text.header'>{desc}</Box>
+					{title} :&nbsp;
+					<Box component='span' color='text.header'>
+						{desc}
+					</Box>
 				</Stack>
 			))}
 		</Box>

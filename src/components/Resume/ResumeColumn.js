@@ -8,8 +8,9 @@ const ResumeColumn = ({ title, icon }) => {
 	const [items, setItems] = useState([]);
 
 	useEffect(() => {
-		fetchData(title.toLowerCase(), setItems);
-	}, []);
+		const lowerCase = title.toLowerCase();
+		fetchData(lowerCase, setItems);
+	}, [title]);
 
 	return (
 		<Box>
