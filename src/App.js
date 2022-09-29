@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, CssBaseline } from '@mui/material';
 import { Routes, Route } from 'react-router-dom';
 
-import { Header }  from '@components';
+import { Header } from '@components';
 import OpenContextProvider from '@contexts/OpenContextProvider';
 import { Home, About, Resume, Portfolio, Blogs, Contact } from '@pages';
 import { AppContainer } from '@styles';
